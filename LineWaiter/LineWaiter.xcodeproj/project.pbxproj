@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CCB7981E2B67875F006D7B71 /* LineWaiterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB7981D2B67875F006D7B71 /* LineWaiterApp.swift */; };
+		CCB798202B67875F006D7B71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB7981F2B67875F006D7B71 /* ContentView.swift */; };
+		CCB798222B678760006D7B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB798212B678760006D7B71 /* Assets.xcassets */; };
+		CCB798252B678760006D7B71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB798242B678760006D7B71 /* Preview Assets.xcassets */; };
+		CCB7982F2B678761006D7B71 /* LineWaiterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB7982E2B678761006D7B71 /* LineWaiterTests.swift */; };
+		CCB798392B678761006D7B71 /* LineWaiterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB798382B678761006D7B71 /* LineWaiterUITests.swift */; };
+		CCB7983B2B678761006D7B71 /* LineWaiterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB7983A2B678761006D7B71 /* LineWaiterUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCB7982B2B678761006D7B71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCB798122B67875F006D7B71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCB798192B67875F006D7B71;
+			remoteInfo = LineWaiter;
+		};
+		CCB798352B678761006D7B71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCB798122B67875F006D7B71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCB798192B67875F006D7B71;
+			remoteInfo = LineWaiter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CCB7981A2B67875F006D7B71 /* LineWaiter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LineWaiter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCB7981D2B67875F006D7B71 /* LineWaiterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineWaiterApp.swift; sourceTree = "<group>"; };
+		CCB7981F2B67875F006D7B71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CCB798212B678760006D7B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CCB798242B678760006D7B71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CCB7982A2B678761006D7B71 /* LineWaiterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LineWaiterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCB7982E2B678761006D7B71 /* LineWaiterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineWaiterTests.swift; sourceTree = "<group>"; };
+		CCB798342B678761006D7B71 /* LineWaiterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LineWaiterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCB798382B678761006D7B71 /* LineWaiterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineWaiterUITests.swift; sourceTree = "<group>"; };
+		CCB7983A2B678761006D7B71 /* LineWaiterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineWaiterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCB798172B67875F006D7B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCB798272B678761006D7B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCB798312B678761006D7B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CCB798112B67875F006D7B71 = {
+			isa = PBXGroup;
+			children = (
+				CCB7981C2B67875F006D7B71 /* LineWaiter */,
+				CCB7982D2B678761006D7B71 /* LineWaiterTests */,
+				CCB798372B678761006D7B71 /* LineWaiterUITests */,
+				CCB7981B2B67875F006D7B71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CCB7981B2B67875F006D7B71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCB7981A2B67875F006D7B71 /* LineWaiter.app */,
+				CCB7982A2B678761006D7B71 /* LineWaiterTests.xctest */,
+				CCB798342B678761006D7B71 /* LineWaiterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCB7981C2B67875F006D7B71 /* LineWaiter */ = {
+			isa = PBXGroup;
+			children = (
+				CCB7981D2B67875F006D7B71 /* LineWaiterApp.swift */,
+				CCB7981F2B67875F006D7B71 /* ContentView.swift */,
+				CCB798212B678760006D7B71 /* Assets.xcassets */,
+				CCB798232B678760006D7B71 /* Preview Content */,
+			);
+			path = LineWaiter;
+			sourceTree = "<group>";
+		};
+		CCB798232B678760006D7B71 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CCB798242B678760006D7B71 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CCB7982D2B678761006D7B71 /* LineWaiterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCB7982E2B678761006D7B71 /* LineWaiterTests.swift */,
+			);
+			path = LineWaiterTests;
+			sourceTree = "<group>";
+		};
+		CCB798372B678761006D7B71 /* LineWaiterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CCB798382B678761006D7B71 /* LineWaiterUITests.swift */,
+				CCB7983A2B678761006D7B71 /* LineWaiterUITestsLaunchTests.swift */,
+			);
+			path = LineWaiterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCB798192B67875F006D7B71 /* LineWaiter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCB7983E2B678761006D7B71 /* Build configuration list for PBXNativeTarget "LineWaiter" */;
+			buildPhases = (
+				CCB798162B67875F006D7B71 /* Sources */,
+				CCB798172B67875F006D7B71 /* Frameworks */,
+				CCB798182B67875F006D7B71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LineWaiter;
+			productName = LineWaiter;
+			productReference = CCB7981A2B67875F006D7B71 /* LineWaiter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CCB798292B678761006D7B71 /* LineWaiterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCB798412B678761006D7B71 /* Build configuration list for PBXNativeTarget "LineWaiterTests" */;
+			buildPhases = (
+				CCB798262B678761006D7B71 /* Sources */,
+				CCB798272B678761006D7B71 /* Frameworks */,
+				CCB798282B678761006D7B71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCB7982C2B678761006D7B71 /* PBXTargetDependency */,
+			);
+			name = LineWaiterTests;
+			productName = LineWaiterTests;
+			productReference = CCB7982A2B678761006D7B71 /* LineWaiterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CCB798332B678761006D7B71 /* LineWaiterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCB798442B678761006D7B71 /* Build configuration list for PBXNativeTarget "LineWaiterUITests" */;
+			buildPhases = (
+				CCB798302B678761006D7B71 /* Sources */,
+				CCB798312B678761006D7B71 /* Frameworks */,
+				CCB798322B678761006D7B71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCB798362B678761006D7B71 /* PBXTargetDependency */,
+			);
+			name = LineWaiterUITests;
+			productName = LineWaiterUITests;
+			productReference = CCB798342B678761006D7B71 /* LineWaiterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCB798122B67875F006D7B71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					CCB798192B67875F006D7B71 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					CCB798292B678761006D7B71 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = CCB798192B67875F006D7B71;
+					};
+					CCB798332B678761006D7B71 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = CCB798192B67875F006D7B71;
+					};
+				};
+			};
+			buildConfigurationList = CCB798152B67875F006D7B71 /* Build configuration list for PBXProject "LineWaiter" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CCB798112B67875F006D7B71;
+			productRefGroup = CCB7981B2B67875F006D7B71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCB798192B67875F006D7B71 /* LineWaiter */,
+				CCB798292B678761006D7B71 /* LineWaiterTests */,
+				CCB798332B678761006D7B71 /* LineWaiterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCB798182B67875F006D7B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCB798252B678760006D7B71 /* Preview Assets.xcassets in Resources */,
+				CCB798222B678760006D7B71 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCB798282B678761006D7B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCB798322B678761006D7B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCB798162B67875F006D7B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCB798202B67875F006D7B71 /* ContentView.swift in Sources */,
+				CCB7981E2B67875F006D7B71 /* LineWaiterApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCB798262B678761006D7B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCB7982F2B678761006D7B71 /* LineWaiterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCB798302B678761006D7B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCB7983B2B678761006D7B71 /* LineWaiterUITestsLaunchTests.swift in Sources */,
+				CCB798392B678761006D7B71 /* LineWaiterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCB7982C2B678761006D7B71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCB798192B67875F006D7B71 /* LineWaiter */;
+			targetProxy = CCB7982B2B678761006D7B71 /* PBXContainerItemProxy */;
+		};
+		CCB798362B678761006D7B71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCB798192B67875F006D7B71 /* LineWaiter */;
+			targetProxy = CCB798352B678761006D7B71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CCB7983C2B678761006D7B71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CCB7983D2B678761006D7B71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCB7983F2B678761006D7B71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LineWaiter/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cs35L.LineWaiter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCB798402B678761006D7B71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LineWaiter/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cs35L.LineWaiter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CCB798422B678761006D7B71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cs35L.LineWaiterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LineWaiter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LineWaiter";
+			};
+			name = Debug;
+		};
+		CCB798432B678761006D7B71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cs35L.LineWaiterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LineWaiter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LineWaiter";
+			};
+			name = Release;
+		};
+		CCB798452B678761006D7B71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cs35L.LineWaiterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LineWaiter;
+			};
+			name = Debug;
+		};
+		CCB798462B678761006D7B71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cs35L.LineWaiterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LineWaiter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCB798152B67875F006D7B71 /* Build configuration list for PBXProject "LineWaiter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCB7983C2B678761006D7B71 /* Debug */,
+				CCB7983D2B678761006D7B71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCB7983E2B678761006D7B71 /* Build configuration list for PBXNativeTarget "LineWaiter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCB7983F2B678761006D7B71 /* Debug */,
+				CCB798402B678761006D7B71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCB798412B678761006D7B71 /* Build configuration list for PBXNativeTarget "LineWaiterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCB798422B678761006D7B71 /* Debug */,
+				CCB798432B678761006D7B71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCB798442B678761006D7B71 /* Build configuration list for PBXNativeTarget "LineWaiterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCB798452B678761006D7B71 /* Debug */,
+				CCB798462B678761006D7B71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCB798122B67875F006D7B71 /* Project object */;
+}
