@@ -2,16 +2,9 @@ from flask import Flask, g, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/')
 def main():
-    if request.method == 'GET':
-        return render_template('main.html')
-    else:
-        try:
-            redirect = request.form['redirect']
-            return redirect(url_for('userInfo'))
-        except:
-            return render_template('main.html')
+    return render_template('main.html')
 
 #def hello_world():  # put application's code here
     #return 'Hello World!'
