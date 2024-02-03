@@ -27,12 +27,7 @@ def your_listings():
 def main():
     if request.method == 'GET':
         return render_template('yourListings.html')
-    else:
-        try: 
-            return render_template('yourListings.html', where=request.form['where'], when=request.form['when'], 
-                                  length=request.form['length'], price=request.form['price'])
-        except:
-            return render_template('yourListings.html')
+    return render_template('yourListings.html')
 
 
 if __name__ == '__main__':
