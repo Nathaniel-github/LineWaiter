@@ -1,4 +1,8 @@
 from flask import Flask, g, render_template, request, url_for, redirect
+import os
+from dotenv import load_dotenv
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
 app = Flask(__name__)
 
@@ -37,4 +41,13 @@ def my_listings():
 
 
 if __name__ == '__main__':
+    load_dotenv(".env")
+    DB_PSWD = os.getenv("DB_PSWD")
+    uri = f"mongodb+srv://cs35L:{DB_PSWD}@linewaiter.uoiweiz.mongodb.net/?retryWrites=true&w=majority"
+    client = MongoClient(uri, server_api=ServerApi('1'))
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+    except Exception as e:
+        print(e)
     app.run()
