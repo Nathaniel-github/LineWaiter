@@ -1,3 +1,16 @@
 <!doctype html>
 <title>Line Waiter Website</title>
 <p>Hello! Welcome to Line Waiter.</p>
+
+{% block content %}
+<form method="post">
+    <br>
+    <label for="redirect">Redirect to user page?</label>
+    <input type="radio" name="request" id="yes" value="yes">
+    <label for="yes">Yes</label>
+    <input type="radio" name="request" id="no" value="no">
+    <label for="No">No</label>
+    <br>
+    <input type="submit" value="Submit!">
+</form>
+{% endblock %}
