@@ -1,9 +1,11 @@
-from flask import Flask, g, render_template, request
+from flask import Flask, g, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def main():
+    if request.method == 'POST':
+        return redirect(url_for('userInfo'))
     return render_template('main.html')
 
 #def hello_world():  # put application's code here
