@@ -4,6 +4,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
+    if request.method == 'POST':
+        return redirect(url_for('userInfo'))
     return render_template('main.html')
 
 #def hello_world():  # put application's code here
