@@ -19,7 +19,9 @@ def ask():
         except:
             return render_template('mainListings.html')
 
-
+@app.route('/myListings')
+def main():
+    return render_template('yourListings.html')
 
 if __name__ == '__main__':
     app.run()
