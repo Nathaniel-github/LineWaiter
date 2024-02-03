@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block header %}
+  <h1>{% block title %}Line Waiter Listing Page{% endblock %}</h1>
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+  <form method="post">
+      <label for="where">Location of requested listing: </label>
+      <input name="where" id="where">
+      <br>
+      <label for="when">Time of requested listing: </label>
+      <input name="when" id="when">
+      <br>
+      <label for="length">How long is the expected waiting time: </label>
+      <input name="length" id="length">
+      <br>
+      <label for="price">How much in USD are you willing to pay: </label>
+      <input name="price" id="price">
+      <br>
+      <input type="submit" value="Submit form">
+  </form>
+{% endblock %}
