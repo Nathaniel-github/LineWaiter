@@ -28,7 +28,7 @@ def ask():
 def your_listings():
     return render_template('yourListings.html')
 
-@app.route('/myListings/', methods=['POST', 'GET'])
+@app.route('/addListings/', methods=['POST', 'GET'])
 linewaiter.createCollection("listings")
 def my_listings():
     if request.method == 'GET':
