@@ -1,8 +1,4 @@
 from flask import Flask, g, render_template, request, url_for, redirect
-import os
-from dotenv import load_dotenv
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
 
 app = Flask(__name__)
 
@@ -39,30 +35,6 @@ def my_listings():
             return render_template('yourListings.html')
     return render_template('yourListings.html')
 
-class Listing:
-    def __init__(self, title, additional_info):
-        self.title = title
-        self.additional_info = additional_info
-
-@app.route('/')
-def listings():
-    # Create a list of Listing instances
-    listings = [
-        Listing("Listing Title 1", "Additional information about Listing 1."),
-        Listing("Listing Title 2", "Additional information about Listing 2."),
-        Listing("List 3", "Additional information about List 3.")
-    ]
-
-    return render_template('mainListings.html', listings=listings)
 
 if __name__ == '__main__':
-    load_dotenv(".env")
-    DB_PSWD = os.getenv("DB_PSWD")
-    uri = f"mongodb+srv://cs35L:{DB_PSWD}@linewaiter.uoiweiz.mongodb.net/?retryWrites=true&w=majority"
-    client = MongoClient(uri, server_api=ServerApi('1'))
-    try:
-        client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
-    except Exception as e:
-        print(e)
     app.run()
