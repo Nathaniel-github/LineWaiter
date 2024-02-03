@@ -10,24 +10,30 @@
 </nav>
 
 {% block content %}
-  <form method="post">
-      <label for="name">What would you like us to call you?</label>
-      <input name="name" id="name">
-      <br>
-      <label for="LinWaiter">Are you initiating a new request?</label>
-      <input type="radio" name="request" id="yes" value="yes">
-      <label for="yes">Yes</label>
-      <input type="radio" name="request" id="no" value="no">
-      <label for="No">No</label>
-      <br>
-      <input type="submit" value="Submit form">
-  </form>
-  {% if name %}
-  <br>
-  {% if request == "yes" %}
-  <b>Hello {{name}}!  Please tell us more about the request!</b>
-  {% else %}
-  <b>Hello {{name}}!  Do you want to take a request??</b>
-  {% endif %}
-  {% endif %}
-{% endblock %}
+
+  <!-- Display three static listings -->
+  <div class="listing">
+      <h2>List 1</h2>
+      <p>Additional information about List 1.</p>
+  </div>
+
+  <div class="listing">
+      <h2>List 2</h2>
+      <p>Additional information about List 2.</p>
+  </div>
+
+  <div class="listing">
+      <h2>List 3</h2>
+      <p>Additional information about List 3.</p>
+  </div>
+
+  <!-- Iterate over dynamic listings if available -->
+  {% for listing in listings %}
+      <div class="listing">
+          <h2>{{ listing.title }}</h2>
+          <p>{{ listing.additional_info }}</p>
+      </div>
+  {% endfor %}
+{%  endblock %}
+
+
