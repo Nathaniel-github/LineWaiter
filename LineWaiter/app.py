@@ -10,9 +10,6 @@ app = Flask(__name__)
 def main():
     return render_template('main.html')
 
-#def hello_world():  # put application's code here
-    #return 'Hello World!'
-
 @app.route('/ask/', methods=['POST', 'GET'])
 def ask():
     if request.method == 'GET':
