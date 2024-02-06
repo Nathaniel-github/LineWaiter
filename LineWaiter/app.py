@@ -29,7 +29,6 @@ def your_listings():
     return render_template('yourListings.html')
 
 @app.route('/addListings/', methods=['POST', 'GET'])
-linewaiter.createCollection("listings")
 def my_listings():
     if request.method == 'GET':
         return render_template('yourListings.html')
