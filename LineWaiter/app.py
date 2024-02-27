@@ -39,7 +39,7 @@ def my_listings():
 
 
 if __name__ == '__main__':
-    load_dotenv(".env")
+    load_dotenv("..env")
     DB_PSWD = os.getenv("DB_PSWD")
     uri = f"mongodb+srv://cs35L:{DB_PSWD}@linewaiter.uoiweiz.mongodb.net/?retryWrites=true&w=majority"
     client = MongoClient(uri, server_api=ServerApi('1'))
