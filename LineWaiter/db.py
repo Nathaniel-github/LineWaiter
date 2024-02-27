@@ -10,13 +10,19 @@ class User:
 
 
 class Listing:
-    def __init__(self, name, location, time, duration, price, description):
-        self.name = name
-        self.location = location
-        self.time = time
-        self.duration = duration
-        self.price = price
-        self.description = description
+    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None):
+        if name:
+            self.name = name
+        if location:
+            self.location = location
+        if time:
+            self.time = time
+        if duration:
+            self.duration = duration
+        if price:
+            self.price = price
+        if description:
+            self.description = description
 
 
 class Database:
@@ -40,13 +46,16 @@ class Database:
         return self.db.listings.insert_one(vars(listing)).inserted_id
 
     def get_listings(self, query: Listing):
-        return Listing(**self.db.listings.find(vars(query)))
+        all_listings = []
+        for listing in self.db.listings.find(vars(query)):
+            all_listings.append(Listing(**listing))
+        return all_listings
 
     def get_all_listings(self):
         all_listings = []
         for listing in self.db.listings.find():
             all_listings.append(Listing(**listing))
         return all_listings
-    
+
 
 
