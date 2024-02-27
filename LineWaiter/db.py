@@ -40,9 +40,13 @@ class Database:
         return self.db.listings.insert_one(vars(listing)).inserted_id
 
     def get_listings(self, query: Listing):
-        return self.db.listings.find(vars(query))
+        return Listing(**self.db.listings.find(vars(query)))
 
     def get_all_listings(self):
-        return self.db.listings.find()
+        all_listings = []
+        for listing in self.db.listings.find():
+            all_listings.append(Listing(**listing))
+        return all_listings
+    
 
 
