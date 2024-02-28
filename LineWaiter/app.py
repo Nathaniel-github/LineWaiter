@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
+from db import Listing, Database
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -24,6 +26,37 @@ def ask():
 @app.route('/yourlistings/')
 def your_listings():
     return render_template('yourListings.html')
+
+@app.route('/create_an_account/')
+def create_an_account():
+    return render_template('create_an_account.html')
+
+#!!!!!this is still in the works!!!!!!!
+#adding user input for listing into database
+@app.route('/listing_form', methods=['GET', 'POST'])
+def listing_form():
+    if request.method == 'POST':
+        # Process the form data when the form is submitted
+        name=request.form.get('name')
+        location = request.form.get('where')
+        time = request.form.get('when')
+        length = request.form.get('length')
+        price = request.form.get('price')
+        description=request.form.get('description')
+
+#create a listing instance with form data
+    new_listing=Listing(
+        name=name,
+        location=location,
+        time=time,
+        duration=length,
+        price=price,
+        description=description
+    )
+    #need to add database password to enable adding an new listing
+    #listing_id=database.add_listing(new_listing)
+
+
 
 
 @app.route('/search', methods=['POST'])

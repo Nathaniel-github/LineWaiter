@@ -1,9 +1,13 @@
+<!--create a listing template-->
 {% block header %}
   <h1>{% block title %}Line Waiter Listing Page{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   <form method="post">
+      <label for="name">Name: </label>
+      <input name="name" id="name">
+      <br>
       <label for="where">Location of requested listing: </label>
       <input name="where" id="where">
       <br>
@@ -16,6 +20,10 @@
       <label for="price">How much in USD are you willing to pay: </label>
       <input name="price" id="price">
       <br>
+      <label for="description">Description of listing: </label>
+      <input name="description" id="description">
+      <br>
       <input type="submit" value="Submit form">
+
   </form>
 {% endblock %}

@@ -1,5 +1,6 @@
 <!doctype html>
 <title>Line Waiter Website</title>
+<body>
 <h2>Hello! Welcome to Line Waiter.</h2>
 <br>
 <form>
@@ -9,10 +10,13 @@
   <input type="text" id="password" name="password">
 </form>
 <br>
+    <a href="{{ url_for('create_an_account') }}">New User? Create an account here.</a>
 
+
+<br>
 
 <a href="ask">
   <button>Submit</button>
 </a>
 
-
+</body>

@@ -1,0 +1,18 @@
+<!--create an account template-->
+{% block header %}
+  <h1>{% block title %}Create an Account{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="account">
+      <label for="username">Username: </label>
+      <input name="username" id="username">
+      <br>
+      <!-- maybe add requirements for password security (caps, special char, numbers, etc) -->
+      <label for="password">Password:  </label>
+      <input name="password" id="password">
+      <br>
+      <input type="submit" value="Submit form">
+
+  </form>
+{% endblock %}
