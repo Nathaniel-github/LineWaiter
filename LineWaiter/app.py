@@ -103,7 +103,7 @@ def my_listings():
         try:
             database.add_listing(Listing(**request.form))
             return render_template('myListings.html', where=request.form['where'], when=request.form['when'],
-                                  length=request.form['length'], price=request.form['price'], description=request.form['description'],
+                                  price=request.form['price'], description=request.form['description'],
                                    name=request.form['name'], duration=request.form['duration'])
         except:
             return render_template('myListings.html')
