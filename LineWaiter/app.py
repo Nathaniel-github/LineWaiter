@@ -27,11 +27,6 @@ def ask():
         except:
             return render_template('mainListings.html')
 
-#@app.route('/yourlistings/')
-#def your_listings():
-    #return render_template('myListings.html')
-
-#Listings with incoming requests/pending action - active listings
 @app.route('/allUserlistings/')
 def allUserlistings():
     return render_template('allUserListings.html')
