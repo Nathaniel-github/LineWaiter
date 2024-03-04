@@ -100,7 +100,8 @@ def my_listings():
     if request.method == 'GET':
         return render_template('myListings.html')
     else:
-        try: 
+        try:
+            database.add_listing(Listing(**request.form))
             return render_template('myListings.html', where=request.form['where'], when=request.form['when'],
                                   length=request.form['length'], price=request.form['price'])
         except:
