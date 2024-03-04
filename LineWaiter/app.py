@@ -105,7 +105,8 @@ def my_listings():
             return render_template('myListings.html', where=request.form['where'], when=request.form['when'],
                                   length=request.form['length'], price=request.form['price'], description=request.form['description'],
                                    name=request.form['name'], duration=request.form['duration'])
-        except:
+        except Exception as e:
+            print(e)
             return render_template('myListings.html')
     return render_template('myListings.html')
 
