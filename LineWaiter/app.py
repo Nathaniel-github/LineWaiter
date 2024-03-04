@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-from db import Listing, Database
+from db import Listing, Database, User
 
 
 app = Flask(__name__)
@@ -28,9 +28,18 @@ def ask():
 def allUserlistings():
     return render_template('allUserListings.html')
 
-@app.route('/create_an_account/')
+@app.route('/createAnAccount/', methods=['POST', 'GET'])
 def create_an_account():
-    return render_template('create_an_account.html')
+    if request.method=='GET':
+        return render_template('createAnAccount.html')
+    else:
+        try:
+            print(request.form)
+            database.add_user(User(**request.form))
+            return render_template('createAnAccount.html', username=request.form['username'], password=request.form['password'])
+        except Exception as e:
+            print(e)
+            return render_template('createAnAccount.html')
 
 
 #
