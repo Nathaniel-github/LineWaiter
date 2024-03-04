@@ -7,6 +7,10 @@ from pymongo.server_api import ServerApi
 
 from db import Listing, Database
 
+load_dotenv(".env")
+DB_PSWD = os.getenv("DB_PSWD")
+database=Database(DB_PSWD)
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -50,16 +54,16 @@ def listing_form():
         description=request.form.get('description')
 
 #create a listing instance with form data
-    new_listing=Listing(
-        name=name,
-        location=location,
-        time=time,
-        duration=length,
-        price=price,
-        description=description
-    )
-    #need to add database password to enable adding an new listing
-    #listing_id=database.add_listing(new_listing)
+        new_listing=Listing(
+            name=name,
+            location=location,
+            time=time,
+            duration=length,
+            price=price,
+            description=description
+        )
+        #need to add database password to enable adding an new listing
+        listing_id=database.add_listing(new_listing)
 
 
 
@@ -96,7 +100,8 @@ def my_listings():
     if request.method == 'GET':
         return render_template('myListings.html')
     else:
-        try: 
+        try:
+            database.add_listing(Listing(**request.form))
             return render_template('myListings.html', where=request.form['where'], when=request.form['when'],
                                   length=request.form['length'], price=request.form['price'])
         except:
