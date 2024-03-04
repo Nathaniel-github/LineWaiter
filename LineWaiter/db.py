@@ -29,7 +29,7 @@ class Listing:
 
 class Database:
     def __init__(self, db_pswd):
-        uri = f"mongodb+srv://cs35L:{db_pswd}@linewaiter.uoiweiz.mongodb.net/?retryWrites=true&w=majority"
+        uri = f"mongodb+srv://cs35L:{db_pswd}@linewaiter.uoiweiz.mongodb.net/?retryWrites=true&w=majority&appName=LineWaiter"
         self.client = MongoClient(uri, server_api=ServerApi('1'))
         self.db = self.client['linewaiter']
         try:
