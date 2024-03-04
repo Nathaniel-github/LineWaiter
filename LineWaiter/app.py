@@ -27,9 +27,14 @@ def ask():
         except:
             return render_template('mainListings.html')
 
-@app.route('/yourlistings/')
-def your_listings():
-    return render_template('yourListings.html')
+#@app.route('/yourlistings/')
+#def your_listings():
+    #return render_template('myListings.html')
+
+#Listings with incoming requests/pending action - active listings
+@app.route('/allUserlistings/')
+def allUserlistings():
+    return render_template('allUserListings.html')
 
 @app.route('/create_an_account/')
 def create_an_account():
@@ -90,17 +95,17 @@ def add_restaurant_options():
     )
     return "Restaurant search options added successfully!"
 
-@app.route('/addListings/', methods=['POST', 'GET'])
+@app.route('/myListings/', methods=['POST', 'GET'])
 def my_listings():
     if request.method == 'GET':
-        return render_template('yourListings.html')
+        return render_template('myListings.html')
     else:
         try: 
-            return render_template('yourListings.html', where=request.form['where'], when=request.form['when'], 
+            return render_template('myListings.html', where=request.form['where'], when=request.form['when'],
                                   length=request.form['length'], price=request.form['price'])
         except:
-            return render_template('yourListings.html')
-    return render_template('yourListings.html')
+            return render_template('myListings.html')
+    return render_template('myListings.html')
 
 
 if __name__ == '__main__':
