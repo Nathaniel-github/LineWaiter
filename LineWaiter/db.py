@@ -36,6 +36,7 @@ class Database:
             self.client.admin.command('ping')
             print("Pinged your deployment. You successfully connected to MongoDB!")
         except Exception as e:
+            print("db.py initialization error")
             print(e)
 
     def add_user(self, user: User):
