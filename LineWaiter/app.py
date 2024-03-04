@@ -7,9 +7,6 @@ from pymongo.server_api import ServerApi
 
 from db import Listing, Database
 
-load_dotenv(".env")
-DB_PSWD = os.getenv("DB_PSWD")
-database = Database(DB_PSWD)
 
 app = Flask(__name__)
 
@@ -27,11 +24,6 @@ def ask():
         except:
             return render_template('mainListings.html')
 
-#@app.route('/yourlistings/')
-#def your_listings():
-    #return render_template('createAListing.html')
-
-#Listings with incoming requests/pending action - active listings
 @app.route('/allUserlistings/')
 def allUserlistings():
     return render_template('allUserListings.html')
@@ -114,14 +106,7 @@ def my_listings():
 
 
 if __name__ == '__main__':
-    load_dotenv("..env")
+    load_dotenv(".env")
     DB_PSWD = os.getenv("DB_PSWD")
-    uri = f"mongodb+srv://cs35L:{DB_PSWD}@linewaiter.uoiweiz.mongodb.net/?retryWrites=true&w=majority"
-    client = MongoClient(uri, server_api=ServerApi('1'))
-    db = client['line-waiter']
-    try:
-        client.admin.command('ping')
-        print("Pinged your deployment. You successfully connected to MongoDB!")
-    except Exception as e:
-        print(e)
+    database = Database(DB_PSWD)
     app.run()
