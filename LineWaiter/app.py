@@ -29,7 +29,7 @@ def ask():
 
 #@app.route('/yourlistings/')
 #def your_listings():
-    #return render_template('myListings.html')
+    #return render_template('createAListing.html')
 
 #Listings with incoming requests/pending action - active listings
 @app.route('/allUserlistings/')
@@ -40,31 +40,33 @@ def allUserlistings():
 def create_an_account():
     return render_template('create_an_account.html')
 
-#!!!!!this is still in the works!!!!!!!
-#adding user input for listing into database
-@app.route('/listing_form', methods=['GET', 'POST'])
-def listing_form():
-    if request.method == 'POST':
-        # Process the form data when the form is submitted
-        name=request.form.get('name')
-        location = request.form.get('where')
-        time = request.form.get('when')
-        length = request.form.get('length')
-        price = request.form.get('price')
-        description=request.form.get('description')
 
-#create a listing instance with form data
-        new_listing=Listing(
-            name=name,
-            location=location,
-            time=time,
-            duration=length,
-            price=price,
-            description=description
-        )
-        #need to add database password to enable adding an new listing
-        listing_id=database.add_listing(new_listing)
-
+#
+# #!!!!!this is still in the works!!!!!!!
+# #adding user input for listing into database
+# @app.route('/listing_form', methods=['GET', 'POST'])
+# def listing_form():
+#     if request.method == 'POST':
+#         # Process the form data when the form is submitted
+#         name=request.form.get('name')
+#         location = request.form.get('where')
+#         time = request.form.get('when')
+#         length = request.form.get('length')
+#         price = request.form.get('price')
+#         description=request.form.get('description')
+#
+# #create a listing instance with form data
+#         new_listing=Listing(
+#             name=name,
+#             location=location,
+#             time=time,
+#             duration=length,
+#             price=price,
+#             description=description
+#         )
+#         #need to add database password to enable adding an new listing
+#         listing_id=database.add_listing(new_listing)
+#
 
 
 
@@ -95,20 +97,20 @@ def add_restaurant_options():
     )
     return "Restaurant search options added successfully!"
 
-@app.route('/myListings/', methods=['POST', 'GET'])
+@app.route('/createAListing/', methods=['POST', 'GET'])
 def my_listings():
     if request.method == 'GET':
-        return render_template('myListings.html')
+        return render_template('createAListing.html')
     else:
         try:
             database.add_listing(Listing(**request.form))
-            return render_template('myListings.html', location=request.form['location'], time=request.form['time'],
+            return render_template('createAListing.html', location=request.form['location'], time=request.form['time'],
                                   price=request.form['price'], description=request.form['description'],
                                    name=request.form['name'], duration=request.form['duration'])
         except Exception as e:
             print(e)
-            return render_template('myListings.html')
-    return render_template('myListings.html')
+            return render_template('createAListing.html')
+    return render_template('createAListing.html')
 
 
 if __name__ == '__main__':
