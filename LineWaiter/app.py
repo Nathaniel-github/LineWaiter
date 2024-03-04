@@ -9,7 +9,7 @@ from db import Listing, Database
 
 load_dotenv(".env")
 DB_PSWD = os.getenv("DB_PSWD")
-database=Database(DB_PSWD)
+database = Database(DB_PSWD)
 
 app = Flask(__name__)
 
@@ -102,7 +102,7 @@ def my_listings():
     else:
         try:
             database.add_listing(Listing(**request.form))
-            return render_template('myListings.html', where=request.form['where'], when=request.form['when'],
+            return render_template('myListings.html', location=request.form['location'], time=request.form['time'],
                                   price=request.form['price'], description=request.form['description'],
                                    name=request.form['name'], duration=request.form['duration'])
         except Exception as e:
