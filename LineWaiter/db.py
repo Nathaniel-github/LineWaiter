@@ -3,10 +3,10 @@ from pymongo.server_api import ServerApi
 
 
 class User:
-    def __init__(self, username, password, email):
+    def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.email = email
+        #self.email = email
 
 
 class Listing:
@@ -36,6 +36,7 @@ class Database:
             self.client.admin.command('ping')
             print("Pinged your deployment. You successfully connected to MongoDB!")
         except Exception as e:
+            print("db.py initialization error")
             print(e)
 
     def add_user(self, user: User):
