@@ -1,4 +1,4 @@
-from flask import Flask, g, render_template, request, url_for, redirect
+from flask import Flask, g, render_template, request, url_for, redirect, jsonify
 
 import os
 from dotenv import load_dotenv
@@ -68,9 +68,12 @@ def create_an_account():
 #         #need to add database password to enable adding an new listing
 #         listing_id=database.add_listing(new_listing)
 #
-
-
-
+@app.route('/allListings', methods=['GET'])
+def get_listings():
+    listings_collection = database['listings']
+    listings_data = listings_collection.find({}, {'_id': False})
+    listings = list(listings_data)
+    return jsonify(listings)
 @app.route('/search', methods=['POST'])
 def search():
     query = request.form.get('query')
@@ -78,20 +81,20 @@ def search():
     # Filter the search based on the selected restaurant option
     if restaurant_filter:
         # Perform the search with the filter option
-        results = db.listings.find({
+        results = database.listings.find({
             "name": {"$regex": query, "$options": "i"},
             "Restaurant": restaurant_filter
         })
     else:
         # Perform the search without the filter option
-        results = db.listings.find({
+        results = database.listings.find({
             "name": {"$regex": query, "$options": "i"}
         })
     return render_template('search_results.html', results=results)
 
 @app.route('/add_restaurant_options')
 def add_restaurant_options():
-    db.tags.update_one(
+    database.tags.update_one(
         {"name": "Restaurant"},
         {"$set": {"options": ["BCafe", "BPlate", "Epic At Ackerman", "FEAST", "Food Trucks", "Epicuria", "The Drey", "The Study", "Rendezvous East", "Rendezvous West", "De Neve"]}},
         upsert=True

@@ -12,6 +12,24 @@ import Navbar from "../navbar/navbar";
 
 function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [listings, setListings] = useState([]);
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/allListings");
+        if (!response.ok) {
+          throw new Error("Failed to fetch listings");
+        }
+        const data = await response.json();
+        setListings(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   // ----------- Input Filter -----------
   const [query, setQuery] = useState("");
