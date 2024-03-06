@@ -106,15 +106,29 @@ def my_listings():
     if request.method == 'GET':
         return render_template('createAListing.html')
     else:
+        name = request.form['name']
+        location = request.form['location']
+        time = request.form['time']
+        duration = request.form['duration']
+        price = request.form['price']
+        description = request.form['description']
+
+        # Server-side validation
+        if not (name.isalpha() and location.isalpha() and description.isalpha()):
+            return render_template('createAListing.html', error="Name, Location, and Description must contain at least one alphabetical character")
+        if not time:
+            return render_template('createAListing.html', error="Time cannot be empty")
+        if not duration.isdigit():
+            return render_template('createAListing.html', error="Duration cannot be empty")
+        if not price.isdigit():
+            return render_template('createAListing.html', error="Price cannot be empty")
+
         try:
-            database.add_listing(Listing(**request.form))
-            return render_template('createAListing.html', location=request.form['location'], time=request.form['time'],
-                                  price=request.form['price'], description=request.form['description'],
-                                   name=request.form['name'], duration=request.form['duration'])
+            database.add_listing(Listing(name=name, location=location, time=time, duration=duration, price=price, description=description))
+            return render_template('createAListing.html', success=True)
         except Exception as e:
             print(e)
-            return render_template('createAListing.html')
-    return render_template('createAListing.html')
+            return render_template('createAListing.html', error="An error occurred while adding the listing")
 
 
 load_dotenv(".env")
