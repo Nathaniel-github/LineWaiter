@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+import re
 
 from db import Listing, Database, User
 
@@ -30,16 +31,22 @@ def allUserlistings():
 
 @app.route('/createAnAccount/', methods=['POST', 'GET'])
 def create_an_account():
-    if request.method=='GET':
+    if request.method == 'GET':
         return render_template('createAnAccount.html')
     else:
         try:
-            print(request.form)
+            username = request.form['username']
+            password = request.form['password']
+
+            # Server-side validation for password complexity
+            if not (len(password) >= 12 and re.search(r'[A-Z]', password) and re.search(r'[a-z]', password) and re.search(r'\d', password) and re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
+                return render_template('createAnAccount.html', error="Password must be at least 12 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.")
+
             database.add_user(User(**request.form))
-            return render_template('createAnAccount.html', username=request.form['username'], password=request.form['password'])
+            return render_template('createAnAccount.html', username=username)
         except Exception as e:
             print(e)
-            return render_template('createAnAccount.html')
+            return render_template('createAnAccount.html', error="An error occurred while creating the account.")
 
 
 #
