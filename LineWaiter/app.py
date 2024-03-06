@@ -124,7 +124,7 @@ def my_listings():
             return render_template('createAListing.html', error="Price cannot be empty")
 
         try:
-            database.add_listing(Listing(name=name, location=location, time=time, duration=duration, price=price, description=description))
+            database.add_listing(Listing(**request.form))
             return render_template('createAListing.html', success=True)
         except Exception as e:
             print(e)
