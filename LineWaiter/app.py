@@ -8,6 +8,9 @@ from db import Listing, Database, User
 
 
 app = Flask(__name__)
+load_dotenv(".env")
+DB_PSWD = os.getenv("DB_PSWD")
+database = Database(DB_PSWD)
 
 @app.route('/')
 def main():
@@ -136,7 +139,4 @@ def my_listings():
 
 
 if __name__ == '__main__':
-    load_dotenv(".env")
-    DB_PSWD = os.getenv("DB_PSWD")
-    database = Database(DB_PSWD)
     app.run()
