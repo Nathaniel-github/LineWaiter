@@ -1,9 +1,7 @@
-from flask import Flask, g, render_template, request, url_for, redirect, jsonify
+from flask import Flask, render_template, request, jsonify
 
 import os
 from dotenv import load_dotenv
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
 
 from db import Listing, Database, User
 
