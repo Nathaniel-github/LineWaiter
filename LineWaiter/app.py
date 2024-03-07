@@ -28,16 +28,22 @@ def allUserlistings():
 
 @app.route('/createAnAccount/', methods=['POST', 'GET'])
 def create_an_account():
-    if request.method=='GET':
+    if request.method == 'GET':
         return render_template('createAnAccount.html')
     else:
         try:
-            print(request.form)
+            username = request.form['username']
+            password = request.form['password']
+
+            # Server-side validation for password complexity
+            if not (len(password) >= 12 and re.search(r'[A-Z]', password) and re.search(r'[a-z]', password) and re.search(r'\d', password) and re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
+                return render_template('createAnAccount.html', error="Password must be at least 12 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.")
+
             database.add_user(User(**request.form))
-            return render_template('createAnAccount.html', username=request.form['username'], password=request.form['password'])
+            return render_template('createAnAccount.html', username=username)
         except Exception as e:
             print(e)
-            return render_template('createAnAccount.html')
+            return render_template('createAnAccount.html', error="An error occurred while creating the account.")
 
 
 #
@@ -104,15 +110,29 @@ def my_listings():
     if request.method == 'GET':
         return render_template('createAListing.html')
     else:
+        name = request.form['name']
+        location = request.form['location']
+        time = request.form['time']
+        duration = request.form['duration']
+        price = request.form['price']
+        description = request.form['description']
+
+        # Server-side validation
+        if not (name.isalpha() and location.isalpha() and description.isalpha()):
+            return render_template('createAListing.html', error="Name, Location, and Description must contain at least one alphabetical character")
+        if not time:
+            return render_template('createAListing.html', error="Time cannot be empty")
+        if not duration.isdigit():
+            return render_template('createAListing.html', error="Duration cannot be empty")
+        if not price.isdigit():
+            return render_template('createAListing.html', error="Price cannot be empty")
+
         try:
             database.add_listing(Listing(**request.form))
-            return render_template('createAListing.html', location=request.form['location'], time=request.form['time'],
-                                  price=request.form['price'], description=request.form['description'],
-                                   name=request.form['name'], duration=request.form['duration'])
+            return render_template('createAListing.html', success=True)
         except Exception as e:
             print(e)
-            return render_template('createAListing.html')
-    return render_template('createAListing.html')
+            return render_template('createAListing.html', error="An error occurred while adding the listing")
 
 
 if __name__ == '__main__':
