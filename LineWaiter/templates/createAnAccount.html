@@ -13,6 +13,11 @@
       <input name="password" id="password">
       <br>
       <input type="submit" value="Submit form">
-
   </form>
+ {% if error %}
+    <p>{{ error }}</p>
+  {% endif %}
+  {% if success %}
+    <p>Listing created successfully!</p>
+  {% endif %}
 {% endblock %}
