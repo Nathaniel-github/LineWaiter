@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 
 import os
 from dotenv import load_dotenv
+import re
 
 from db import Listing, Database, User
 
@@ -48,16 +49,16 @@ def create_an_account():
     if request.method == 'GET':
         return render_template('createAnAccount.html')
     else:
+        username = request.form['username']
+        password = request.form['password']
+
+        # Server-side validation for password complexity
+        if not (len(password) >= 12 and re.search(r'[A-Z]', password) and re.search(r'[a-z]', password)
+                and re.search(r'[0-9]', password) and re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
+            return render_template('createAnAccount.html', error="Password must be at least 12 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character")
         try:
-            username = request.form['username']
-            password = request.form['password']
-
-            # Server-side validation for password complexity
-            if not (len(password) >= 12 and re.search(r'[A-Z]', password) and re.search(r'[a-z]', password) and re.search(r'\d', password) and re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
-                return render_template('createAnAccount.html', error="Password must be at least 12 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.")
-
             database.add_user(User(**request.form))
-            return render_template('createAnAccount.html', username=username)
+            return render_template('createAnAccount.html', success=True)
         except Exception as e:
             print(e)
             return render_template('createAnAccount.html', error="An error occurred while creating the account.")
@@ -143,7 +144,6 @@ def my_listings():
             return render_template('createAListing.html', error="Duration cannot be empty")
         if not price.isdigit():
             return render_template('createAListing.html', error="Price cannot be empty")
-
         try:
             database.add_listing(Listing(**request.form))
             return render_template('createAListing.html', success=True)
