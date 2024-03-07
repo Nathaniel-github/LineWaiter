@@ -1,10 +1,7 @@
-from flask import Flask, g, render_template, request, url_for, redirect, jsonify
+from flask import Flask, render_template, request, jsonify
 
 import os
 from dotenv import load_dotenv
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
-import re
 
 from db import Listing, Database, User
 
@@ -136,12 +133,8 @@ def my_listings():
             return render_template('createAListing.html', error="An error occurred while adding the listing")
 
 
-load_dotenv(".env")
-DB_PSWD = os.getenv("DB_PSWD")
-database = Database(DB_PSWD)
-
 if __name__ == '__main__':
-    #load_dotenv(".env")
-    #DB_PSWD = os.getenv("DB_PSWD")
-    #database = Database("DB_PSWD")
+    load_dotenv(".env")
+    DB_PSWD = os.getenv("DB_PSWD")
+    database = Database(DB_PSWD)
     app.run()
