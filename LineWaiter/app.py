@@ -37,7 +37,8 @@ def create_an_account():
 
         # Server-side validation for password complexity
         if not (len(password) >= 12 and re.search(r'[A-Z]', password) and re.search(r'[a-z]', password) and re.search(r'\d', password) and re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
-            return render_template('createAnAccount.html', error="Password must be at least 12 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.")
+            return render_template('createAnAccount.html', error="this is an error")
+        #Password must be at least 12 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.
         try:
             database.add_user(User(**request.form))
             return render_template('createAnAccount.html', username=username)
