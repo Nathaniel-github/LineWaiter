@@ -117,12 +117,8 @@ def my_listings():
     return render_template('createAListing.html')
 
 
-load_dotenv(".env")
-DB_PSWD = os.getenv("DB_PSWD")
-database = Database(DB_PSWD)
-
 if __name__ == '__main__':
-    #load_dotenv(".env")
-    #DB_PSWD = os.getenv("DB_PSWD")
-    #database = Database("DB_PSWD")
+    load_dotenv(".env")
+    DB_PSWD = os.getenv("DB_PSWD")
+    database = Database(DB_PSWD)
     app.run()
