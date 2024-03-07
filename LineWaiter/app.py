@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 
 import os
 from dotenv import load_dotenv
+import re
 
 from db import Listing, Database, User
 
