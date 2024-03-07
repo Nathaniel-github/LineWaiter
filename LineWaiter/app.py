@@ -44,7 +44,7 @@ def create_an_account():
             return render_template('createAnAccount.html', error="Password must be at least 12 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character")
         try:
             database.add_user(User(**request.form))
-            return render_template('createAnAccount.html', username=username)
+            return render_template('createAnAccount.html', success=True)
         except Exception as e:
             print(e)
             return render_template('createAnAccount.html', error="An error occurred while creating the account.")
