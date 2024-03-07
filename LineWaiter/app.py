@@ -7,10 +7,27 @@ from db import Listing, Database, User
 
 
 app = Flask(__name__)
+load_dotenv(".env")
+DB_PSWD = os.getenv("DB_PSWD")
+database = Database(DB_PSWD)
 
 @app.route('/')
 def main():
     return render_template('main.html')
+
+@app.route('/login/', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        try:
+            username = request.form['username']
+            password = request.form['password']
+            user = database.get_user(username)
+            if user.password == password:
+                return {"auth": "success"}
+            else:
+                return {"auth": "failure"}
+        except:
+            return {"auth": "failure"}
 
 @app.route('/ask/', methods=['POST', 'GET'])
 def ask():
@@ -136,7 +153,4 @@ def my_listings():
 
 
 if __name__ == '__main__':
-    load_dotenv(".env")
-    DB_PSWD = os.getenv("DB_PSWD")
-    database = Database(DB_PSWD)
     app.run()
