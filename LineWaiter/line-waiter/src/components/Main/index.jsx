@@ -16,20 +16,15 @@ function HomePage() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/allListings");
-        if (!response.ok) {
-          throw new Error("Failed to fetch listings");
-        }
-        const data = await response.json();
-        setListings(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+        fetch("/allListings").then(
+            res => res.json()
+           ).then(
+                data => {
+                    setData(data)
+                    console.log(data)
+                }
+           }
+  }, []}
 
   // ----------- Input Filter -----------
   const [query, setQuery] = useState("");

@@ -90,12 +90,9 @@ def create_an_account():
 #         #need to add database password to enable adding an new listing
 #         listing_id=database.add_listing(new_listing)
 #
-@app.route('/allListings', methods=['GET'])
+@app.route('/allListings')
 def get_listings():
-    listings_collection = database['listings']
-    listings_data = listings_collection.find({}, {'_id': False})
-    listings = list(listings_data)
-    return jsonify(listings)
+    return {"all_listings": database.get_all_listings()}
 @app.route('/search', methods=['POST'])
 def search():
     query = request.form.get('query')
