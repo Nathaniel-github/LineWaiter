@@ -1,0 +1,20 @@
+.search-bar {
+    display: flex;
+    min-height: 10rem;
+    min-width: 100vw;
+    background: lightblue;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.search-bar input {
+    padding: 6px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    font-size: 24px;
+    max-width: 250px;
+}
+
+.search-bar

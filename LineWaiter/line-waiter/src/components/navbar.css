@@ -1,0 +1,26 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000;
+    color: #fff;
+    padding: 20px 7%;
+}
+
+ul {
+    flex: 1;
+    list-style: none;
+    text-align: center;
+}
+
+ul li {
+    display: inline-block;
+    margin: 15px 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+a:visited {
+    color: white;
+}
