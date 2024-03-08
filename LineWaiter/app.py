@@ -87,12 +87,13 @@ def create_an_account():
 #             price=price,
 #             description=description
 #         )
-#         #need to add database password to enable adding an new listing
+#         #need to add database password to enable adding a new listing
 #         listing_id=database.add_listing(new_listing)
 #
 @app.route('/allListings')
 def get_listings():
-    return {"all_listings": database.get_all_listings()}
+    return [{"title": "title1", "location": "location1", "time": "time1", "duration": "duration1", "price": "price1", "description": "description1"}]
+    #return {"all_listings": database.get_all_listings()}
 @app.route('/search', methods=['POST'])
 def search():
     query = request.form.get('query')
