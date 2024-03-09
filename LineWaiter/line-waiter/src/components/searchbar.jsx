@@ -14,19 +14,22 @@ const SearchBar = ({ data, onSearch }) => {
     onSearch(value);
   };
 
+
   return (
-      <Box sx={{ display: 'flex', alignItems: 'center', maxWidth: 400, margin: 'auto', padding: 2, backgroundColor: '#f4f4f4', borderRadius: 4 }}>
-      <TextField
-        fullWidth
-        value={query}
-        onChange={handleInputChange}
-        placeholder="Search..."
-        sx={{ mr: 1, width: '100%' }} // Adjust the width here to make the search bar bigger
-        inputProps={{ style: { fontSize: 18 } }} // Adjust the font size
-      />
-      <IconButton aria-label="search" disabled>
-        <SearchIcon />
-      </IconButton>
+    <Box sx={{ maxWidth: 750, minWidth: 750, marginLeft: 0, padding: 2, backgroundColor: '#f4f4f4', borderRadius: 4 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <TextField
+          fullWidth
+          placeholder="Search..."
+          onChange={handleInputChange}
+          value={query}
+          sx={{ mr: 1, width: '100%' }} // Adjust the width here to make the search bar bigger
+          inputProps={{ style: { fontSize: 18 } }} // Adjust the font size
+        />
+        <IconButton aria-label="search" disabled>
+          <SearchIcon />
+        </IconButton>
+      </Box>
     </Box>
   );
 };
