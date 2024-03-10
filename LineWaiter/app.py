@@ -49,20 +49,7 @@ def create_an_account():
     if request.method == 'GET':
         return render_template('createAnAccount.html')
     else:
-        username = request.form['username']
-        password = request.form['password']
-
-        # Server-side validation for password complexity
-        if not (len(password) >= 12 and re.search(r'[A-Z]', password) and re.search(r'[a-z]', password)
-                and re.search(r'[0-9]', password) and re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
-            return render_template('createAnAccount.html', error="Password must be at least 12 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character")
-        try:
-            database.add_user(User(**request.form))
-            return render_template('createAnAccount.html', success=True)
-        except Exception as e:
-            print(e)
-            return render_template('createAnAccount.html', error="An error occurred while creating the account.")
-
+        database.add_user(User(**request.form))
 
 #
 # #!!!!!this is still in the works!!!!!!!
@@ -99,6 +86,7 @@ def search():
     restaurant_filter = request.form.get('restaurant_filter')
     # Filter the search based on the selected restaurant option
     if restaurant_filter:
+        database.get_listings(Listing())
         # Perform the search with the filter option
         results = database.listings.find({
             "name": {"$regex": query, "$options": "i"},
