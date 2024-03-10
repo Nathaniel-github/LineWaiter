@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 import os
@@ -51,8 +51,16 @@ def search():
 
 @app.route('/createAListing/', methods=['POST'])
 def my_listings():
-    database.add_listing(Listing(**request.form))
-    return {"status": "success"}
+    try:
+        data = request.get_json()
+        print("Received Data:", data)
+        listing_id = database.add_listing(Listing(**data))
+        return jsonify({"status": "success", "listing_id": str(listing_id)})
+
+    except Exception as e:
+        print(f"Error adding listing: {str(e)}")
+        return jsonify({"status": "success", "listing_id": str(listing_id)})
+
 
 
 if __name__ == '__main__':
