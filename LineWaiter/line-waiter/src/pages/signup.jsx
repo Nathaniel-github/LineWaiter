@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
 import './login.module.css'
 import { FaUser, FaLock } from 'react-icons/fa'
 import { sha3_256 } from 'js-sha3'
+import styles from "./login.module.css";
 
 const SignupForm = ( ) => {
 
@@ -28,54 +28,43 @@ const SignupForm = ( ) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const hashedPassword = sha3_256(password);
+    const hashedPassword = sha3_256(password.toString());
     let data = {
-      username: username,
+      username: username[""],
       password: hashedPassword,
     };
+    console.log("reached");
     // Handle form submission logic here
-    console.log(data);
+    console.log(JSON.stringify(data));
+
+    fetch('/createAnAccount/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(res => {
+        console.log(res);
+    })
+
   };
 
-        fetch('/api/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(response => {
-            // Check if the response is successful
-            if (response.ok) {
-                // Parse the response data as JSON
-                return response.json();
-            } else {
-                // Handle the error
-                throw new Error('Error: ' + response.status);
-            }
-        }).then(data => {
-            // Handle the response data
-            console.log('Response data:', data);
-        }).catch(error => {
-            // Handle any errors
-            console.error('Error:', error);
-        });
-    }
-
     return (
-        <div className="wrapper">
-            <form action="">
-                <h1>Sign Up</h1>
-                <div className="input-box">
-                    <input type="text" onChange={handleChangeUsername} placeholder="Username" required />
-                    <FaUser className="icon"/>
-                </div>
-                <div className="input-box">
-                    <input type="password" onChange={handleChangePassword} placeholder="Password" required />
-                    <FaLock className="icon"/>
-                </div>
-
-                <button type="submit" onClick={handleSubmit}>Sign Up</button>
-            </form>
+        <div className={styles.login}> {/* Use className from CSS module */}
+            <div className={styles.wrapper}> {/* Use className from CSS module */}
+                <form action="">
+                    <h1>Sign Up</h1>
+                    <div className={styles['input-box']}> {/* Use className from CSS module */}
+                        <input type="text" onChange={handleChangeUsername} placeholder="username" required/>
+                        <FaUser className={styles.icon}/>
+                    </div>
+                    <div className={styles['input-box']}> {/* Use className from CSS module */}
+                        <input type="password" onChange={handleChangePassword} placeholder="Password" required/>
+                        <FaLock className={styles.icon}/>
+                    </div>
+                    <button type="submit" onClick={handleSubmit}>Sign Up</button>
+                </form>
+            </div>
         </div>
     )
 }

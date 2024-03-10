@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import {type} from "@testing-library/user-event/dist/type";
 import Listing from '../components/listing.jsx'
 import ListingContainer from "../components/listingcontainer";
 import '../index.css'
@@ -8,7 +7,6 @@ import Searchbar from "../components/searchbar";
 function Home() {
 
     const [data, setData] = useState([{}])
-    let origData;
 
     useEffect(() => {
         fetch("/allListings").then(

@@ -1,5 +1,4 @@
 import './listing.css'
-import Button from 'react-bootstrap/Button';
 
 const Listing = ({ title, location, time, duration, price, description }) => {
     return (
