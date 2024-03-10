@@ -37,30 +37,6 @@ const SignupForm = ( ) => {
     console.log(data);
   };
 
-        fetch('/api/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then(response => {
-            // Check if the response is successful
-            if (response.ok) {
-                // Parse the response data as JSON
-                return response.json();
-            } else {
-                // Handle the error
-                throw new Error('Error: ' + response.status);
-            }
-        }).then(data => {
-            // Handle the response data
-            console.log('Response data:', data);
-        }).catch(error => {
-            // Handle any errors
-            console.error('Error:', error);
-        });
-    }
-
     return (
         <div className="wrapper">
             <form action="">
