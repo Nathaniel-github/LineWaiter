@@ -7,6 +7,7 @@ import { sha3_256 } from 'js-sha3'
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -50,9 +51,13 @@ const handleSubmit = (e) => {
     if (data.auth === "success") {
       // Authentication successful, do something
       console.log("Authentication successful");
+      window.location.href='/home';
+
     } else if (data.auth === "failure") {
       // Authentication failed, do something else
       console.log("Authentication failed");
+      setSuccessMessage("Invalid login");
+
     } else {
       console.log("other error")
     }
@@ -68,6 +73,8 @@ const handleSubmit = (e) => {
       <div className={styles.wrapper}> {/* Use className from CSS module */}
         <form action="">
           <h1>Login</h1>
+          {successMessage && <p className={styles['login-success-message']}>{successMessage}</p>}
+
           <div className={styles['input-box']}> {/* Use className from CSS module */}
             <input type="text" onChange={handleChangeUsername} placeholder="Username" required />
             <FaUser className={styles.icon} />
