@@ -27,7 +27,7 @@ def login():
 
 @app.route('/createAnAccount/', methods=['POST'])
 def create_an_account():
-    if database.add_user(User(**request.form)):
+    if database.add_user(User(**request.json)):
         return {"status": "success"}
     else:
         return {"status": "failure"}
