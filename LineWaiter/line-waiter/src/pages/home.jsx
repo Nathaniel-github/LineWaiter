@@ -21,12 +21,12 @@ function Home() {
         )
     }, []);
 
-    const handleSearch = (query) => {
-    const filtered = data.filter(item =>
-      item.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setData(filtered);
-  };
+  const handleSearch = (query) => {
+  const filtered = data.filter(item =>
+    item.title?.toLowerCase().includes(query.toLowerCase())
+  );
+  setData(filtered);
+};
 
     const listingsMap = data.map(
         ({ title, location, time, duration, price, description}) => (

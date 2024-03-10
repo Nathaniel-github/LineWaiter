@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import './login.module.css'
 import { FaUser, FaLock } from 'react-icons/fa'
+import { sha3_256 } from 'js-sha3'
 
 const SignupForm = ( ) => {
 
@@ -25,21 +26,16 @@ const SignupForm = ( ) => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        let data = {
-            "username" : username,
-            "password" : password,
-        }
-        // Handle form submission logic here
-        console.log(data);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const hashedPassword = sha3_256(password);
+    let data = {
+      username: username,
+      password: hashedPassword,
     };
-
-    const handleLogin = () => {
-        const data = {
-            username: username,
-            password: password,
-        };
+    // Handle form submission logic here
+    console.log(data);
+  };
 
         fetch('/api/users', {
             method: 'POST',
