@@ -28,24 +28,25 @@ const SignupForm = ( ) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const hashedPassword = sha3_256(password.toString());
+    const hashedPassword = sha3_256(password[""].toString());
     let data = {
       username: username[""],
       password: hashedPassword,
     };
     console.log("reached");
     // Handle form submission logic here
+      console.log(password[""]);
     console.log(JSON.stringify(data));
 
-    fetch('/createAnAccount/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(res => {
-        console.log(res);
-    })
+    // fetch('/createAnAccount/', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(data)
+    // }).then(res => {
+    //     console.log(res);
+    // })
 
   };
 
