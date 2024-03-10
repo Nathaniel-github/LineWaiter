@@ -51,7 +51,8 @@ class Database:
     def get_listings(self, query: Listing):
         all_listings = []
         for listing in self.db.listings.find(vars(query)):
-            all_listings.append(Listing(**listing))
+            del listing['_id']
+            all_listings.append(listing)
         return all_listings
 
     def get_all_listings(self):
