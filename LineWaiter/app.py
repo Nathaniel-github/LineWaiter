@@ -27,8 +27,10 @@ def login():
 
 @app.route('/createAnAccount/', methods=['POST'])
 def create_an_account():
-    database.add_user(User(**request.form))
-    return {"status": "success"}
+    if database.add_user(User(**request.form)):
+        return {"status": "success"}
+    else:
+        return {"status": "failure"}
 
 
 @app.route('/allListings', methods=['GET'])
@@ -44,6 +46,7 @@ def search():
 @app.route('/createAListing/', methods=['POST'])
 def my_listings():
     database.add_listing(Listing(**request.form))
+    return {"status": "success"}
 
 
 if __name__ == '__main__':

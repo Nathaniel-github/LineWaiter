@@ -40,7 +40,11 @@ class Database:
             print(e)
 
     def add_user(self, user: User):
-        return self.db.users.insert_one(vars(user)).inserted_id
+        if self.db.users.find_one({"username": user.username}) is not None:
+            return False
+        else:
+            self.db.users.insert_one(vars(user))
+            return True
 
     def get_user(self, username: str):
         return User(**self.db.users.find_one({"username": username}))
