@@ -47,7 +47,12 @@ class Database:
             return True
 
     def get_user(self, username: str):
-        return User(**self.db.users.find_one({"username": username}))
+        user = self.db.users.find_one({"username": username})
+        if user is not None:
+            del user['_id']
+            return User(**user)
+        else:
+            return None
 
     def add_listing(self, listing: Listing):
         return self.db.listings.insert_one(vars(listing)).inserted_id
