@@ -23,29 +23,31 @@ function Home() {
     // }
 
     const [data, setData] = useState([{}])
+    const [origData, setOrigData] = useState([{}])
 
     useEffect(() => {
         fetch("/allListings").then(
             res=> res.json()
         ).then(
             data => {
-                setData(data)
+                setOrigData(data)
                 console.log(data)
             }
         )
     }, []);
 
   const handleSearch = (query) => {
-  const filtered = data.filter(item =>
-    item.title?.toLowerCase().includes(query.toLowerCase())
+  const filtered = origData.filter(item =>
+    item.name?.toLowerCase().includes(query.toLowerCase())
   );
+  console.log(filtered)
   setData(filtered);
 };
 
     const listingsMap = data.map(
-        ({ title, location, time, duration, price, description}) => (
+        ({ name, location, time, duration, price, description}) => (
             <Listing
-                title={title}
+                title={name}
                 location={location}
                 time={time}
                 duration={duration}
