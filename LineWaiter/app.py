@@ -92,14 +92,7 @@ def create_an_account():
 #
 @app.route('/allListings')
 def get_listings():
-    return [{"title": "title", "location": "location1", "time": "time1", "duration": "duration1", "price": "price1", "description": "description1"},
-            {"title": "title", "location": "location1", "time": "time1", "duration": "duration1", "price": "price1", "description": "description1"},
-            {"title": "title", "location": "location1", "time": "time1", "duration": "duration1", "price": "price1", "description": "description1"},
-            {"title": "title", "location": "location1", "time": "time1", "duration": "duration1", "price": "price1", "description": "description1"},
-            {"title": "title", "location": "location1", "time": "time1", "duration": "duration1", "price": "price1", "description": "description1"},
-            {"title": "title", "location": "location1", "time": "time1", "duration": "duration1", "price": "price1", "description": "description1"},
-            {"title": "title1", "location": "location1", "time": "time1", "duration": "duration1", "price": "price1", "description": "description1"}]
-    #return {"all_listings": database.get_all_listings()}
+    return database.get_all_listings()
 @app.route('/search', methods=['POST'])
 def search():
     query = request.form.get('query')
