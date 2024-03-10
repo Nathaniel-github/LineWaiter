@@ -16,35 +16,52 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    console.log(username);
-    console.log(password)
+  console.log(username);
+  console.log(sha3_256(password))
 
-    const data = {
-      username: username,
-      password: sha3_256(password),
-    };
-    console.log(data);
-
-    fetch('/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then(response => {
-      // Check if the response is successful
-      if (response.ok) {
-        // Parse the response data as JSON
-        console.log(response.json());
-      } else {
-        // Handle the error
-        throw new Error('Error: ' + response.status);
-      }
-    })
+  const data = {
+    username: username,
+    password: sha3_256(password),
   };
+  console.log(data);
+
+  fetch('/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    // Check if the response is successful
+    if (response.ok) {
+      // Parse the response data as JSON
+      return response.json();
+    } else {
+      // Handle the error
+      throw new Error('Error: ' + response.status);
+    }
+  })
+  .then(data => {
+    // Access the result sent back by Flask and get the "auth" key
+    if (data.auth === "success") {
+      // Authentication successful, do something
+      console.log("Authentication successful");
+    } else if (data.auth === "failure") {
+      // Authentication failed, do something else
+      console.log("Authentication failed");
+    } else {
+      console.log("other error")
+    }
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the fetch
+    console.error('Fetch Error:', error);
+  });
+};
 
   return (
     <div className={styles.login}> {/* Use className from CSS module */}

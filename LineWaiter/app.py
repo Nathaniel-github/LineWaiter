@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 
 import os
 from dotenv import load_dotenv
@@ -7,6 +8,7 @@ from db import Listing, Database, User
 
 
 app = Flask(__name__)
+CORS(app)
 load_dotenv(".env")
 DB_PSWD = os.getenv("DB_PSWD")
 database = Database(DB_PSWD)
@@ -14,14 +16,18 @@ database = Database(DB_PSWD)
 @app.route('/login/', methods=['POST'])
 def login():
     try:
-        username = request.form['username']
-        password = request.form['password']
+        username = request.json['username']
+        password = request.json['password']
+        print(username, password)
+        print("reached")
         user = database.get_user(username)
+        print("reached2")
         if user.password == password:
             return {"auth": "success"}
         else:
             return {"auth": "failure"}
     except:
+        print("error failure")
         return {"auth": "failure"}
 
 

@@ -38,15 +38,15 @@ const SignupForm = ( ) => {
       console.log(password[""]);
     console.log(JSON.stringify(data));
 
-    // fetch('/createAnAccount/', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(data)
-    // }).then(res => {
-    //     console.log(res);
-    // })
+    fetch('/createAnAccount/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(res => {
+        console.log(res);
+    })
 
   };
 
