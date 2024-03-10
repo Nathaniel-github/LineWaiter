@@ -5,13 +5,15 @@
     justify-content: space-between;
     background: #000;
     color: #fff;
-    padding: 20px 7%;
+    padding: 20px 0; /* Adjust padding as needed */
 }
 
 ul {
     flex: 1;
     list-style: none;
     text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 ul li {
@@ -21,6 +23,11 @@ ul li {
     cursor: pointer;
 }
 
-a:visited {
+a {
     color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

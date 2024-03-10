@@ -5,9 +5,12 @@ import Box from '@mui/material/Box';
 
 const CreateListing = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    title: '',
+    location: '',
+    time: '',
+    duration: '',
+    price: '',
+    description: ''
   });
 
   const handleChange = (e) => {
