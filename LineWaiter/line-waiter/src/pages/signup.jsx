@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
 import './login.module.css'
 import { FaUser, FaLock } from 'react-icons/fa'
 import { sha3_256 } from 'js-sha3'
@@ -36,7 +35,7 @@ const SignupForm = ( ) => {
     };
     console.log("reached");
     // Handle form submission logic here
-    console.log(data);
+    console.log(JSON.stringify(data));
 
     fetch('/createAnAccount/', {
         method: 'POST',
