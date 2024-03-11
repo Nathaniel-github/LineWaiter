@@ -46,7 +46,7 @@ def create_an_account():
 
 @app.route('/allListings', methods=['GET'])
 def get_listings():
-    print("session username: ",session['username'])
+    #print("session username: ",session['username'])
     return database.get_all_listings()
 
 
