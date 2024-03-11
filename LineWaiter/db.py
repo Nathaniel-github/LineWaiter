@@ -10,7 +10,7 @@ class User:
 
 
 class Listing:
-    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None):
+    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None, user_accepted=None):
         if name:
             self.name = name
         if location:
@@ -25,6 +25,8 @@ class Listing:
             self.description = description
         if username:
             self.username = username
+        if user_accepted:
+            self.user_accepted = user_accepted
 
 
 class Database:
