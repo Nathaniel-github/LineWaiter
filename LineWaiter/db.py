@@ -1,16 +1,20 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from bson import ObjectId
 
 
 class User:
     def __init__(self, username, password):
         self.username = username
         self.password = password
+        self.accepted_listings=[]
         #self.email = email
+    def accept_listing(self,listing_id):
+        self.accepted_listings.append(listing_id)
 
 
 class Listing:
-    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None):
+    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None, user_accepted=None):
         if name:
             self.name = name
         if location:
@@ -25,6 +29,8 @@ class Listing:
             self.description = description
         if username:
             self.username = username
+        if user_accepted:
+            self.user_accepted = user_accepted
 
 
 class Database:
@@ -60,16 +66,16 @@ class Database:
     def get_listings(self, query: Listing):
         all_listings = []
         for listing in self.db.listings.find(vars(query)):
-            del listing['_id']
+            listing['_id'] = str(listing['_id'])
             all_listings.append(listing)
         return all_listings
 
     def get_all_listings(self):
         all_listings = []
         for listing in self.db.listings.find():
-            del listing['_id']
+            listing['_id'] = str(listing['_id'])
             all_listings.append(listing)
         return all_listings
 
-
-
+    def delete_listing(self, _id):
+        return self.db.listings.delete_one({"_id": ObjectId(_id)})

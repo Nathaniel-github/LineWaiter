@@ -1,3 +1,4 @@
+from bson import ObjectId  # Import ObjectId from bson module
 from flask import Flask, request, jsonify, session
 from flask_cors import CORS
 
@@ -5,6 +6,7 @@ import os
 from dotenv import load_dotenv
 
 from db import Listing, Database, User
+
 import re
 
 app = Flask(__name__)
@@ -85,6 +87,22 @@ def create_a_listing():
     except Exception as e:
         print(f"Error adding listing: {str(e)}")
         return jsonify({"status": "success", "listing_id": str(listing_id)})
+
+@app.route('/deleteAListing/', methods=['POST'])
+def delete_a_listing():
+    try:
+        name=request.json.get('name')
+        description=request.json.get('description')
+        # Use the delete_listing method from your Database class
+        deleted = database.delete_listing(name,description)
+
+        if deleted:
+            return {"status": "success"}
+        else:
+            return {"status": "failure", "message": "Listing not found or unable to delete."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
 
 
 
