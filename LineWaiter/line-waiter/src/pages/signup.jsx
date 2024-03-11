@@ -3,12 +3,15 @@ import './login.module.css'
 import { FaUser, FaLock } from 'react-icons/fa'
 import { sha3_256 } from 'js-sha3'
 import styles from "./login.module.css";
+import { Link } from 'react-router-dom';
+
 
 const SignupForm = ( ) => {
 
     const [username, setUsername] = useState('');
 
     const [password, setPassword] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleChangeUsername = (e) => {
         const { name, value } = e.target;
@@ -38,17 +41,28 @@ const SignupForm = ( ) => {
       console.log(password[""]);
     console.log(JSON.stringify(data));
 
-    // fetch('/createAnAccount/', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(data)
-    // }).then(res => {
-    //     console.log(res);
-    // })
+    fetch('/createAnAccount/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                setSuccessMessage("Account created successfully! Please return to login page: ");
+            } else {
+                setSuccessMessage("Account creation failed. Account already exists, please return to login page: ");
+            }
 
-  };
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            setSuccessMessage("Error occurred during account creation");
+        });
+    };
 
     return (
         <div className={styles.login}> {/* Use className from CSS module */}
@@ -65,6 +79,8 @@ const SignupForm = ( ) => {
                     </div>
                     <button type="submit" onClick={handleSubmit}>Sign Up</button>
                 </form>
+                    {successMessage && <p className={styles['sign-up-success-message']}>{successMessage}<Link to ="/login">Login</Link></p>}
+
             </div>
         </div>
     )

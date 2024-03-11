@@ -1,12 +1,16 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from bson import ObjectId
 
 
 class User:
     def __init__(self, username, password):
         self.username = username
         self.password = password
+        self.accepted_listings=[]
         #self.email = email
+    def accept_listing(self,listing_id):
+        self.accepted_listings.append(listing_id)
 
 
 class Listing:
@@ -72,6 +76,10 @@ class Database:
             del listing['_id']
             all_listings.append(listing)
         return all_listings
+
+
+    def delete_listing(self, name, description):
+        result = self.db.listings.delete_one({"name": name, "description": description})
 
 
 

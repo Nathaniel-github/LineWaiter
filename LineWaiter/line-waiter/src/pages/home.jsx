@@ -8,27 +8,30 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
-    const [user, setUser] = useState(false)
-
-    useEffect(() => {
-        localStorage.setItem("user", "none");
-        const loggedInUser = localStorage.getItem("user");
-        setUser(false);
+    const navigate = useNavigate();
+     useEffect(() => {
+         const loggedInUser = localStorage.getItem("user");
+         if (loggedInUser !== "none") {
+            console.log("logged in");
+         } else {
+           navigate('/');
+         }
     }, []);
 
-    const navigate = useNavigate();
-    if (user === false) {
-        console.log("here2")
-        navigate('/');
-    }
+    const loggedInUser = localStorage.getItem("user");
+    console.log(loggedInUser);
 
     const [data, setData] = useState([{}])
+    const [origData, setOrigData] = useState([{}])
 
     useEffect(() => {
-        fetch("/allListings").then(
+        fetch("/allListings",{credentials: 'include'})
+            .then(
             res=> res.json()
+
         ).then(
             data => {
+                setOrigData(data)
                 setData(data)
                 console.log(data)
             }
@@ -36,16 +39,17 @@ function Home() {
     }, []);
 
   const handleSearch = (query) => {
-  const filtered = data.filter(item =>
-    item.title?.toLowerCase().includes(query.toLowerCase())
+  const filtered = origData.filter(item =>
+    item.name?.toLowerCase().includes(query.toLowerCase())
   );
+  console.log(filtered)
   setData(filtered);
 };
 
     const listingsMap = data.map(
-        ({ title, location, time, duration, price, description}) => (
+        ({ name, location, time, duration, price, description}) => (
             <Listing
-                title={title}
+                title={name}
                 location={location}
                 time={time}
                 duration={duration}

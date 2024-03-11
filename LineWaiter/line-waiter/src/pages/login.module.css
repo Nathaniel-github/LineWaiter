@@ -113,3 +113,16 @@
 .wrapper .register-link p a:hover {
   text-decoration: underline;
 }
+
+.sign-up-success-message {
+  margin-top: 1rem;
+}
+
+.sign-up-success-message a{
+  font-weight: 600;
+}
+
+.login-success-message {
+  color:red;
+  font-weight:600;
+}
