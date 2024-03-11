@@ -26,8 +26,10 @@ function Home() {
     const [origData, setOrigData] = useState([{}])
 
     useEffect(() => {
-        fetch("/allListings").then(
+        fetch("/allListings",{credentials: 'include'})
+            .then(
             res=> res.json()
+
         ).then(
             data => {
                 setOrigData(data)

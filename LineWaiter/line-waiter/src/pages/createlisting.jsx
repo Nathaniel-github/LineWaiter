@@ -11,7 +11,7 @@ const CreateListing = () => {
     duration: '',
     price: '',
     description: '',
-    username: ''
+    // username: ''
   });
 
   const handleChange = (e) => {
@@ -34,7 +34,7 @@ const CreateListing = () => {
     duration: formData.duration,
     price: formData.price,
     description: formData.description,
-    username: formData.username
+    // username: formData.username
   };
     // Handle form submission logic here
     console.log("formData", data);
@@ -44,6 +44,7 @@ const CreateListing = () => {
     headers: {
       'Content-Type': 'application/json'
     },
+    credentials: 'include',
     body: JSON.stringify(data)
   })
     .then((res) => res.json())
@@ -120,15 +121,15 @@ const CreateListing = () => {
           value={formData.description}
           onChange={handleChange}
         />
-         <TextField
-          label="Username"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-        />
+        {/* <TextField*/}
+        {/*  label="Username"*/}
+        {/*  variant="outlined"*/}
+        {/*  fullWidth*/}
+        {/*  margin="normal"*/}
+        {/*  name="username"*/}
+        {/*  value={formData.username}*/}
+        {/*  onChange={handleChange}*/}
+        {/*/>*/}
         <Button variant="contained" color="primary" type="submit">
           Submit
         </Button>

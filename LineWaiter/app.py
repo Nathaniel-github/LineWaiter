@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session
 from flask_cors import CORS
 
 import os
@@ -8,7 +8,11 @@ from db import Listing, Database, User
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
+
+#generate secrete key for user
+app.secret_key=os.urandom(24)
+
 load_dotenv(".env")
 DB_PSWD = os.getenv("DB_PSWD")
 database = Database(DB_PSWD)
@@ -23,6 +27,7 @@ def login():
         user = database.get_user(username)
         print("reached2")
         if user.password == password:
+            session['username']=username
             return {"auth": "success"}
         else:
             return {"auth": "failure"}
@@ -41,6 +46,7 @@ def create_an_account():
 
 @app.route('/allListings', methods=['GET'])
 def get_listings():
+    print("session username: ",session['username'])
     return database.get_all_listings()
 
 
@@ -50,11 +56,14 @@ def search():
 
 
 @app.route('/createAListing/', methods=['POST'])
-def my_listings():
+def create_a_listing():
     try:
+        username=session.get('username',None)
         data = request.get_json()
+        data['username']=username
         print("Received Data:", data)
         listing_id = database.add_listing(Listing(**data))
+
         return jsonify({"status": "success", "listing_id": str(listing_id)})
 
     except Exception as e:
