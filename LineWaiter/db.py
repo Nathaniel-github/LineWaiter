@@ -1,5 +1,6 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from bson import ObjectId
 
 
 class User:
@@ -73,6 +74,10 @@ class Database:
             del listing['_id']
             all_listings.append(listing)
         return all_listings
+
+
+    def delete_listing(self, name, description):
+        result = self.db.listings.delete_one({"name": name, "description": description})
 
 
 
