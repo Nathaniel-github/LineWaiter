@@ -8,19 +8,24 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
-    //const [user, setUser] = useState(false)
+    const [user, setUser] = useState(false)
 
-    // useEffect(() => {
-    //     localStorage.setItem("user", "none");
-    //     const loggedInUser = localStorage.getItem("user");
-    //     setUser(false);
-    // }, []);
-    //
-    // const navigate = useNavigate();
-    // if (user === false) {
-    //     console.log("here2")
-    //     navigate('/');
-    // }
+     useEffect(() => {
+         const loggedInUser = localStorage.getItem("user");
+         if (loggedInUser !== "none") {
+            setUser(true);
+         } else {
+             setUser(false);
+         }
+    }, []);
+
+    const navigate = useNavigate();
+    if (user === false) {
+        navigate('/')
+    }
+
+    const loggedInUser = localStorage.getItem("user");
+    console.log(loggedInUser);
 
     const [data, setData] = useState([{}])
     const [origData, setOrigData] = useState([{}])

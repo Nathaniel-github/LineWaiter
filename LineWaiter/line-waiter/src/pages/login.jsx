@@ -5,6 +5,9 @@ import {FaLock, FaUser} from "react-icons/fa"; // Import CSS module
 import { sha3_256 } from 'js-sha3'
 
 const LoginForm = () => {
+
+  localStorage.setItem("user", "none");
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -52,11 +55,13 @@ const handleSubmit = (e) => {
     if (data.auth === "success") {
       // Authentication successful, do something
       console.log("Authentication successful");
+      localStorage.setItem("user", username);
       window.location.href='/home';
 
     } else if (data.auth === "failure") {
       // Authentication failed, do something else
       console.log("Authentication failed");
+      localStorage.setItem("user", "none");
       setSuccessMessage("Invalid login");
 
     } else {

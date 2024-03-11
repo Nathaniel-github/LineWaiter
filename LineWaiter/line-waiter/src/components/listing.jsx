@@ -1,6 +1,6 @@
 import './listing.css'
 
-const Listing = ({ title, location, time, duration, price, description }) => {
+const Listing = ({ title, location, time, duration, price, description, username }) => {
     return (
         <>
             <section className="listing-container">
