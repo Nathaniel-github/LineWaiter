@@ -74,9 +74,9 @@ def search():
 @app.route('/createAListing/', methods=['POST'])
 def create_a_listing():
     try:
-        username=session.get('username',None)
+        #username=session.get('username',None)
         data = request.get_json()
-        data['username']=username
+        #data['username']=username
         print("Received Data:", data)
         listing_id = database.add_listing(Listing(**data))
 

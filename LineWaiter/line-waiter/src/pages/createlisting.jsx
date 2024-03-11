@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import {useNavigate} from "react-router-dom";
 
 const CreateListing = () => {
+
+    const navigate = useNavigate();
+     useEffect(() => {
+         const loggedInUser = localStorage.getItem("user");
+         if (loggedInUser !== "none") {
+            console.log("logged in");
+         } else {
+           navigate('/');
+         }
+    }, []);
+
   const [formData, setFormData] = useState({
     title: '',
     location: '',
@@ -34,7 +46,7 @@ const CreateListing = () => {
     duration: formData.duration,
     price: formData.price,
     description: formData.description,
-    // username: formData.username
+    username: localStorage.getItem("user")
   };
     // Handle form submission logic here
     console.log("formData", data);
