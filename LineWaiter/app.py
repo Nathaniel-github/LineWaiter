@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 
 from db import Listing, Database, User
-
+import re
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -36,12 +36,28 @@ def login():
         return {"auth": "failure"}
 
 
+
+
 @app.route('/createAnAccount/', methods=['POST'])
 def create_an_account():
-    if database.add_user(User(**request.json)):
-        return {"status": "success"}
-    else:
-        return {"status": "failure"}
+    try:
+        username = request.json['username']
+        password = request.json['password']
+        # Check if password meets the required criteria using regex
+        if not (len(password) >= 12 and
+                re.search(r'[A-Z]', password) and
+                re.search(r'[a-z]', password) and
+                re.search(r'[0-9]', password) and
+                re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
+            return jsonify({"status": "failure", "message": "Password does not meet the criteria."})
+        # If password is correctly formatted, proceed with creating the account
+        if database.add_user(User(**request.json)):
+            return {"status": "success"}
+        else:
+            return {"status": "failure"}
+    except KeyError:
+        return {"status": "failure", "message": "Username or password not provided."}
+
 
 
 @app.route('/allListings', methods=['GET'])
