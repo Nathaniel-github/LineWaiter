@@ -31,6 +31,7 @@ function Home() {
         ).then(
             data => {
                 setOrigData(data)
+                setData(data)
                 console.log(data)
             }
         )
