@@ -66,20 +66,16 @@ class Database:
     def get_listings(self, query: Listing):
         all_listings = []
         for listing in self.db.listings.find(vars(query)):
-            del listing['_id']
+            listing['_id'] = str(listing['_id'])
             all_listings.append(listing)
         return all_listings
 
     def get_all_listings(self):
         all_listings = []
         for listing in self.db.listings.find():
-            del listing['_id']
+            listing['_id'] = str(listing['_id'])
             all_listings.append(listing)
         return all_listings
 
-
-    def delete_listing(self, name, description):
-        result = self.db.listings.delete_one({"name": name, "description": description})
-
-
-
+    def delete_listing(self, _id):
+        return self.db.listings.delete_one({"_id": ObjectId(_id)})
