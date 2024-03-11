@@ -1,6 +1,11 @@
 import './listing.css'
 
-const Listing = ({ title, location, time, duration, price, description, username }) => {
+const Listing = ({ title, location, time, duration, price, description, username, user }) => {
+
+    const handleSubmit = () => {
+
+    }
+
     return (
         <>
             <section className="listing-container">
@@ -15,7 +20,7 @@ const Listing = ({ title, location, time, duration, price, description, username
                     </section>
                     <br />
                     <div className="listing-submit">
-                        <button className="accept-button">Accept Listing</button>
+                        <button className="accept-button" onClick={handleSubmit}>Accept Listing</button>
                     </div>
                 </section>
             </section>

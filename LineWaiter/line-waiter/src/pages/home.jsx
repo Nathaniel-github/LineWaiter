@@ -55,6 +55,7 @@ function Home() {
                 duration={duration}
                 price={price}
                 description={description}
+                user={loggedInUser}
             />
         )
     );
