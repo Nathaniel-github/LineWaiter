@@ -91,10 +91,9 @@ def create_a_listing():
 @app.route('/deleteAListing/', methods=['POST'])
 def delete_a_listing():
     try:
-        name=request.json.get('name')
-        description=request.json.get('description')
+        _id = request.json.get('_id')
         # Use the delete_listing method from your Database class
-        deleted = database.delete_listing(name,description)
+        deleted = database.delete_listing(_id)
 
         if deleted:
             return {"status": "success"}
@@ -109,7 +108,7 @@ def accept_listing():
     try:
         username = request.json.get('username')
         listing_id = request.json.get('_id')
-        # Use the accept_listing method from your Database class
+
         accepted = database.accept_listing(username, listing_id)
 
         if accepted:
