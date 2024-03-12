@@ -1,6 +1,6 @@
 import './listing.css'
 
-const MyListingsListing = ({ title, location, time, duration, price, description, username }) => {
+const MyListingsListing = ({ _id, title, location, time, duration, price, description, username }) => {
     const handleDeleteClick = (e) => {
         try {
             const response = fetch('/deleteAListing/', {
@@ -8,7 +8,7 @@ const MyListingsListing = ({ title, location, time, duration, price, description
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({name: title, description: description}),
+                body: JSON.stringify({_id}),
             });
 
  } catch (error) {

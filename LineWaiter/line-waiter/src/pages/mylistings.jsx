@@ -40,8 +40,9 @@ function MyListings() {
   );
 
     const listingsMap = filtered.map(
-        ({ name, location, time, duration, price, description}) => (
+        ({ _id, name, location, time, duration, price, description}) => (
             <MyListingsListing
+                 _id={_id}
                 title={name}
                 location={location}
                 time={time}
