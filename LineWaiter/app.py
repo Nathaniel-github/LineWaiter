@@ -104,6 +104,21 @@ def delete_a_listing():
     except Exception as e:
         return {"status": "failure", "message": str(e)}
 
+@app.route('/acceptListing/', methods=['POST'])
+def accept_listing():
+    try:
+        username = request.json.get('username')
+        listing_id = request.json.get('_id')
+        # Use the accept_listing method from your Database class
+        accepted = database.accept_listing(username, listing_id)
+
+        if accepted:
+            return {"status": "success"}
+        else:
+            return {"status": "failure", "message": "Listing not found or unable to accept."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
 
 
 if __name__ == '__main__':
