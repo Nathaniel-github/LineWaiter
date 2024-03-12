@@ -111,12 +111,18 @@ def accept_listing():
 
         accepted = database.accept_listing(username, listing_id)
 
+        print(username)
+        print(listing_id)
+        print(username, listing_id)
+
         if accepted:
             return {"status": "success"}
         else:
+            print("actual failure", str(accepted))
             return {"status": "failure", "message": "Listing not found or unable to accept."}
 
     except Exception as e:
+        print("failure due to error")
         return {"status": "failure", "message": str(e)}
 
 

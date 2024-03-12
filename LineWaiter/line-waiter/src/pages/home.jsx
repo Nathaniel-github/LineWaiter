@@ -47,7 +47,7 @@ function Home() {
 };
 
     const listingsMap = data.map(
-        ({ name, location, time, duration, price, description}) => (
+        ({ name, location, time, duration, price, description, _id}) => (
             <Listing
                 title={name}
                 location={location}
@@ -56,6 +56,7 @@ function Home() {
                 price={price}
                 description={description}
                 user={loggedInUser}
+                id={_id}
             />
         )
     );

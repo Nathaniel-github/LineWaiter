@@ -1,9 +1,34 @@
 import './listing.css'
 
-const Listing = ({ title, location, time, duration, price, description, username, user }) => {
+const Listing = ({ title, location, time, duration, price, description, username, user, id }) => {
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        const data = {
+            username: user,
+            _id: id
+        }
 
+        console.log(data)
+
+        fetch('/acceptListing/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                console.log("accepted listing");
+            } else {
+                console.log("couldn't accept listing")
+            }
+
+        })
+        .catch(error => {
+            console.log("couldn't accept listing due to error");
+        });
     }
 
     return (
