@@ -82,4 +82,4 @@ class Database:
         return self.db.listings.delete_one({"_id": ObjectId(_id)})
 
     def accept_listing(self, username, listing_id):
-        return self.db.users.update_one({"_id": listing_id}, {"$set": {"user_accepted": username}}).modified_count > 0
+        return self.db.users.update_one({"_id": ObjectId(listing_id)}, {"$set": {"user_accepted": username}}).modified_count > 0
