@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import styles from "./login.module.css";
 
 const CreateListing = () => {
+    const [successMessage, setSuccessMessage] = useState('');
 
     const navigate = useNavigate();
      useEffect(() => {
@@ -63,12 +65,16 @@ const CreateListing = () => {
     .then((data) => {
       if (data.status === 'success') {
         console.log('Listing created successfully!');
-        // Optionally, you can redirect the user or perform other actions upon successful listing creation.
+        setSuccessMessage('Listing created successfully! View under "My Listings"');
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       } else {
         console.log('Failed to create listing.');
-        // Handle failure, show an error message, etc.
       }
     })
+
+
     .catch((error) => {
       console.error('Error:', error);
       // Handle errors, show an error message, etc.
@@ -78,6 +84,8 @@ const CreateListing = () => {
   return (
     <Box sx={{ maxWidth: 400, margin: 'auto', padding: 3, backgroundColor: '#f4f4f4', borderRadius: 4 }}>
       <h2>Create a Listing</h2>
+            {successMessage && <p className={styles['sign-up-success-message']}>{successMessage}</p>}
+
       <form onSubmit={handleSubmit}>
         <TextField
           label="Title of Listing"
@@ -133,19 +141,12 @@ const CreateListing = () => {
           value={formData.description}
           onChange={handleChange}
         />
-        {/* <TextField*/}
-        {/*  label="Username"*/}
-        {/*  variant="outlined"*/}
-        {/*  fullWidth*/}
-        {/*  margin="normal"*/}
-        {/*  name="username"*/}
-        {/*  value={formData.username}*/}
-        {/*  onChange={handleChange}*/}
-        {/*/>*/}
+
         <Button variant="contained" color="primary" type="submit">
           Submit
         </Button>
       </form>
+
     </Box>
   );
 };

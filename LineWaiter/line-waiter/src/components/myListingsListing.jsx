@@ -9,7 +9,10 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({_id}),
+
             });
+
+            window.location.reload();
 
  } catch (error) {
             console.error('Error:', error);
