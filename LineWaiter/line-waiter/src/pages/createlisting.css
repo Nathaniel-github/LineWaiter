@@ -1,0 +1,61 @@
+body {
+    background: linear-gradient(135deg, #A1FFCE 10%, #FAFFD1 100%); /* Soft gradient background */
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #333;
+}
+
+h2 {
+    color: #333652; /* Dark, for contrast against the lighter background */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* More pronounced shadow for depth */
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for depth */
+    padding: 20px;
+    border: 1px solid #ddd; /* Subtle border */
+}
+
+.MuiTextField-root {
+    background-color: #F0F8FF; /* Light blue background for input fields */
+    border-radius: 5px; /* Rounded corners for the input fields */
+    border: 1px solid #ccc; /* Slight border for definition */
+}
+
+.MuiInputBase-input {
+    color: #555; /* Darker text color for readability */
+}
+
+.MuiButton-root {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #4CAF50; /* Vibrant green button */
+    color: white;
+    padding: 10px 0;
+}
+
+.MuiButton-root:hover {
+    background-color: #45A049; /* Slightly darker green on hover */
+}
+
+.sign-up-success-message {
+    color: #4CAF50; /* Echoing the button color for consistency */
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px 0;
+    background-color: #EBF5EB; /* Light green background for the message */
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.MuiBox-root {
+    max-width: 500px;
+    margin: auto;
+    padding: 3rem;
+    background-color: rgba(255, 255, 255, 0.95); /* More opaque white for form background */
+    border-radius: 8px; /* Consistent rounded corners */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for more pop */
+}
