@@ -17,6 +17,7 @@ load_dotenv(".env")
 DB_PSWD = os.getenv("DB_PSWD")
 database = Database(DB_PSWD)
 
+
 @app.route('/login/', methods=['POST'])
 def login():
     try:
@@ -35,8 +36,6 @@ def login():
         return {"auth": "failure"}
 
 
-
-
 @app.route('/createAnAccount/', methods=['POST'])
 def create_an_account():
     try:
@@ -48,7 +47,6 @@ def create_an_account():
             return {"status": "failure"}
     except KeyError:
         return {"status": "failure", "message": "Username or password not provided."}
-
 
 
 @app.route('/allListings', methods=['GET'])
@@ -74,6 +72,7 @@ def create_a_listing():
         print(f"Error adding listing: {str(e)}")
         return jsonify({"status": "success", "listing_id": str(listing_id)})
 
+
 @app.route('/deleteAListing/', methods=['POST'])
 def delete_a_listing():
     try:
@@ -87,6 +86,7 @@ def delete_a_listing():
 
     except Exception as e:
         return {"status": "failure", "message": str(e)}
+
 
 @app.route('/acceptListing/', methods=['POST'])
 def accept_listing():
@@ -108,6 +108,21 @@ def accept_listing():
 
     except Exception as e:
         print("failure due to error")
+        return {"status": "failure", "message": str(e)}
+
+
+@app.route('/placeBid/', methods=['POST'])
+def place_bid():
+    try:
+        listing_id = request.json.get('listing_id')
+        bid = request.json.get('bid')
+
+        if database.add_bid(listing_id, bid):
+            return {"status": "success"}
+        else:
+            return {"status": "failure", "message": "Listing not found or unable to place bid."}
+
+    except Exception as e:
         return {"status": "failure", "message": str(e)}
 
 

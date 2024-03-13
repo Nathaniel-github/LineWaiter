@@ -14,7 +14,7 @@ class User:
 
 
 class Listing:
-    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None, user_accepted=None):
+    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None, user_accepted="", bids=None):
         if name:
             self.name = name
         if location:
@@ -31,6 +31,8 @@ class Listing:
             self.username = username
         if user_accepted:
             self.user_accepted = user_accepted
+        if bids:
+            self.bids = bids
 
 
 class Database:
@@ -86,3 +88,6 @@ class Database:
 
     def accept_listing(self, username, listing_id):
         return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$set": {"user_accepted": username}}).modified_count > 0
+
+    def add_bid(self, listing_id, bid):
+        return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$push": {"bids": bid}}).modified_count > 0
