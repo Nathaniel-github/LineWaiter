@@ -24,6 +24,8 @@ const Listing = ({ title, location, time, duration, price, description, username
             } else {
                 console.log("couldn't accept listing")
             }
+                        window.location.reload();
+
 
         })
         .catch(error => {
@@ -35,13 +37,13 @@ const Listing = ({ title, location, time, duration, price, description, username
         <>
             <section className="listing-container">
                 <section className="listing">
-                    <h3 className="listing-title">{title}</h3>
+                    <h3 className="listing-title">title: {title}</h3>
                     <section className="listing-details">
-                        <h2 className="listing-subtext">{location}</h2>
-                        <h2 className="listing-subtext">{time}</h2>
-                        <h2 className="listing-subtext">{duration}</h2>
-                        <h2 className="listing-subtext">{price}</h2>
-                        <h2 className="listing-subtext">{description}</h2>
+                        <h2 className="listing-subtext">location: {location}</h2>
+                        <h2 className="listing-subtext">time: {time}</h2>
+                        <h2 className="listing-subtext">duration: {duration}</h2>
+                        <h2 className="listing-subtext">price: {price}</h2>
+                        <h2 className="listing-subtext">description: {description}</h2>
                     </section>
                     <br />
                     <div className="listing-submit">
