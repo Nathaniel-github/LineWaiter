@@ -30,7 +30,7 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
                         <section className="listing-details">
                             <h2 className="listing-subtext">location: {location}</h2>
                             <h2 className="listing-subtext">time: {time}</h2>
-                            <h2 className="listing-subtext">duration: {duration}</h2>
+                            <h2 className="listing-subtext">duration in minutes: {duration}</h2>
                             <h2 className="listing-subtext">price: {price}</h2>
                             <h2 className="listing-subtext">description: {description}</h2>
                         </section>
