@@ -31,19 +31,25 @@ function Home() {
 
         ).then(
             data => {
-                setOrigData(data)
-                setData(data)
-                console.log(data)
+                const newData = data.filter(item =>
+                    item.user_accepted === ""
+                );
+                setOrigData(newData)
+                setData(newData)
+                console.log("newData")
+                console.log(newData)
             }
         )
     }, []);
 
+    console.log(origData);
+
   const handleSearch = (query) => {
-  const filtered = origData.filter(item =>
-    item.name?.toLowerCase().includes(query.toLowerCase())
-  );
-  console.log(filtered)
-  setData(filtered);
+    const filtered = origData.filter(item =>
+        item.name?.toLowerCase().includes(query.toLowerCase())
+    );
+    console.log(filtered)
+    setData(filtered);
 };
 
     const listingsMap = data.map(

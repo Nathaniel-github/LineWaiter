@@ -48,7 +48,8 @@ const CreateListing = () => {
     duration: formData.duration,
     price: formData.price,
     description: formData.description,
-    username: localStorage.getItem("user")
+    username: localStorage.getItem("user"),
+    user_accepted: false
   };
     // Handle form submission logic here
     console.log("formData", data);
