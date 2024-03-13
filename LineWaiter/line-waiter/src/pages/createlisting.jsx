@@ -49,7 +49,6 @@ const CreateListing = () => {
     price: formData.price,
     description: formData.description,
     username: localStorage.getItem("user"),
-    user_accepted: "",
   };
 
     // Handle form submission logic here

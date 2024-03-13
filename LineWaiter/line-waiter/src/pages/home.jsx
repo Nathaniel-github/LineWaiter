@@ -32,7 +32,7 @@ function Home() {
         ).then(
             data => {
                 const newData = data.filter(item =>
-                    (item.user_accepted === "")
+                    !(item.hasOwnProperty('user_accepted'))
                 );
                 console.log(newData);
                 setOrigData(newData)
@@ -40,6 +40,7 @@ function Home() {
                 console.log("newData")
                 console.log(newData)
             }
+
         )
     }, []);
 
