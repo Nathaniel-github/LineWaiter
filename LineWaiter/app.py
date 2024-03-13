@@ -58,9 +58,12 @@ def create_an_account():
         return {"status": "failure", "message": "Username or password not provided."}
 
 
-@app.route('/getUser', methods=['GET'])
+@app.route('/getUser', methods=['POST'])
 def get_user():
+    print("started")
     username = request.json.get('username')
+    print(username)
+    print(database.get_user(username))
     return database.get_user(username)
 
 
@@ -197,7 +200,6 @@ def get_lowest_bid():
         listing_id = request.json.get('listing_id')
 
         lowest_bid = database.get_lowest_bid(listing_id)
-
         if lowest_bid is not None:
             return {"status": "success", "lowest_bid": lowest_bid}
         else:

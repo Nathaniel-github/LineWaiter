@@ -22,6 +22,7 @@ function MyListings() {
     console.log(loggedInUser);
 
     const [origData, setOrigData] = useState([{}])
+    const [userEmail, setUserEmail] = useState([{}])
 
     useEffect(() => {
         fetch("/allListings",{credentials: 'include'})
@@ -59,7 +60,7 @@ function MyListings() {
     );
 
     const acceptedMap = filteredAccepted.map(
-        ({ _id, name, location, time, duration, price, description}) => (
+        ({ _id, name, location, time, duration, price, description, username}) => (
             <MyListingsAccepted
                  _id={_id}
                 title={name}
@@ -68,12 +69,13 @@ function MyListings() {
                 duration={duration}
                 price={price}
                 description={description}
+                username={username}
             />
         )
     );
 
-    console.log(filteredPosted);
-    console.log(filteredAccepted);
+    console.log(postedMap);
+    console.log(acceptedMap);
 
     return (
         <div className="mylistings-body">

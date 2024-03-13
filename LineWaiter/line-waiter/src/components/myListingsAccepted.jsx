@@ -4,24 +4,33 @@ import {useEffect, useState} from "react"
 
 const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username }) => {
     // State variable to manage the audio object
-    const [userEmail, setUserEmail] = useState('');
 
-    const [playSound] = useSound(process.env.PUBLIC_URL+ "/sad_cartoon_sound_effect.mp3");
+    console.log("starting")
 
-    fetch('/getUser/', {
-        method: 'GET',
+    // const [playSound] = useSound("/LineWaiter/LineWaiter/line-waiter/public/sad_cartoon_sound_effect.mp3");
+    console.log("username: " + username);
+
+    const [userEmail, setUserEmail] = useState('')
+    // const [playSound] = useSound(process.env.PUBLIC_URL+ "/sad_cartoon_sound_effect.mp3");
+
+    fetch('/getUser', {
+        method: 'POST',
         headers: {
          'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(username)
+        },
+        body: JSON.stringify({"username": username})
     })
     .then((res) => res.json())
     .then((data) => {
+        console.log("data")
+        console.log(data)
         setUserEmail(data.email) ;
     })
+    console.log("email");
+    console.log(userEmail)
     const handleDeleteClick = (e) => {
         try {
-            playSound();
+            //playSound();
             console.log("someAudioFile");
             const response = fetch('/unAcceptListing/', {
                 method: 'POST',
@@ -51,7 +60,6 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
                             <h2 className="listing-subtext">price in USD: {price}</h2>
                             <h2 className="listing-subtext">description: {description}</h2>
                             <h2 className="listing-subtext">lister email: {userEmail}</h2>
-
                         </section>
                         <br/>
                         <div className="listing-submit">

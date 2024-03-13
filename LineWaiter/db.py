@@ -117,7 +117,7 @@ class Database:
             for bid in listing['bids']:
                 for username, amt in bid.items():
                     if float(amt) < lowest_bid:
-                        lowest_bid = float(bid)
+                        lowest_bid = float(amt)
                         lowest_bid_user = username
             return {"username": lowest_bid_user, "bid": lowest_bid}
         else:

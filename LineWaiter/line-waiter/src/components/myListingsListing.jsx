@@ -1,6 +1,37 @@
 import './listing.css'
+import {useEffect, useState} from 'react';
 
 const MyListingsListing = ({ _id, title, location, time, duration, price, description, username }) => {
+
+    const [lowestBidAmount, setLowestBidAmount] = useState('');
+
+    useEffect(() => {
+        const data = {
+            listing_id: _id
+        }
+         fetch('/getLowestBid/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(data),
+        }).then(res => res.json()).then(
+            data => {
+                console.log(data);
+                if (data.status === "success") {
+                    setLowestBidAmount(data.lowest_bid.bid);
+                    console.log("success")
+                } else {
+                    setLowestBidAmount("N/A")
+                    console.log("failure")
+                }
+            }
+         )
+    }, []);
+
+    console.log("lowest bid amount: " + lowestBidAmount)
+
     const handleDeleteClick = (e) => {
         try {
             const response = fetch('/deleteAListing/', {
@@ -19,6 +50,20 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
         }
     };
 
+    const acceptLowestBid = (e) => {
+        const data = {
+            listing_id: _id
+        }
+
+        fetch('/acceptLowestBid/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(data),
+        })
+    }
 
         return (
             <>
@@ -32,15 +77,22 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
                             <h2 className="listing-subtext">price in USD: {price}</h2>
                             <h2 className="listing-subtext">description: {description}</h2>
                         </section>
-                        <br/>
                         <div className="listing-submit">
                             <button className="accept-button" onClick={handleDeleteClick}>Delete Listing</button>
+                        </div>
+                        <br/>
+                        <div className="listing-submit">
+                            <h1 className="listing-subtext">Lowest Bid Amount: {lowestBidAmount}</h1>
+                        </div>
+                        <br/>
+                        <div className="listing-submit">
+                            <button className="accept-button" onClick={acceptLowestBid}>Accept Lowest Bid</button>
                         </div>
                     </section>
                 </section>
             </>
         )
-    };
+};
 
 
 export default MyListingsListing;
