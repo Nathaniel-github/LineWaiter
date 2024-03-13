@@ -40,6 +40,7 @@ function Home() {
                 console.log("newData")
                 console.log(newData)
             }
+
         )
     }, []);
 
