@@ -107,7 +107,6 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
                         </div>
                         <div className="listing-submit">
                             <button className="accept-button" onClick={handleReady}>Ready!</button>
-                            <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
                         </div>
                     </section>
                 </section>
