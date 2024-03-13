@@ -130,9 +130,10 @@ def undo_accept_listing():
 def place_bid():
     try:
         listing_id = request.json.get('listing_id')
+        username = request.json.get('username')
         bid = request.json.get('bid')
 
-        if database.add_bid(listing_id, bid):
+        if database.add_bid(listing_id, username, bid):
             return {"status": "success"}
         else:
             return {"status": "failure", "message": "Listing not found or unable to place bid."}
@@ -154,53 +155,6 @@ def ready_listing():
     except Exception as e:
         return {"status": "failure", "message": str(e)}
 
-
-@app.route('/createChatroom/', methods=['POST'])
-def create_chatroom():
-    try:
-        chatroom_id = database.add_chatroom(Chatroom(**request.json))
-
-        return jsonify({"status": "success", "chatroom_id": str(chatroom_id)})
-
-    except Exception as e:
-        return jsonify({"status": "failure", "message": str(e)})
-
-
-@app.route('/getChatroom/', methods=['POST'])
-def get_chatroom():
-    try:
-        user1 = request.json.get('user1')
-        user2 = request.json.get('user2')
-
-        chatroom = database.get_chatroom(user1, user2)
-
-        if chatroom is not None:
-            return {"status": "success", "chatroom": chatroom}
-        else:
-            return {"status": "failure", "message": "Chatroom not found."}
-
-    except Exception as e:
-        return {"status": "failure", "message": str(e)}
-
-
-@app.route('/addMessage/', methods=['POST'])
-def add_message():
-    try:
-        user1 = request.json.get('user1')
-        user2 = request.json.get('user2')
-        message = Message(**request.json.get('message'))
-
-        chatroom = database.get_chatroom(user1, user2)
-
-        if chatroom is not None:
-            message_id = database.add_message(user1, user2, message)
-
-            return {"status": "success", "message_id": str(message_id)}
-        else:
-            return {"status": "failure", "message": "Chatroom not found."}
-
-    except Exception as e:
-        return {"status": "failure", "message": str(e)}
 
 
 if __name__ == '__main__':
