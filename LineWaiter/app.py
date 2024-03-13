@@ -126,5 +126,19 @@ def place_bid():
         return {"status": "failure", "message": str(e)}
 
 
+@app.route('/readyListing/', methods=['POST'])
+def ready_listing():
+    try:
+        listing_id = request.json.get('listing_id')
+
+        if database.ready_listing(listing_id):
+            return {"status": "success"}
+        else:
+            return {"status": "failure", "message": "Listing not found or unable to set ready."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
+
+
 if __name__ == '__main__':
     app.run()

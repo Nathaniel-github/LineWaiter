@@ -14,7 +14,7 @@ class User:
 
 
 class Listing:
-    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None, user_accepted="", bids=None):
+    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None, user_accepted=None, bids=None, ready=None):
         if name:
             self.name = name
         if location:
@@ -33,6 +33,8 @@ class Listing:
             self.user_accepted = user_accepted
         if bids:
             self.bids = bids
+        if ready:
+            self.ready = ready
 
 
 class Database:
@@ -73,6 +75,8 @@ class Database:
         all_listings = []
         for listing in self.db.listings.find(vars(query)):
             listing['_id'] = str(listing['_id'])
+            if 'user_accepted' not in listing:
+                listing['user_accepted'] = ""
             all_listings.append(listing)
         return all_listings
 
@@ -80,6 +84,8 @@ class Database:
         all_listings = []
         for listing in self.db.listings.find():
             listing['_id'] = str(listing['_id'])
+            if 'user_accepted' not in listing:
+                listing['user_accepted'] = ""
             all_listings.append(listing)
         return all_listings
 
@@ -91,3 +97,6 @@ class Database:
 
     def add_bid(self, listing_id, bid):
         return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$push": {"bids": bid}}).modified_count > 0
+
+    def ready_listing(self, listing_id):
+        return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$set": {"ready": True}}).modified_count > 0
