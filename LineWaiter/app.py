@@ -45,6 +45,8 @@ def create_an_account():
     try:
         username = request.json['username']
         password = request.json['password']
+        if database.get_user(username) == username:
+            return {"status": "failure"}
         # Check if password meets the required criteria using regex
         #if not (len(password) >= 12 and
                 #re.search(r'[A-Z]', password) and
