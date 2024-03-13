@@ -22,7 +22,7 @@ code {
 .home-container{
   width: 100vw;
   min-height: 100vh;
-  background: #243B55;
+  background: #084B83;
 }
 
 .search-bar-container {
@@ -30,7 +30,7 @@ code {
   flex-direction: column;
   min-height: 10rem;
   min-width: 100vw;
-  background: lightblue;
+  background: #084B83;
   padding-left: 10rem;
   padding-top: 2rem;
   justify-content: center;

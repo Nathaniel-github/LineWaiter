@@ -41,8 +41,8 @@ const Listing = ({ title, location, time, duration, price, description, username
                     <section className="listing-details">
                         <h2 className="listing-subtext">location: {location}</h2>
                         <h2 className="listing-subtext">time: {time}</h2>
-                        <h2 className="listing-subtext">duration: {duration}</h2>
-                        <h2 className="listing-subtext">price: {price}</h2>
+                        <h2 className="listing-subtext">duration in minutes: {duration}</h2>
+                        <h2 className="listing-subtext">price in USD: {price}</h2>
                         <h2 className="listing-subtext">description: {description}</h2>
                     </section>
                     <br />

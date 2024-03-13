@@ -108,7 +108,7 @@ class Database:
     def accept_listing(self, username, listing_id):
         return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$set": {"user_accepted": username}}).modified_count > 0
 
-    def undo_accept_listing(self, username, listing_id):
+    def undo_accept_listing(self, listing_id):
         return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$set": {"user_accepted": ""}}).modified_count > 0
 
     def add_bid(self, listing_id, username,  bid):

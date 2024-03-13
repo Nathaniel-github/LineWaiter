@@ -1,61 +1,69 @@
 .listing-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: #243B55; /* Darker shade for depth */
+    background-color: #084B83; /* Soft, calming teal background */
     margin-bottom: 2%;
     margin-left: 1%;
+    gap: 2rem; /* Increased space between each listing */
 }
 
 .listing {
     margin-top: 1%;
-    border: 2px solid #2C5364; /* Soft border color for contrast */
-    padding: 2rem; /* Unified padding for simplicity */
-    background: #FFFFFF; /* Bright background for content */
+    border: 2px solid #2C5364; /* Darker contrast for the border */
+    padding: 2rem;
+    background: #FFFFFF; /* Clean white background for the content */
     width: 16rem;
-    height: auto; /* Adjusted for content flexibility */
-    border-radius: 8px; /* Modern, subtle rounding */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    height: auto; /* Auto height for dynamic content accommodation */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Improved spacing */
+    justify-content: space-between;
 }
 
 .listing-title {
     margin-top: 0.2rem;
-    font-size: 1.5rem; /* Adjusted for balanced typography */
+    font-size: 1.5rem;
     text-align: center;
-    font-family: "Helvetica Neue", sans-serif; /* Modern, readable font */
-    color: #333333; /* Darker color for readability */
+    font-family: "Helvetica Neue", sans-serif;
+    color: #333333; /* Dark gray for strong readability */
 }
 
 .listing-subtext {
     font-size: 1rem;
     margin-top: 0.5rem;
     text-align: center;
-    color: #555555; /* Soft color for subtext */
+    color: #555555; /* Slightly lighter gray for subtext */
 }
 
 .accept-button {
     align-items: center;
-    margin-top: 1rem; /* Adjusted margin for spacing */
-    padding: 0.5rem 0; /* Padding for better touch */
-    width: 80%; /* Adjusted width for better UI */
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+    width: 80%;
     font-size: 1rem;
-    border-radius: 20px; /* Smooth, modern border radius */
-    border: none; /* Removed border for a cleaner look */
+    border-radius: 20px;
+    border: none;
     cursor: pointer;
-    background: #4D77FF; /* Bright, inviting button color */
+    background: #4D77FF; /* Vibrant blue for the button */
     color: #FFFFFF; /* White text for contrast */
-    align-self: center; /* Center button within listing */
-    transition: background-color 0.3s; /* Smooth transition for interaction */
+    align-self: center;
+    transition: background-color 0.3s;
 }
 
 .accept-button:hover {
-    background-color: #365EDF; /* Slightly darker on hover for feedback */
+    background-color: #365EDF; /* Slightly darker blue on hover for interaction feedback */
 }
 
 .listing-submit {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Additional global margin adjustment for overall spacing */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }

@@ -1,9 +1,11 @@
 import './listing.css'
 
-const MyListingsListing = ({ _id, title, location, time, duration, price, description, username }) => {
+const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username }) => {
     const handleDeleteClick = (e) => {
+
+
         try {
-            const response = fetch('/deleteAListing/', {
+            const response = fetch('/unAcceptListing/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,7 +36,7 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
                         </section>
                         <br/>
                         <div className="listing-submit">
-                            <button className="accept-button" onClick={handleDeleteClick}>Delete Listing</button>
+                            <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
                         </div>
                     </section>
                 </section>
@@ -43,4 +45,4 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
     };
 
 
-export default MyListingsListing;
+export default MyListingsAccepted;

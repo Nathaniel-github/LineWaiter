@@ -20,7 +20,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/create-listing" element={<CreateListing />} />
             <Route path="/my-listings" element={<MyListings />} />
-            <Route path="/chatrooms" element={<ChatRooms />} />
+            <Route path="/chat-rooms" element={<ChatRooms />} />
           </Route>
       </Routes>
     </BrowserRouter>
