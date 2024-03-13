@@ -1,28 +1,27 @@
-import { useState, useEffect } from 'react'
-import Listing from '../components/listing.jsx'
-import ListingContainer from "../components/listingcontainer";
-import '../index.css'
-import Searchbar from "../components/searchbar";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
+import Listing from '../components/Listing.jsx';
+import ListingContainer from "../components/ListingContainer";
+import '../index.css';
+import Searchbar from "../components/Searchbar";
 import { useNavigate } from 'react-router-dom';
 
-
 function Home() {
-
     const navigate = useNavigate();
-     useEffect(() => {
-         const loggedInUser = localStorage.getItem("user");
-         if (loggedInUser !== "none") {
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser !== "none") {
             console.log("logged in");
-         } else {
-           navigate('/');
-         }
+        } else {
+            navigate('/');
+        }
     }, []);
 
     const loggedInUser = localStorage.getItem("user");
-    console.log(loggedInUser);
 
-    const [data, setData] = useState([{}])
-    const [origData, setOrigData] = useState([{}])
+    const [data, setData] = useState([]);
+    const [origData, setOrigData] = useState([]);
 
     useEffect(() => {
         fetch("/allListings",{credentials: 'include'})
@@ -53,24 +52,26 @@ function Home() {
 };
 
     const listingsMap = data.map(
-        ({ name, location, time, duration, price, description, _id}) => (
-            <Listing
-                title={name}
-                location={location}
-                time={time}
-                duration={duration}
-                price={price}
-                description={description}
-                user={loggedInUser}
-                id={_id}
-            />
+        ({ name, location, time, duration, price, description, _id }) => (
+            <Link to={`/listing/${_id}`} key={_id}> {/* Link to listing details */}
+                <Listing
+                    title={name}
+                    location={location}
+                    time={time}
+                    duration={duration}
+                    price={price}
+                    description={description}
+                    user={loggedInUser}
+                    id={_id}
+                />
+            </Link>
         )
     );
 
     return (
         <>
             <div className="search-bar-container">
-                  <Searchbar data={data} onSearch={handleSearch} />
+                <Searchbar data={data} onSearch={handleSearch} />
             </div>
             <div className="container">
                 <ListingContainer listing={listingsMap} />
