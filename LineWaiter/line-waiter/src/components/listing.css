@@ -17,7 +17,6 @@
 }
 
 .listing {
-    margin-top: 1%;
     border: 2px solid #553A33;
     padding: 2rem;
     background: #F6E7E2;
@@ -31,7 +30,6 @@
 }
 
 .listing-accepted-not-ready {
-    margin-top: 1%;
     border: 3px solid orangered;
     padding: 2rem;
     background: #F6E7E2;
@@ -45,7 +43,6 @@
 }
 
 .listing-accepted-and-ready {
-    margin-top: 1%;
     border: 5px solid lightgreen;
     padding: 2rem;
     background: #F6E7E2;
