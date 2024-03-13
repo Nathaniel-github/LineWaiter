@@ -42,7 +42,7 @@ code {
   font-size: 1.2rem;
   text-align: center;
   color: #F6E7E2;
-  width: 101.1%;
+  width: 100vw; /* Full viewport width */
 
 }
 

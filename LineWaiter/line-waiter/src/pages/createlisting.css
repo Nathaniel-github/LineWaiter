@@ -4,7 +4,7 @@
     color: #2E3192FF; /* Keeping text white for readability */
     height: 150vh;
     padding:2rem;
-    width: 101.1%;
+  width: 100vw; /* Full viewport width */
 }
 
 h2 {
