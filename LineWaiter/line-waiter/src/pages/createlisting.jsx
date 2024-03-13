@@ -84,7 +84,8 @@ const CreateListing = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, margin: 'auto', padding: 3, backgroundColor: '#f4f4f4', borderRadius: 4 }}>
+  <div className="create-body">
+  <Box sx={{ maxWidth: 400, margin: 'auto', padding: 3, backgroundColor: '#f4f4f4', borderRadius: 4 }}>
       <h2>Create a Listing</h2>
             {successMessage && <p className={styles['sign-up-success-message']}>{successMessage}</p>}
 
@@ -150,6 +151,7 @@ const CreateListing = () => {
       </form>
 
     </Box>
+    </div>
   );
 };
 

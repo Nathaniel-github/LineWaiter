@@ -1,21 +1,21 @@
 .listing-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: #084B83; /* Soft, calming teal background */
+    background-color: #084B83;
     margin-bottom: 2%;
     margin-left: 1%;
-    gap: 2rem; /* Increased space between each listing */
+    gap: 2rem;
 }
 
 .listing {
     margin-top: 1%;
-    border: 2px solid #2C5364; /* Darker contrast for the border */
+    border: 2px solid #2C5364;
     padding: 2rem;
-    background: #FFFFFF; /* Clean white background for the content */
+    background: #FFFFFF;
     width: 16rem;
-    height: auto; /* Auto height for dynamic content accommodation */
+    height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,14 +26,14 @@
     font-size: 1.5rem;
     text-align: center;
     font-family: "Helvetica Neue", sans-serif;
-    color: #333333; /* Dark gray for strong readability */
+    color: #333333;
 }
 
 .listing-subtext {
     font-size: 1rem;
     margin-top: 0.5rem;
     text-align: center;
-    color: #555555; /* Slightly lighter gray for subtext */
+    color: #555555;
 }
 
 .accept-button {
@@ -45,14 +45,14 @@
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    background: #4D77FF; /* Vibrant blue for the button */
-    color: #FFFFFF; /* White text for contrast */
+    background: #4D77FF;
+    color: #FFFFFF;
     align-self: center;
     transition: background-color 0.3s;
 }
 
 .accept-button:hover {
-    background-color: #365EDF; /* Slightly darker blue on hover for interaction feedback */
+    background-color: #365EDF;
 }
 
 .listing-submit {
@@ -61,7 +61,6 @@
     justify-content: center;
 }
 
-/* Additional global margin adjustment for overall spacing */
 body {
     margin: 0;
     padding: 0;

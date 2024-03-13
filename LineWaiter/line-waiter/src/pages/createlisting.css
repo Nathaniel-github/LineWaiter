@@ -1,7 +1,8 @@
-body {
+.create-body {
     background: linear-gradient(135deg, #2E3192 10%, #1BFFFF 100%); /* Slightly brighter blue gradient background */
     font-family: 'Helvetica Neue', sans-serif;
     color: #2E3192FF; /* Keeping text white for readability */
+    height: 150vh;
 }
 
 h2 {

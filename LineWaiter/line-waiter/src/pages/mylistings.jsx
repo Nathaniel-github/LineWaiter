@@ -76,25 +76,22 @@ function MyListings() {
     console.log(filteredAccepted);
 
     return (
-        //<div className="container">
-        //<div className="row">
-        <>
+        <div className="mylistings-body">
             <div className="row">
                 <div className="column-left">
-                    <h1>Posted Listings</h1>
-                    <ListingContainer listing={postedMap}/>
+                    <div className="content-container">
+                        <h1>Posted Listings</h1>
+                        <ListingContainer listing={acceptedMap} />
+                    </div>
                 </div>
                 <div className="column-right">
+                    <div className="content-container">
                     <h1>Accepted Listings</h1>
-                    <ListingContainer listing={acceptedMap}/>
+                        <ListingContainer listing={acceptedMap} />
+                    </div>
                 </div>
             </div>
-        </>
-        // <div className="col">
-        //   <ListingContainer listing={acceptedMap} />
-        // </div>
-        //</div>
-        //</div>
+        </div>
     );
 }
 
