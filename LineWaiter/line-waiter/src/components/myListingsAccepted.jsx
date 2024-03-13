@@ -1,10 +1,24 @@
 import useSound from 'use-sound';
 import './listing.css'
+import {useEffect, useState} from "react"
 
 const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username }) => {
     // State variable to manage the audio object
+    const [userEmail, setUserEmail] = useState('');
+
     const [playSound] = useSound("./sad_cartoon_sound_effect.mp3");
 
+    fetch('/getUser/', {
+        method: 'GET',
+        headers: {
+         'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(username)
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        setUserEmail(data.email) ;
+    })
     const handleDeleteClick = (e) => {
         try {
             playSound();
@@ -35,10 +49,12 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
                             <h2 className="listing-subtext">duration in minutes: {duration}</h2>
                             <h2 className="listing-subtext">price in USD: {price}</h2>
                             <h2 className="listing-subtext">description: {description}</h2>
+                            <h2 className="listing-subtext">lister email: {userEmail}</h2>
+
                         </section>
                         <br/>
                         <div className="listing-submit">
-                            <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
+                        <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
                         </div>
                     </section>
                 </section>
