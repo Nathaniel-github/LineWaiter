@@ -5,7 +5,7 @@ from flask_cors import CORS
 import os
 from dotenv import load_dotenv
 
-from db import Listing, Database, User
+from db import Listing, Database, User, Chatroom, Message
 
 
 app = Flask(__name__)
@@ -16,6 +16,7 @@ app.secret_key = os.urandom(24)
 load_dotenv(".env")
 DB_PSWD = os.getenv("DB_PSWD")
 database = Database(DB_PSWD)
+
 
 @app.route('/login/', methods=['POST'])
 def login():
@@ -35,8 +36,6 @@ def login():
         return {"auth": "failure"}
 
 
-
-
 @app.route('/createAnAccount/', methods=['POST'])
 def create_an_account():
     try:
@@ -48,7 +47,6 @@ def create_an_account():
             return {"status": "failure"}
     except KeyError:
         return {"status": "failure", "message": "Username or password not provided."}
-
 
 
 @app.route('/allListings', methods=['GET'])
@@ -74,6 +72,7 @@ def create_a_listing():
         print(f"Error adding listing: {str(e)}")
         return jsonify({"status": "success", "listing_id": str(listing_id)})
 
+
 @app.route('/deleteAListing/', methods=['POST'])
 def delete_a_listing():
     try:
@@ -87,6 +86,7 @@ def delete_a_listing():
 
     except Exception as e:
         return {"status": "failure", "message": str(e)}
+
 
 @app.route('/acceptListing/', methods=['POST'])
 def accept_listing():
@@ -108,6 +108,83 @@ def accept_listing():
 
     except Exception as e:
         print("failure due to error")
+        return {"status": "failure", "message": str(e)}
+
+
+@app.route('/placeBid/', methods=['POST'])
+def place_bid():
+    try:
+        listing_id = request.json.get('listing_id')
+        bid = request.json.get('bid')
+
+        if database.add_bid(listing_id, bid):
+            return {"status": "success"}
+        else:
+            return {"status": "failure", "message": "Listing not found or unable to place bid."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
+
+
+@app.route('/readyListing/', methods=['POST'])
+def ready_listing():
+    try:
+        listing_id = request.json.get('listing_id')
+
+        if database.ready_listing(listing_id):
+            return {"status": "success"}
+        else:
+            return {"status": "failure", "message": "Listing not found or unable to set ready."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
+
+
+@app.route('/createChatroom/', methods=['POST'])
+def create_chatroom():
+    try:
+        chatroom_id = database.add_chatroom(Chatroom(**request.json))
+
+        return jsonify({"status": "success", "chatroom_id": str(chatroom_id)})
+
+    except Exception as e:
+        return jsonify({"status": "failure", "message": str(e)})
+
+
+@app.route('/getChatroom/', methods=['POST'])
+def get_chatroom():
+    try:
+        user1 = request.json.get('user1')
+        user2 = request.json.get('user2')
+
+        chatroom = database.get_chatroom(user1, user2)
+
+        if chatroom is not None:
+            return {"status": "success", "chatroom": chatroom}
+        else:
+            return {"status": "failure", "message": "Chatroom not found."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
+
+
+@app.route('/addMessage/', methods=['POST'])
+def add_message():
+    try:
+        user1 = request.json.get('user1')
+        user2 = request.json.get('user2')
+        message = Message(**request.json.get('message'))
+
+        chatroom = database.get_chatroom(user1, user2)
+
+        if chatroom is not None:
+            message_id = database.add_message(user1, user2, message)
+
+            return {"status": "success", "message_id": str(message_id)}
+        else:
+            return {"status": "failure", "message": "Chatroom not found."}
+
+    except Exception as e:
         return {"status": "failure", "message": str(e)}
 
 

@@ -1,46 +1,57 @@
 .listing-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: #151E3F;
-    margin-bottom:2%;
-    margin-left: 5%;
+    background-color: #243B55; /* Darker shade for depth */
+    margin-bottom: 2%;
+    margin-left: 1%;
 }
 
 .listing {
     margin-top: 1%;
-    border: 2px solid #151E3F;
-    padding-left: 20%;
-    padding-right: 20%;
-    background: #F6F5AE;
+    border: 2px solid #2C5364; /* Soft border color for contrast */
+    padding: 2rem; /* Unified padding for simplicity */
+    background: #FFFFFF; /* Bright background for content */
     width: 16rem;
-    height: 17rem;
-    border-radius: 15%;
-
+    height: auto; /* Adjusted for content flexibility */
+    border-radius: 8px; /* Modern, subtle rounding */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Improved spacing */
 }
 
 .listing-title {
     margin-top: 0.2rem;
-    font-size: 2rem;
+    font-size: 1.5rem; /* Adjusted for balanced typography */
     text-align: center;
-    font-family: "Comic Sans MS";
+    font-family: "Helvetica Neue", sans-serif; /* Modern, readable font */
+    color: #333333; /* Darker color for readability */
 }
 
 .listing-subtext {
     font-size: 1rem;
     margin-top: 0.5rem;
-    text-align: center
+    text-align: center;
+    color: #555555; /* Soft color for subtext */
 }
 
 .accept-button {
     align-items: center;
-    margin-bottom: 1%;
-    height: 5%;
-    width: 100%;
+    margin-top: 1rem; /* Adjusted margin for spacing */
+    padding: 0.5rem 0; /* Padding for better touch */
+    width: 80%; /* Adjusted width for better UI */
     font-size: 1rem;
-    border-radius: 10rem;
-    border: 2px solid #9C7A97;
+    border-radius: 20px; /* Smooth, modern border radius */
+    border: none; /* Removed border for a cleaner look */
     cursor: pointer;
-    background: #477998;
+    background: #4D77FF; /* Bright, inviting button color */
+    color: #FFFFFF; /* White text for contrast */
+    align-self: center; /* Center button within listing */
+    transition: background-color 0.3s; /* Smooth transition for interaction */
+}
+
+.accept-button:hover {
+    background-color: #365EDF; /* Slightly darker on hover for feedback */
 }
 
 .listing-submit {

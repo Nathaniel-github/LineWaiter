@@ -3,6 +3,22 @@ from pymongo.server_api import ServerApi
 from bson import ObjectId
 
 
+class Message:
+    def __init__(self, sender, message):
+        self.sender = sender
+        self.message = message
+
+
+class Chatroom:
+    def __init__(self, user1, user2):
+        self.user1 = user1
+        self.user2 = user2
+        self.messages = []
+
+    def add_message(self, message):
+        self.messages.append(message)
+
+
 class User:
     def __init__(self, username, password, accepted_listings=None):
         self.username = username
@@ -14,7 +30,7 @@ class User:
 
 
 class Listing:
-    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None, user_accepted=None):
+    def __init__(self, name=None, location=None, time=None, duration=None, price=None, description=None, username=None, user_accepted=None, bids=None, ready=None):
         if name:
             self.name = name
         if location:
@@ -31,6 +47,10 @@ class Listing:
             self.username = username
         if user_accepted:
             self.user_accepted = user_accepted
+        if bids:
+            self.bids = bids
+        if ready:
+            self.ready = ready
 
 
 class Database:
@@ -100,3 +120,25 @@ class Database:
 
     def undo_accept_listing(self, username, listing_id):
         return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$set": {"user_accepted": ""}}).modified_count > 0
+    def add_bid(self, listing_id, bid):
+        return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$push": {"bids": bid}}).modified_count > 0
+
+    def ready_listing(self, listing_id):
+        return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$set": {"ready": True}}).modified_count > 0
+
+    def add_chatroom(self, chatroom: Chatroom):
+        return self.db.chatrooms.insert_one(vars(chatroom)).inserted_id
+
+    def get_chatroom(self, user1, user2):
+        chatroom = self.db.chatrooms.find_one({"user1": user1, "user2": user2})
+        if chatroom is not None:
+            chatroom['_id'] = str(chatroom['_id'])
+            return chatroom
+        else:
+            return None
+
+    def add_message(self, user1, user2, message: Message):
+        return self.db.chatrooms.update_one({"user1": user1, "user2": user2}, {"$push": {"messages": vars(message)}}).modified_count > 0
+
+    def delete_chatroom(self, user1, user2):
+        return self.db.chatrooms.delete_one({"user1": user1, "user2": user2}).deleted_count > 0
