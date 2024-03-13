@@ -61,7 +61,7 @@ def create_an_account():
 @app.route('/getUser', methods=['GET'])
 def get_user():
     username = request.json.get('username')
-    return vars(database.get_user(username))
+    return database.get_user(username)
 
 
 @app.route('/allListings', methods=['GET'])
@@ -113,7 +113,7 @@ def accept_listing():
 
         listing = database.get_listing(listing_id)
         user = database.get_user(listing['username'])
-        send_email(user.email, "Your listing has been accepted!", f"Your listing titled {listing['name']} has been accepted by {username}.")
+        send_email(user['email'], "Your listing has been accepted!", f"Your listing titled {listing['name']} has been accepted by {username}.")
 
         print(username)
         print(listing_id)
@@ -140,7 +140,7 @@ def undo_accept_listing():
         listing = database.get_listing(_id)
         user = database.get_user(listing['username'])
 
-        send_email(user.email, "Your accepted listing has been released!", f"Your listing titled {listing['name']} has been unaccepted. Sorry for the inconvenience.")
+        send_email(user['email'], "Your accepted listing has been released!", f"Your listing titled {listing['name']} has been unaccepted. Sorry for the inconvenience.")
 
         if undo_accepted:
             return {"status": "success"}
@@ -161,7 +161,7 @@ def place_bid():
 
         listing = database.get_listing(listing_id)
         user = database.get_user(listing['username'])
-        send_email(user.email, "You have a new bid!", f"Your listing titled {listing['name']} has a new bid of {bid} from {username}.")
+        send_email(user['email'], "You have a new bid!", f"Your listing titled {listing['name']} has a new bid of {bid} from {username}.")
 
         if database.add_bid(listing_id, username, bid):
             return {"status": "success"}
@@ -180,7 +180,7 @@ def ready_listing():
         listing = database.get_listing(listing_id)
         user = database.get_user(listing['username'])
 
-        send_email(user.email, "Your listing is ready!", f"Your listing titled {listing['name']} is ready! Please go meet the waiter at the location you specified in your listing to complete the transaction")
+        send_email(user['email'], "Your listing is ready!", f"Your listing titled {listing['name']} is ready! Please go meet the waiter at the location you specified in your listing to complete the transaction")
 
         if database.ready_listing(listing_id):
             return {"status": "success"}
@@ -217,7 +217,7 @@ def accept_lowest_bid():
         listing = database.get_listing(listing_id)
         user = database.get_user(lowest_bid['username'])
 
-        send_email(user.email, "Your bid has been accepted!", f"Your bid of {lowest_bid['bid']} has been accepted for the listing titled {listing['name']}.")
+        send_email(user['email'], "Your bid has been accepted!", f"Your bid of {lowest_bid['bid']} has been accepted for the listing titled {listing['name']}.")
 
         if lowest_bid is not None:
             accepted = database.accept_listing(lowest_bid['username'], listing_id)

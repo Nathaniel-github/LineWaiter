@@ -62,7 +62,7 @@ class Database:
         try:
             if user is not None:
                 del user['_id']
-                return User(**user)
+                return user
             else:
                 return None
         except Exception as e:
