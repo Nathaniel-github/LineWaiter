@@ -1,52 +1,53 @@
 body {
-    background: linear-gradient(135deg, #A1FFCE 10%, #FAFFD1 100%); /* Soft gradient background */
+    background: linear-gradient(135deg, #2E3192 10%, #1BFFFF 100%); /* Slightly brighter blue gradient background */
     font-family: 'Helvetica Neue', sans-serif;
-    color: #333;
+    color: #FFF; /* Keeping text white for readability */
 }
 
 h2 {
-    color: #333652; /* Dark, for contrast against the lighter background */
+    color: #000000; /* Changing text color to black */
     text-align: center;
     margin-bottom: 1rem;
 }
 
 .create-listing-form {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* More pronounced shadow for depth */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Deeper shadow for contrast */
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for depth */
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly more visible white for a subtle contrast */
     padding: 20px;
-    border: 1px solid #ddd; /* Subtle border */
+    border: 1px solid #bbb; /* Adjusting border for better visibility */
+    backdrop-filter: blur(5px); /* Retaining the frosted glass effect */
 }
 
 .MuiTextField-root {
-    background-color: #F0F8FF; /* Light blue background for input fields */
+    background-color: #E3F2FD; /* Slightly light blue background for input fields */
     border-radius: 5px; /* Rounded corners for the input fields */
     border: 1px solid #ccc; /* Slight border for definition */
 }
 
 .MuiInputBase-input {
-    color: #555; /* Darker text color for readability */
+    color: #333; /* Dark text color for contrast and readability */
 }
 
 .MuiButton-root {
     display: block;
     width: 100%;
     margin-top: 20px;
-    background-color: #4CAF50; /* Vibrant green button */
+    background-color: #5B63D3; /* Brighter blue for the button */
     color: white;
     padding: 10px 0;
 }
 
 .MuiButton-root:hover {
-    background-color: #45A049; /* Slightly darker green on hover */
+    background-color: #3B41A5; /* Slightly darker blue on hover for a subtle effect */
 }
 
 .sign-up-success-message {
-    color: #4CAF50; /* Echoing the button color for consistency */
+    color: #5B63D3; /* Echoing the button color for consistency */
     text-align: center;
     font-size: 1rem;
     padding: 10px 0;
-    background-color: #EBF5EB; /* Light green background for the message */
+    background-color: #B3E5FC; /* Lighter blue background for the message, enhancing visibility */
     border-radius: 5px;
     margin: 20px 0;
 }
@@ -55,7 +56,8 @@ h2 {
     max-width: 500px;
     margin: auto;
     padding: 3rem;
-    background-color: rgba(255, 255, 255, 0.95); /* More opaque white for form background */
-    border-radius: 8px; /* Consistent rounded corners */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for more pop */
+    background-color: rgba(255, 255, 255, 0.1); /* Adjusting for a more transparent look to blend with the bright theme */
+    border-radius: 8px; /* Keeping rounded corners */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25); /* Adjusting shadow for consistency */
+    backdrop-filter: blur(8px); /* Fine-tuning the frosted glass effect */
 }
