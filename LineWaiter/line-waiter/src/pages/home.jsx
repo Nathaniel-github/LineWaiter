@@ -24,32 +24,21 @@ function Home() {
     const [origData, setOrigData] = useState([]);
 
     useEffect(() => {
-        fetch("/allListings",{credentials: 'include'})
-            .then(
-            res=> res.json()
-
-        ).then(
-            data => {
-                const newData = data.filter(item =>
-                    item.user_accepted === ""
-                );
-                setOrigData(newData)
-                setData(newData)
-                console.log("newData")
-                console.log(newData)
-            }
-        )
+        fetch("/allListings", { credentials: 'include' })
+            .then(res => res.json())
+            .then(data => {
+                setOrigData(data);
+                setData(data);
+                console.log(data);
+            });
     }, []);
 
-    console.log(origData);
-
-  const handleSearch = (query) => {
-    const filtered = origData.filter(item =>
-        item.name?.toLowerCase().includes(query.toLowerCase())
-    );
-    console.log(filtered)
-    setData(filtered);
-};
+    const handleSearch = (query) => {
+        const filtered = origData.filter(item =>
+            item.name?.toLowerCase().includes(query.toLowerCase())
+        );
+        setData(filtered);
+    };
 
     const listingsMap = data.map(
         ({ name, location, time, duration, price, description, _id }) => (
