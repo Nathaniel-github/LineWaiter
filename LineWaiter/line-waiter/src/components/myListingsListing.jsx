@@ -29,7 +29,7 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
                             <h2 className="listing-subtext">location: {location}</h2>
                             <h2 className="listing-subtext">time: {time}</h2>
                             <h2 className="listing-subtext">duration in minutes: {duration}</h2>
-                            <h2 className="listing-subtext">price: {price}</h2>
+                            <h2 className="listing-subtext">price in USD: {price}</h2>
                             <h2 className="listing-subtext">description: {description}</h2>
                         </section>
                         <br/>
