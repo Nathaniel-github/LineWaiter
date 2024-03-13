@@ -1,20 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background: transparent; /* Your chosen color */
+}
+
 .search-bar {
-    display: flex;
-    min-height: 10rem;
-    min-width: 100vw;
-    background: #7B949B;
-    padding: 10px 20px;
-    border-radius: 50px;
+  display: flex;
+  justify-content: center; /* Center child elements horizontally */
+  align-items: center; /* Center child elements vertically */
+  min-height: 10rem;
+  width: 50%; /* Adjust based on desired width */
+  background: transparent; /* Your chosen color */
+  padding: 10px 20px;
+  border-radius: 50px;
 }
 
 .search-bar input {
-    padding: 6px;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    color: #F6E7E2;
-    font-size: 24px;
-    max-width: 250px;
+  width: 100%; /* Input field fills the search bar */
+  padding: 6px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #F6E7E2;
+  font-size: 24px;
 }
-
-.search-bar
