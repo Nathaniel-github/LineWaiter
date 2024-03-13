@@ -31,9 +31,14 @@ function Home() {
 
         ).then(
             data => {
-                setOrigData(data)
-                setData(data)
-                console.log(data)
+                const newData = data.filter(item =>
+                    (item.user_accepted === "")
+                );
+                console.log(newData);
+                setOrigData(newData)
+                setData(newData)
+                console.log("newData")
+                console.log(newData)
             }
         )
     }, []);
