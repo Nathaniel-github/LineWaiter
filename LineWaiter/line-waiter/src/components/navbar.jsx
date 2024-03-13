@@ -16,9 +16,7 @@ const Navbar = () => {
                     <li>
                         <Link to="create-listing">Create a Listing</Link>
                     </li>
-                    <li>
-                        <Link to="chat-rooms">Chat Rooms</Link>
-                    </li>
+
 
                 </ul>
 
