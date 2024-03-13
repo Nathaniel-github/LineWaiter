@@ -5,7 +5,7 @@ from flask_cors import CORS
 import os
 from dotenv import load_dotenv
 
-from db import Listing, Database, User
+from db import Listing, Database, User, Chatroom, Message
 
 
 app = Flask(__name__)
@@ -135,6 +135,54 @@ def ready_listing():
             return {"status": "success"}
         else:
             return {"status": "failure", "message": "Listing not found or unable to set ready."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
+
+
+@app.route('/createChatroom/', methods=['POST'])
+def create_chatroom():
+    try:
+        chatroom_id = database.add_chatroom(Chatroom(**request.json))
+
+        return jsonify({"status": "success", "chatroom_id": str(chatroom_id)})
+
+    except Exception as e:
+        return jsonify({"status": "failure", "message": str(e)})
+
+
+@app.route('/getChatroom/', methods=['POST'])
+def get_chatroom():
+    try:
+        user1 = request.json.get('user1')
+        user2 = request.json.get('user2')
+
+        chatroom = database.get_chatroom(user1, user2)
+
+        if chatroom is not None:
+            return {"status": "success", "chatroom": chatroom}
+        else:
+            return {"status": "failure", "message": "Chatroom not found."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
+
+
+@app.route('/addMessage/', methods=['POST'])
+def add_message():
+    try:
+        user1 = request.json.get('user1')
+        user2 = request.json.get('user2')
+        message = Message(**request.json.get('message'))
+
+        chatroom = database.get_chatroom(user1, user2)
+
+        if chatroom is not None:
+            message_id = database.add_message(user1, user2, message)
+
+            return {"status": "success", "message_id": str(message_id)}
+        else:
+            return {"status": "failure", "message": "Chatroom not found."}
 
     except Exception as e:
         return {"status": "failure", "message": str(e)}
