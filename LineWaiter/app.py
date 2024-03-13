@@ -35,8 +35,9 @@ def login():
         print(username, password)
         print("reached")
         user = database.get_user(username)
+        print(user)
         print("reached2")
-        if user.password == password:
+        if user["password"] == password:
             return {"auth": "success"}
         else:
             return {"auth": "failure"}

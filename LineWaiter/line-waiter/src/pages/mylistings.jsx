@@ -83,7 +83,7 @@ function MyListings() {
                 <div className="column-left">
                     <div className="content-container">
                         <h1>Posted Listings</h1>
-                        <ListingContainer listing={acceptedMap} />
+                        <ListingContainer listing={postedMap} />
                     </div>
                 </div>
                 <div className="column-right">
