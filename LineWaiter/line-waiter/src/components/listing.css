@@ -7,6 +7,15 @@
     gap: 2rem;
 }
 
+.listing-containerV2 {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: transparent;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    gap: 2rem;
+}
+
 .listing {
     margin-top: 1%;
     border: 2px solid #553A33;

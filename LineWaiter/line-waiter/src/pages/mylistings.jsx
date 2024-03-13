@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import MyListingsListing from '../components/myListingsListing.jsx'
-import ListingContainer from "../components/listingcontainer"
+import ListingContainerV2 from "../components/listingcontainerV2"
 import MyListingsAccepted from '../components/myListingsAccepted.jsx'
 import './mylistings.css'
 import { useNavigate } from 'react-router-dom';
@@ -85,13 +85,13 @@ function MyListings() {
                 <div className="column-left">
                     <div className="content-container">
                         <h1>Posted Listings</h1>
-                        <ListingContainer listing={postedMap} />
+                        <ListingContainerV2 listing={postedMap} />
                     </div>
                 </div>
                 <div className="column-right">
                     <div className="content-container">
                     <h1>Accepted Listings</h1>
-                        <ListingContainer listing={acceptedMap} />
+                        <ListingContainerV2 listing={acceptedMap} />
                     </div>
                 </div>
             </div>
