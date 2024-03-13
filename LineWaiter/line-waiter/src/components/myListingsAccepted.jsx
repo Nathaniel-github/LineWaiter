@@ -1,6 +1,6 @@
 import useSound from 'use-sound';
 import './listing.css'
-import {useEffect, useState} from "react"
+import React, {useEffect, useState} from "react"
 
 const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username }) => {
     // State variable to manage the audio object
@@ -54,22 +54,24 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
                     <section className="listing">
                         <h3 className="listing-title">title: {title}</h3>
                         <section className="listing-details">
-                            <h2 className="listing-subtext">location: {location}</h2>
-                            <h2 className="listing-subtext">time: {time}</h2>
-                            <h2 className="listing-subtext">duration in minutes: {duration}</h2>
-                            <h2 className="listing-subtext">price in USD: {price}</h2>
-                            <h2 className="listing-subtext">description: {description}</h2>
+
+                                <h2 className="listing-subtext">location 📍 : {location}</h2>
+                                <h2 className="listing-subtext">time 🕒: {time}</h2>
+                                <h2 className="listing-subtext">duration (mins) ⏰: {duration}</h2>
+                                <h2 className="listing-subtext">price (USD) 💲: {price}</h2>
+                                <h2 className="listing-subtext">description: {description}</h2>
+
                             <h2 className="listing-subtext">lister email: {userEmail}</h2>
                         </section>
                         <br/>
                         <div className="listing-submit">
-                        <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
+                            <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
                         </div>
                     </section>
                 </section>
             </>
         )
-    };
+};
 
 
 export default MyListingsAccepted;
