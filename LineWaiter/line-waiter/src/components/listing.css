@@ -32,9 +32,9 @@
 
 .listing-accepted-not-ready {
     margin-top: 1%;
-    border: 2px solid #2C5364;
+    border: 3px solid orangered;
     padding: 2rem;
-    background: orangered;
+    background: #F6E7E2;
     width: 16rem;
     height: auto;
     border-radius: 8px;
@@ -46,9 +46,9 @@
 
 .listing-accepted-and-ready {
     margin-top: 1%;
-    border: 2px solid #2C5364;
+    border: 5px solid lightgreen;
     padding: 2rem;
-    background: lightgreen;
+    background: #F6E7E2;
     width: 16rem;
     height: auto;
     border-radius: 8px;
