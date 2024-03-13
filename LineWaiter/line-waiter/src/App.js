@@ -5,6 +5,7 @@ import CreateListing from './pages/createlisting'
 import LoginForm from './pages/login'
 import SignupForm from "./pages/signup";
 import MyListings from "./pages/mylistings";
+import ChatRooms from "./pages/chatrooms";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/create-listing" element={<CreateListing />} />
             <Route path="/my-listings" element={<MyListings />} />
-
+            <Route path="/chatrooms" element={<ChatRooms />} />
           </Route>
       </Routes>
     </BrowserRouter>
