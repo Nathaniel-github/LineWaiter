@@ -11,6 +11,7 @@ const SignupForm = ( ) => {
     const [username, setUsername] = useState('');
 
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
     const handleChangeUsername = (e) => {
@@ -28,6 +29,13 @@ const SignupForm = ( ) => {
             [name]: value
         }));
     };
+    const handleChangeEmail = (e) => {
+        const { name, value } = e.target;
+        setEmail(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +43,7 @@ const SignupForm = ( ) => {
     let data = {
       username: username[""],
       password: hashedPassword,
+        email: email[""]
     };
     console.log("reached");
     // Handle form submission logic here
@@ -70,16 +79,21 @@ const SignupForm = ( ) => {
                 <form action="">
                     <h1>Sign Up</h1>
                     <div className={styles['input-box']}> {/* Use className from CSS module */}
-                        <input type="text" onChange={handleChangeUsername} placeholder="username" required/>
+                        <input type="text" onChange={handleChangeUsername} placeholder="Username" required/>
                         <FaUser className={styles.icon}/>
                     </div>
                     <div className={styles['input-box']}> {/* Use className from CSS module */}
                         <input type="password" onChange={handleChangePassword} placeholder="Password" required/>
                         <FaLock className={styles.icon}/>
                     </div>
+                    <div className={styles['input-box']}> {/* Use className from CSS module */}
+                        <input type="text" onChange={handleChangeEmail} placeholder="Email" required/>
+                        <FaUser className={styles.icon}/>
+                    </div>
                     <button type="submit" onClick={handleSubmit}>Sign Up</button>
                 </form>
-                    {successMessage && <p className={styles['sign-up-success-message']}>{successMessage}<Link to ="/login">Login</Link></p>}
+                {successMessage &&
+                    <p className={styles['sign-up-success-message']}>{successMessage}<Link to="/login">Login</Link></p>}
 
             </div>
         </div>
