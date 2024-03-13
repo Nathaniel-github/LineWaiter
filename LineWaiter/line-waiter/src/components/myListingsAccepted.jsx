@@ -6,8 +6,7 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
     // State variable to manage the audio object
     const [userEmail, setUserEmail] = useState('');
 
-
-    const [playSound] = useSound("/LineWaiter/LineWaiter/line-waiter/public/sad_cartoon_sound_effect.mp3");
+    const [playSound] = useSound(process.env.PUBLIC_URL+ "/sad_cartoon_sound_effect.mp3");
 
     fetch('/getUser/', {
         method: 'GET',
@@ -23,6 +22,7 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
     const handleDeleteClick = (e) => {
         try {
             playSound();
+            console.log("someAudioFile");
             const response = fetch('/unAcceptListing/', {
                 method: 'POST',
                 headers: {
