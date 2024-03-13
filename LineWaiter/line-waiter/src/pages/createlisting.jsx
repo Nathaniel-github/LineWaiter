@@ -108,7 +108,7 @@ const CreateListing = () => {
           onChange={handleChange}
         />
         <TextField
-          label="Time of Listing"
+          label="Time of Listing (in 24h HH:MM)"
           variant="outlined"
           fullWidth
           margin="normal"
@@ -117,7 +117,7 @@ const CreateListing = () => {
           onChange={handleChange}
         />
         <TextField
-          label="Duration of Listing"
+          label="Duration of Listing (in minutes)"
           variant="outlined"
           fullWidth
           margin="normal"
@@ -126,7 +126,7 @@ const CreateListing = () => {
           onChange={handleChange}
         />
         <TextField
-          label="Price of Listing"
+          label="Price of Listing (in USD)"
           variant="outlined"
           fullWidth
           margin="normal"
