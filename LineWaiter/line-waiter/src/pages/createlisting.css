@@ -10,7 +10,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
-form {
+.create-listing-form {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* More pronounced shadow for depth */
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for depth */
