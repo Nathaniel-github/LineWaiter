@@ -3,22 +3,6 @@ from pymongo.server_api import ServerApi
 from bson import ObjectId
 
 
-class Message:
-    def __init__(self, sender, message):
-        self.sender = sender
-        self.message = message
-
-
-class Chatroom:
-    def __init__(self, user1, user2):
-        self.user1 = user1
-        self.user2 = user2
-        self.messages = []
-
-    def add_message(self, message):
-        self.messages.append(message)
-
-
 class User:
     def __init__(self, username, password, email, accepted_listings=None):
         self.username = username
@@ -102,6 +86,14 @@ class Database:
             all_listings.append(listing)
         return all_listings
 
+    def get_listing(self, listing_id):
+        listing = self.db.listings.find_one({"_id": ObjectId(listing_id)})
+        if listing is not None:
+            listing['_id'] = str(listing['_id'])
+            return listing
+        else:
+            return None
+
     def delete_listing(self, _id):
         return self.db.listings.delete_one({"_id": ObjectId(_id)})
 
@@ -121,10 +113,12 @@ class Database:
         listing = self.db.listings.find_one({"_id": ObjectId(listing_id)})
         if listing is not None:
             lowest_bid = float('inf')
+            lowest_bid_user = None
             for bid in listing['bids']:
                 for username, amt in bid.items():
                     if float(amt) < lowest_bid:
                         lowest_bid = float(bid)
-            return lowest_bid
+                        lowest_bid_user = username
+            return {"username": lowest_bid_user, "bid": lowest_bid}
         else:
             return None
