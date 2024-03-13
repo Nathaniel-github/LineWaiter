@@ -73,7 +73,7 @@ function Home() {
                 <Searchbar data={data} onSearch={handleSearch}/>
             </div>
             <div className="home-intro">
-                <p> Welcome to our Line Waiter! Press "Accept Listing" and see the accepted listing under "My Listings".
+                <p> Welcome to Line Waiter! Press "Accept Listing" and see the accepted listing under "My Listings".
                 The email of the user who posted the listing will appear after you accept the listing. They
                 will also be contacted that you have accepted their listing.</p>
             </div>
