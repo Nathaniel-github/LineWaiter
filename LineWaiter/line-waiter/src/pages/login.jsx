@@ -78,7 +78,7 @@ const handleSubmit = (e) => {
     <div className={styles.login}> {/* Use className from CSS module */}
       <div className={styles.wrapper}> {/* Use className from CSS module */}
         <form action="">
-          <h1>Login</h1>
+          <h1>Welcome to Line Waiter</h1>
           {successMessage && <p className={styles['login-success-message']}>{successMessage}</p>}
 
           <div className={styles['input-box']}> {/* Use className from CSS module */}

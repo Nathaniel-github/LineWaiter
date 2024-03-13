@@ -9,13 +9,13 @@
   align-items: center;
   min-height: 100vh;
   background: seagreen;
-  background: url('../assets/login.png') no-repeat;
+  background: url('../assets/myback.png') no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .wrapper {
-  width: 420px;
+  width: 450px;
   height: 500px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
