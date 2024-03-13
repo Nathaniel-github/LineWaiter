@@ -46,12 +46,12 @@ def create_an_account():
         username = request.json['username']
         password = request.json['password']
         # Check if password meets the required criteria using regex
-        if not (len(password) >= 12 and
-                re.search(r'[A-Z]', password) and
-                re.search(r'[a-z]', password) and
-                re.search(r'[0-9]', password) and
-                re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
-            return jsonify({"status": "failure", "message": "Password does not meet the criteria."})
+        #if not (len(password) >= 12 and
+                #re.search(r'[A-Z]', password) and
+                #re.search(r'[a-z]', password) and
+                #re.search(r'[0-9]', password) and
+                #re.search(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?]', password)):
+            #return jsonify({"status": "failure", "message": "Password does not meet the criteria."})
         # If password is correctly formatted, proceed with creating the account
         if database.add_user(User(**request.json)):
             return {"status": "success"}
