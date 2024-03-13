@@ -116,3 +116,15 @@ class Database:
 
     def ready_listing(self, listing_id):
         return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$set": {"ready": True}}).modified_count > 0
+
+    def get_lowest_bid(self, listing_id):
+        listing = self.db.listings.find_one({"_id": ObjectId(listing_id)})
+        if listing is not None:
+            lowest_bid = float('inf')
+            for bid in listing['bids']:
+                for username, amt in bid.items():
+                    if float(amt) < lowest_bid:
+                        lowest_bid = float(bid)
+            return lowest_bid
+        else:
+            return None

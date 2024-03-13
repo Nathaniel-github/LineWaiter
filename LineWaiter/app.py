@@ -154,6 +154,20 @@ def ready_listing():
         return {"status": "failure", "message": str(e)}
 
 
+@app.route('/getLowestBid/', methods=['POST'])
+def get_lowest_bid():
+    try:
+        listing_id = request.json.get('listing_id')
+
+        lowest_bid = database.get_lowest_bid(listing_id)
+
+        if lowest_bid is not None:
+            return {"status": "success", "lowest_bid": lowest_bid}
+        else:
+            return {"status": "failure", "message": "Listing not found or no bids."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
 
 if __name__ == '__main__':
     app.run()
