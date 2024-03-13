@@ -31,8 +31,6 @@ function Home() {
 
         ).then(
             data => {
-                console.log("data")
-                console.log(data);
                 const newData = data.filter(item =>
                     !(item.hasOwnProperty('user_accepted'))
                 );
