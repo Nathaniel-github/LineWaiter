@@ -2,7 +2,7 @@ import useSound from 'use-sound';
 import './listing.css'
 import React, {useEffect, useState} from "react"
 
-const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username }) => {
+const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username, ready }) => {
     // State variable to manage the audio object
 
     console.log("starting")
@@ -47,11 +47,50 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
         }
     };
 
+    const handleReady = (e) => {
+        fetch('/readyListing/', {
+        method: 'POST',
+        headers: {
+         'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({"listing_id": _id})
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log("data")
+        console.log(data)
+        setUserEmail(data.email) ;
+    })
+        window.location.reload();
+    }
 
-        return (
+
+        if (ready === true) {
+            return (
             <>
                 <section className="listing-container">
-                    <section className="listing">
+                    <section className="listing-accepted-and-ready">
+                        <h3 className="listing-title">title: {title}</h3>
+                        <section className="listing-details">
+                            <h2 className="listing-subtext">location: {location}</h2>
+                            <h2 className="listing-subtext">time: {time}</h2>
+                            <h2 className="listing-subtext">duration in minutes: {duration}</h2>
+                            <h2 className="listing-subtext">price in USD: {price}</h2>
+                            <h2 className="listing-subtext">description: {description}</h2>
+                            <h2 className="listing-subtext">lister email: {userEmail}</h2>
+                        </section>
+                        <div className="listing-submit">
+                            <button className="accept-button" onClick={handleReady}>Ready!</button>
+                        </div>
+                    </section>
+                </section>
+            </>
+            )
+        } else {
+            return (
+            <>
+                <section className="listing-container">
+                    <section className="listing-accepted-not-ready">
                         <h3 className="listing-title">title: {title}</h3>
                         <section className="listing-details">
 
@@ -63,14 +102,19 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
 
                             <h2 className="listing-subtext">lister email: {userEmail}</h2>
                         </section>
-                        <br/>
                         <div className="listing-submit">
+                            <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
+                        </div>
+                        <div className="listing-submit">
+                            <button className="accept-button" onClick={handleReady}>Ready!</button>
                             <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
                         </div>
                     </section>
                 </section>
             </>
         )
+    };
+
 };
 
 

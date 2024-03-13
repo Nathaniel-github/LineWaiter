@@ -26,7 +26,16 @@ const Listing = ({ title, location, time, duration, price, description, username
             },
             credentials: 'include',
             body: JSON.stringify(data)
-        })
+        }).then(res => res.json()).then(
+            data => {
+                console.log(data)
+                if (data.status === "success") {
+                    console.log("placed bid")
+                } else {
+                    console.log("there was error")
+                }
+            }
+        )
     }
 
     const handleSubmit = (e) => {
@@ -78,7 +87,7 @@ const Listing = ({ title, location, time, duration, price, description, username
                     <section className="bidding-section">
                         <form onSubmit={submitBidAmount}>
                             <TextField
-                                label="Bid Amount"
+                                label="Bid Amount (Number)"
                                 variant="outlined"
                                 fullWidth
                                 margin="normal"

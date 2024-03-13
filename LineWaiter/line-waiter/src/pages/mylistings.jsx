@@ -46,7 +46,7 @@ function MyListings() {
   );
 
     const postedMap = filteredPosted.map(
-        ({ _id, name, location, time, duration, price, description}) => (
+        ({ _id, name, location, time, duration, price, description, ready}) => (
             <MyListingsListing
                  _id={_id}
                 title={name}
@@ -55,12 +55,13 @@ function MyListings() {
                 duration={duration}
                 price={price}
                 description={description}
+                ready={ready}
             />
         )
     );
 
     const acceptedMap = filteredAccepted.map(
-        ({ _id, name, location, time, duration, price, description, username}) => (
+        ({ _id, name, location, time, duration, price, description, username, ready}) => (
             <MyListingsAccepted
                  _id={_id}
                 title={name}
@@ -70,6 +71,7 @@ function MyListings() {
                 price={price}
                 description={description}
                 username={username}
+                ready={ready}
             />
         )
     );
