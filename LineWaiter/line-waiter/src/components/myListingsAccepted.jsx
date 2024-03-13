@@ -4,9 +4,13 @@ import {useEffect, useState} from "react"
 
 const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username }) => {
     // State variable to manage the audio object
+<<<<<<< Updated upstream
     const [userEmail, setUserEmail] = useState('');
 
     const [playSound] = useSound("./sad_cartoon_sound_effect.mp3");
+=======
+    const [playSound] = useSound("/LineWaiter/LineWaiter/line-waiter/public/sad_cartoon_sound_effect.mp3");
+>>>>>>> Stashed changes
 
     fetch('/getUser/', {
         method: 'GET',
