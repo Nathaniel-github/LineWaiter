@@ -75,8 +75,6 @@ class Database:
         all_listings = []
         for listing in self.db.listings.find(vars(query)):
             listing['_id'] = str(listing['_id'])
-            if 'user_accepted' not in listing:
-                listing['user_accepted'] = ""
             all_listings.append(listing)
         return all_listings
 
@@ -84,8 +82,6 @@ class Database:
         all_listings = []
         for listing in self.db.listings.find():
             listing['_id'] = str(listing['_id'])
-            if 'user_accepted' not in listing:
-                listing['user_accepted'] = ""
             all_listings.append(listing)
         return all_listings
 
