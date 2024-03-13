@@ -24,6 +24,8 @@ const Listing = ({ title, location, time, duration, price, description, username
             } else {
                 console.log("couldn't accept listing")
             }
+                        window.location.reload();
+
 
         })
         .catch(error => {
