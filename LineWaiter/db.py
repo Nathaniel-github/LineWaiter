@@ -4,11 +4,10 @@ from bson import ObjectId
 
 
 class User:
-    def __init__(self, username, password):
+    def __init__(self, username, password, accepted_listings=None):
         self.username = username
         self.password = password
-        self.accepted_listings = []
-        #self.email = email
+        self.accepted_listings = accepted_listings
 
     def accept_listing(self,listing_id):
         self.accepted_listings.append(listing_id)
@@ -55,10 +54,14 @@ class Database:
 
     def get_user(self, username: str):
         user = self.db.users.find_one({"username": username})
-        if user is not None:
-            del user['_id']
-            return User(**user)
-        else:
+        try:
+            if user is not None:
+                del user['_id']
+                return User(**user)
+            else:
+                return None
+        except Exception as e:
+            print(f"Error getting user: {str(e)}")
             return None
 
     def add_listing(self, listing: Listing):
