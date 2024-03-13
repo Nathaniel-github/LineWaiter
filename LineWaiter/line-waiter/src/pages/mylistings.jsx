@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import MyListingsListing from '../components/myListingsListing.jsx'
-import ListingContainer from "../components/listingcontainer";
+import ListingContainer from "../components/listingcontainer"
+import MyListingsAccepted from '../components/myListingsAccepted.jsx'
 import './mylistings.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -59,7 +60,7 @@ function MyListings() {
 
     const acceptedMap = filteredAccepted.map(
         ({ _id, name, location, time, duration, price, description}) => (
-            <MyListingsListing
+            <MyListingsAccepted
                  _id={_id}
                 title={name}
                 location={location}
