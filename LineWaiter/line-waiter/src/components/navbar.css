@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #000;
+    background: #2F1F1B;
     color: #fff;
     padding: 20px 0; /* Adjust padding as needed */
     padding-right:1rem;
@@ -26,7 +26,7 @@ ul li {
 
 
 a {
-    color: white;
+    color: #F6E7E2;
     text-decoration: none;
 }
 

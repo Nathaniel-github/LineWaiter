@@ -1,7 +1,7 @@
 .listing-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: #084B83;
+    background-color: #3A5661;
     margin-bottom: 2%;
     margin-left: 1%;
     gap: 2rem;
@@ -9,9 +9,9 @@
 
 .listing {
     margin-top: 1%;
-    border: 2px solid #2C5364;
+    border: 2px solid #553A33;
     padding: 2rem;
-    background: #FFFFFF;
+    background: #F6E7E2;
     width: 16rem;
     height: auto;
     border-radius: 8px;
@@ -46,7 +46,7 @@
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    background: #4D77FF;
+    background: #553A33;
     color: #FFFFFF;
     align-self: center;
     transition: background-color 0.3s;
@@ -54,7 +54,7 @@
 }
 
 .accept-button:hover {
-    background-color: #365EDF;
+    background-color: #7B949B;
 }
 
 .listing-submit {

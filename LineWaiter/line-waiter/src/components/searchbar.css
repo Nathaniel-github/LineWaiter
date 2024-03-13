@@ -2,7 +2,7 @@
     display: flex;
     min-height: 10rem;
     min-width: 100vw;
-    background: lightblue;
+    background: #7B949B;
     padding: 10px 20px;
     border-radius: 50px;
 }
@@ -12,7 +12,7 @@
     background: transparent;
     border: 0;
     outline: 0;
-    color: #fff;
+    color: #F6E7E2;
     font-size: 24px;
     max-width: 250px;
 }
