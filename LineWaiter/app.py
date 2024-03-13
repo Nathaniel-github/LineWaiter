@@ -48,6 +48,12 @@ def create_an_account():
         return {"status": "failure", "message": "Username or password not provided."}
 
 
+@app.route('/getUser', methods=['GET'])
+def get_user():
+    username = request.json.get('username')
+    return database.get_user(username)
+
+
 @app.route('/allListings', methods=['GET'])
 def get_listings():
     return database.get_all_listings()
