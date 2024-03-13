@@ -169,5 +169,28 @@ def get_lowest_bid():
     except Exception as e:
         return {"status": "failure", "message": str(e)}
 
+
+@app.route('/acceptLowestBid/', methods=['POST'])
+def accept_lowest_bid():
+    try:
+        listing_id = request.json.get('listing_id')
+
+        lowest_bid = database.get_lowest_bid(listing_id)
+
+        if lowest_bid is not None:
+            accepted = database.accept_listing(lowest_bid['username'], listing_id)
+
+            if accepted:
+                return {"status": "success"}
+            else:
+                return {"status": "failure", "message": "Listing not found or unable to accept lowest bid."}
+
+        else:
+            return {"status": "failure", "message": "Listing not found or no bids."}
+
+    except Exception as e:
+        return {"status": "failure", "message": str(e)}
+
+
 if __name__ == '__main__':
     app.run()
