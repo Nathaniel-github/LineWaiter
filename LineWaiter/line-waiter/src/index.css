@@ -32,8 +32,8 @@ code {
   width: 100vw;
   background: #3A5661;
   padding-top: 2rem;
-  justify-content: center; /* Adjusted for vertical centering or space distribution */
-  align-items: center; /* Correct value for horizontal centering */
+  justify-content: center;
+  align-items: center;
 }
 
 .home-intro {
@@ -42,7 +42,7 @@ code {
   font-size: 1.2rem;
   text-align: center;
   color: #F6E7E2;
-  width: 100vw; /* Full viewport width */
+  width: 100vw;
 
 }
 
