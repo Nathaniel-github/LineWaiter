@@ -145,7 +145,7 @@ const CreateListing = () => {
           onChange={handleChange}
         />
 
-        <Button variant="contained" color="primary" type="submit">
+        <Button variant="contained" style={{ backgroundColor: '#3A5661' }}type="submit">
           Submit
         </Button>
       </form>
