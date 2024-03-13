@@ -4,17 +4,27 @@ from flask_cors import CORS
 import os
 from dotenv import load_dotenv
 
-from db import Listing, Database, User, Chatroom, Message
+from db import Listing, Database, User
+import smtplib
 
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
+sender_email = "linewaitercs35l@gmail.com"
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
 
 app.secret_key = os.urandom(24)
 
 load_dotenv(".env")
-DB_PSWD = os.getenv("DB_PSWD")
-database = Database(DB_PSWD)
+database = Database(os.getenv("DB_PSWD"))
+
+server.login(sender_email, os.getenv("EMAIL_PSWD"))
+
+
+def send_email(receiver_email, subject, message):
+    text = f"Subject: {subject}\n\n{message}"
+    server.sendmail(sender_email, receiver_email, text)
 
 
 @app.route('/login/', methods=['POST'])
@@ -51,7 +61,7 @@ def create_an_account():
 @app.route('/getUser', methods=['GET'])
 def get_user():
     username = request.json.get('username')
-    return database.get_user(username)
+    return vars(database.get_user(username))
 
 
 @app.route('/allListings', methods=['GET'])
@@ -101,6 +111,10 @@ def accept_listing():
 
         accepted = database.accept_listing(username, listing_id)
 
+        listing = database.get_listing(listing_id)
+        user = database.get_user(listing['username'])
+        send_email(user.email, "Your listing has been accepted!", f"Your listing titled {listing['name']} has been accepted by {username}.")
+
         print(username)
         print(listing_id)
         print(username, listing_id)
@@ -115,12 +129,19 @@ def accept_listing():
         print("failure due to error")
         return {"status": "failure", "message": str(e)}
 
+
 @app.route('/unAcceptListing/', methods=['POST'])
 def undo_accept_listing():
     try:
         _id = request.json.get('_id')
         print("listing_id", _id)
         undo_accepted = database.undo_accept_listing(_id)
+
+        listing = database.get_listing(_id)
+        user = database.get_user(listing['username'])
+
+        send_email(user.email, "Your accepted listing has been released!", f"Your listing titled {listing['name']} has been unaccepted. Sorry for the inconvenience.")
+
         if undo_accepted:
             return {"status": "success"}
         else:
@@ -130,12 +151,17 @@ def undo_accept_listing():
         print("failure due to error")
         return {"status": "failure", "message": str(e)}
 
+
 @app.route('/placeBid/', methods=['POST'])
 def place_bid():
     try:
         listing_id = request.json.get('listing_id')
         username = request.json.get('username')
         bid = request.json.get('bid')
+
+        listing = database.get_listing(listing_id)
+        user = database.get_user(listing['username'])
+        send_email(user.email, "You have a new bid!", f"Your listing titled {listing['name']} has a new bid of {bid} from {username}.")
 
         if database.add_bid(listing_id, username, bid):
             return {"status": "success"}
@@ -150,6 +176,11 @@ def place_bid():
 def ready_listing():
     try:
         listing_id = request.json.get('listing_id')
+
+        listing = database.get_listing(listing_id)
+        user = database.get_user(listing['username'])
+
+        send_email(user.email, "Your listing is ready!", f"Your listing titled {listing['name']} is ready! Please go meet the waiter at the location you specified in your listing to complete the transaction")
 
         if database.ready_listing(listing_id):
             return {"status": "success"}
@@ -182,6 +213,11 @@ def accept_lowest_bid():
         listing_id = request.json.get('listing_id')
 
         lowest_bid = database.get_lowest_bid(listing_id)
+
+        listing = database.get_listing(listing_id)
+        user = database.get_user(lowest_bid['username'])
+
+        send_email(user.email, "Your bid has been accepted!", f"Your bid of {lowest_bid['bid']} has been accepted for the listing titled {listing['name']}.")
 
         if lowest_bid is not None:
             accepted = database.accept_listing(lowest_bid['username'], listing_id)
