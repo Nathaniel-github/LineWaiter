@@ -8,18 +8,21 @@ const Navbar = () => {
             <div className="navbar">
                 <ul>
                     <li>
-                        <Link to="/home" style={{ textDecoration: 'none'}}>Home</Link>
+                        <Link to="/home" style={{textDecoration: 'none'}}>Home</Link>
                     </li>
                     <li>
-                        <Link to="/my-listings" style={{ textDecoration: 'none'}}>My Listings</Link>
+                        <Link to="/my-listings" style={{textDecoration: 'none'}}>My Listings</Link>
                     </li>
                     <li>
-                        <Link to="create-listing" style={{ textDecoration: 'none'}}>Create a Listing</Link>
+                        <Link to="create-listing" style={{textDecoration: 'none'}}>Create a Listing</Link>
+                    </li>
+                    <li>
+                        <Link to="/" style={{textDecoration: 'none'}}>Logout</Link>
                     </li>
                 </ul>
             </div>
 
-            <Outlet />
+            <Outlet/>
         </>
     )
 }
