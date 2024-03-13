@@ -37,7 +37,7 @@ def login():
         user = database.get_user(username)
         print(user)
         print("reached2")
-        if user['password'] == password:
+        if user["password"] == password:
             return {"auth": "success"}
         else:
             return {"auth": "failure"}
@@ -61,7 +61,6 @@ def create_an_account():
 
 @app.route('/getUser', methods=['POST'])
 def get_user():
-    print("started")
     username = request.json.get('username')
     print(username)
     print(database.get_user(username))
@@ -173,7 +172,21 @@ def place_bid():
             return {"status": "failure", "message": "Listing not found or unable to place bid."}
 
     except Exception as e:
-        return {"status": "failure", "message": str(e)}
+        if isinstance(e.args, tuple) and e.args[0] == 250:
+            print("Email sent successfully, not an error.")
+            listing_id = request.json.get('listing_id')
+            username = request.json.get('username')
+            bid = request.json.get('bid')
+
+            if database.add_bid(listing_id, username, bid):
+                print({"status": "success"})
+                return {"status": "success"}
+            else:
+                print({"status": "failure", "message": "Listing not found or unable to place bid."})
+                return {"status": "failure", "message": "Listing not found or unable to place bid."}
+        else:
+            print("error, " + str(e))
+            return {"status": "failure", "message": str(e)}
 
 
 @app.route('/readyListing/', methods=['POST'])

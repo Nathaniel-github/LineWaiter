@@ -21,6 +21,34 @@
     justify-content: space-between;
 }
 
+.listing-accepted-not-ready {
+    margin-top: 1%;
+    border: 2px solid #2C5364;
+    padding: 2rem;
+    background: orangered;
+    width: 16rem;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.listing-accepted-and-ready {
+    margin-top: 1%;
+    border: 2px solid #2C5364;
+    padding: 2rem;
+    background: lightgreen;
+    width: 16rem;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .listing-title {
     margin-top: 0.2rem;
     font-size: 1.5rem;
