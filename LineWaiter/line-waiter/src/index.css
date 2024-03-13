@@ -22,7 +22,7 @@ code {
 .container{
   width: 100vw;
   min-height: 100vh;
-  background: #222;
+  background: #243B55;
 }
 
 .search-bar-container {
@@ -33,5 +33,7 @@ code {
   background: lightblue;
   padding-left: 10rem;
   padding-top: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
