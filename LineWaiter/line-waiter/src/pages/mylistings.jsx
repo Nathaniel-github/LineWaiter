@@ -36,11 +36,11 @@ function MyListings() {
     }, []);
 
     const filteredPosted = origData.filter(item =>
-    item.username?.toLowerCase().includes(loggedInUser)
+    item.username?.includes(loggedInUser)
   );
 
     const filteredAccepted = origData.filter(item =>
-    item.user_accepted?.toLowerCase().includes(loggedInUser)
+    item.user_accepted?.includes(loggedInUser)
   );
 
     const postedMap = filteredPosted.map(
