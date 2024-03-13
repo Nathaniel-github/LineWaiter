@@ -84,17 +84,6 @@ class Database:
             print(f"Error getting user: {str(e)}")
             return None
 
-    def get_userAccepted(self, username: str):
-        userAccepted = self.db.listings.find({"user_accepted": username})
-        try:
-            if userAccepted is not None:
-                return [str(listing['_id']) for listing in userAccepted]
-            else:
-                return None
-        except Exception as e:
-            print(f"Error getting user_accepted listings: {str(e)}")
-            return None
-
     def add_listing(self, listing: Listing):
         return self.db.listings.insert_one(vars(listing)).inserted_id
 
@@ -120,6 +109,7 @@ class Database:
 
     def undo_accept_listing(self, username, listing_id):
         return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$set": {"user_accepted": ""}}).modified_count > 0
+
     def add_bid(self, listing_id, bid):
         return self.db.listings.update_one({"_id": ObjectId(listing_id)}, {"$push": {"bids": bid}}).modified_count > 0
 

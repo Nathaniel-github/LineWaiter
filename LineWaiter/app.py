@@ -110,6 +110,21 @@ def accept_listing():
         print("failure due to error")
         return {"status": "failure", "message": str(e)}
 
+@app.route('/undoAccpetListing/', methods=['POST'])
+def undo_accept_listing():
+    try:
+        username = request.json.get('username')
+        listing_id = request.json.get('_id')
+
+        undo_accepted = database.undo_accept_listing(username, listing_id)
+        if undo_accepted:
+            return {"status": "success"}
+        else:
+            print("Undo failure", str(undo_accepted))
+            return {"status": "failure", "message": "Listing not found or unable to undo accept."}
+    except Exception as e:
+        print("failure due to error")
+        return {"status": "failure", "message": str(e)}
 
 @app.route('/placeBid/', methods=['POST'])
 def place_bid():

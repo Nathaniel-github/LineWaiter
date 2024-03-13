@@ -72,7 +72,7 @@ function Home() {
             <div className="search-bar-container">
                   <Searchbar data={data} onSearch={handleSearch} />
             </div>
-            <div className="container">
+            <div className="home-container">
                 <ListingContainer listing={listingsMap} />
             </div>
         </>
