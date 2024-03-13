@@ -1,10 +1,13 @@
+import useSound from 'use-sound';
 import './listing.css'
 
 const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username }) => {
+    // State variable to manage the audio object
+    const [playSound] = useSound("./sad_cartoon_sound_effect.mp3");
+
     const handleDeleteClick = (e) => {
-
-
         try {
+            playSound();
             const response = fetch('/unAcceptListing/', {
                 method: 'POST',
                 headers: {
@@ -13,7 +16,6 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
                 body: JSON.stringify({_id}),
 
             });
-
             window.location.reload();
 
  } catch (error) {
