@@ -25,7 +25,7 @@ Contributors:
 - Brandon: worked on frontend, mostly on .css files and styling/scaling website
 - Pranav: worked on frontend, mostly on building functionality in webpages
 - Nathaniel: worked on Flask backend and MongoDB 
-- Athena:
+- Athena: worked on backend, mostly Flask
 
 Sources/Citations:
 - Flask
