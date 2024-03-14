@@ -98,13 +98,13 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
             <>
                 <section className="listing-container">
                     <section className="listing-accepted-not-ready">
-                        <h3 className="listing-title">title: {title}</h3>
+                        <h3 className="listing-title">Title: {title}</h3>
                         <section className="listing-details">
-                            <h2 className="listing-subtext">location: {location}</h2>
-                            <h2 className="listing-subtext">time: {time}</h2>
-                            <h2 className="listing-subtext">duration in minutes: {duration}</h2>
-                            <h2 className="listing-subtext">price in USD: {price}</h2>
-                            <h2 className="listing-subtext">description: {description}</h2>
+                            <h2 className="listing-subtext">Location 📍: {location}</h2>
+                            <h2 className="listing-subtext">Time 🕒: {time}</h2>
+                            <h2 className="listing-subtext">Duration (mins) ⏰: {duration}</h2>
+                            <h2 className="listing-subtext">Price (USD) 💲: {price}</h2>
+                            <h2 className="listing-subtext">Description: {description}</h2>
                         </section>
                         <div className="listing-submit">
                             <button className="accept-button" onClick={handleDeleteClick}>Delete Listing</button>

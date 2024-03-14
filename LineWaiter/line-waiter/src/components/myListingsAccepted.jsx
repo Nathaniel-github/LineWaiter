@@ -72,10 +72,10 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
                     <section className="listing-accepted-and-ready">
                         <h3 className="listing-title">Title: {title}</h3>
                         <section className="listing-details">
-                            <h2 className="listing-subtext">Location: {location}</h2>
-                            <h2 className="listing-subtext">Time: {time}</h2>
-                            <h2 className="listing-subtext">Duration in minutes: {duration}</h2>
-                            <h2 className="listing-subtext">Price in USD: {price}</h2>
+                            <h2 className="listing-subtext">Location 📍: {location}</h2>
+                            <h2 className="listing-subtext">Time 🕒: {time}</h2>
+                            <h2 className="listing-subtext">Duration (mins) ⏰: {duration}</h2>
+                            <h2 className="listing-subtext">Price (USD) 💲: {price}</h2>
                             <h2 className="listing-subtext">Description: {description}</h2>
                             <h2 className="listing-subtext">Lister email: {userEmail}</h2>
                         </section>
