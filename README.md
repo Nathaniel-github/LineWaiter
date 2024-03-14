@@ -17,11 +17,17 @@ To run the web app locally:
 - npm start
 - a browser window will open with the webapp!
 
-
+Features
+- email notifications of accepted listings/ bids/ service ready
+- create/delete listings
+- bidding on listings
+- changing status (borders)
+- login/signup/logout
+- accept listings
 
 
 Contributors:
-- Selena : worked on fullstack, mostly on implementing features
+- Selena: worked on fullstack, mostly on implementing features
 - Brandon: worked on frontend, mostly on .css files and styling/scaling website
 - Pranav: worked on frontend, mostly on building functionality in webpages
 - Nathaniel: worked on Flask backend and MongoDB 
@@ -29,5 +35,5 @@ Contributors:
 
 Sources/Citations:
 - Flask
--   hashing function imported from SHA_3
-
+- Login page template used from: https://www.youtube.com/watch?v=kghwFYOJiNg
+- Initial structure for listing class modeled after: https://www.youtube.com/watch?v=lfm_Hu0hEms&t=197s, but significantly modified.
