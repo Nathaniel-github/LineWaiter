@@ -83,10 +83,13 @@ function MyListings() {
     return (
         <div className="mylistings-body">
             <div className="home-intro">
-                <p> Welcome to your listings! The left column displays the listings you have posted. Once they are ready, the border
+                <p> Welcome to your listings! The left column displays the listings you have posted. The border
+                    will remain red until someone accepts. Once someone accepts
+                    your listing, the border will turn yellow, and you will be notified by email. Once they are ready, the border
                     will turn green. On the right are the listings you have accepted to go wait in line for. You can find
                     the poster's email now displayed in the listing. When you have reached the front of the line,
-                    press ready to notify the poster that they can come meet you now!</p>
+                    press ready to notify the poster that they can come meet you now! You may need to refresh to
+                get the latest changes. Happy waiting!</p>
             </div>
             <div className="row">
                 <div className="column-left">
