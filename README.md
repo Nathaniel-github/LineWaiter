@@ -80,11 +80,11 @@ npm start
 <!-- CONTRIBUTORS -->
 ## Contributors
 
-Selena : worked on fullstack, mostly on implementing features
-Brandon: worked on frontend, mostly on .css files and styling/scaling website
-Pranav: worked on frontend, mostly on building functionality in webpages
-Nathaniel: worked on Flask backend and MongoDB
-Athena: worked on backend, mostly Flask
+* Selena : worked on fullstack, mostly on implementing features
+* Brandon: worked on frontend, mostly on .css files and styling/scaling website
+* Pranav: worked on frontend, mostly on building functionality in webpages
+* Nathaniel: worked on Flask backend and MongoDB
+* Athena: worked on backend, mostly Flask
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
