@@ -1,33 +1,84 @@
-# LineWaiter
+<h1 align="center">Line Waiter</h1>
+
+  <p align="center">
+    The Flask server and REACT frontend code for the LineWaiter app
+  </p>
+</div>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#welcome">Welcome</a></li>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#how-to-run">How To Run</a></li>
+    <li><a href="#contributors">Contributors</a></li>
+    <li><a href="#sources-and-citations">Sources and Citations</a></li>
+  </ol>
+</details>
+
+
+<!-- WELCOME -->
+## Welcome
+
 Welcome to Line Waiter! With this web app, you can post a listing if you would like to pay someone to come wait in line for you (think those long food truck lines)! On the flip side, if you want to make some extra cash, come here for an easy, low-effort way to do so.
 
-To set up the environment locally:
-- clone and unzip the repository
-- open in your preferred IDE (we used Pycharm)
-- open the terminal, cd into LineWaiter\line-waiter
-- run npm install
-- open up another terminal to run the backend
-- if Flask is not installed locally yet, run pip install Flask in the root directory
-- the local environment is now set up
+<!-- SETUP -->
+## Setup
 
-To run the web app locally:
-- in one terminal, cd to the root directory (LineWaiter)
-- flask run
-- in another terminal, cd to line-waiter
-- npm start
-- a browser window will open with the webapp!
+* First clone and unzip the repository
+* Next open in your preferred IDE (we used Pycharm)
+* Open the terminal and run the following command
+```sh
+cd LineWaiter
+```
+* Install the necessary packages for Flask
+```sh
+pip install -r requirements.txt
+```
+* Go to the REACT directory
+```sh
+cd line-waiter
+```
+* Install the necessary packages for REACT
+```sh
+npm install
 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- HOW TO RUN -->
+## How To Run
 
-Contributors:
-- Selena : worked on fullstack, mostly on implementing features
-- Brandon: worked on frontend, mostly on .css files and styling/scaling website
-- Pranav: worked on frontend, mostly on building functionality in webpages
-- Nathaniel: worked on Flask backend and MongoDB 
-- Athena: worked on backend, mostly Flask
+```
+* Open another terminal or use another method to run app.py in the background
+```sh
+python3 app.py
+```
+* In the original terminal which is inside of LineWaiter/line-waiter run the REACT frontend
+```sh
+npm start
+```
+* If everything was ran correctly a browser page should automatically open
 
-Sources/Citations:
-- Flask
--   hashing function imported from SHA_3
+<!-- CONTRIBUTORS -->
+## Contributors
 
+Selena : worked on fullstack, mostly on implementing features
+Brandon: worked on frontend, mostly on .css files and styling/scaling website
+Pranav: worked on frontend, mostly on building functionality in webpages
+Nathaniel: worked on Flask backend and MongoDB
+Athena: worked on backend, mostly Flask
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- SOURCES AND CITATIONS -->
+## Sources and Citations
+
+* [Best README](https://github.com/othneildrew/Best-README-Template)
+* [Page Template](https://www.youtube.com/watch?v=kghwFYOJiNg)
+* [Initial Structure For Listing Class But Significantly Modified After](https://www.youtube.com/watch?v=lfm_Hu0hEms&t=197s)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
