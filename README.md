@@ -65,7 +65,6 @@ npm install
 <!-- HOW TO RUN -->
 ## How To Run
 
-```
 * Open another terminal or use another method to run app.py in the background
 ```sh
 python3 app.py
