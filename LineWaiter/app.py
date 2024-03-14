@@ -10,19 +10,22 @@ import smtplib
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-sender_email = "linewaitercs35l@gmail.com"
-server = smtplib.SMTP('smtp.gmail.com', 587)
-server.starttls()
+
+
 
 app.secret_key = os.urandom(24)
 
 load_dotenv(".env")
 database = Database(os.getenv("DB_PSWD"))
 
-server.login(sender_email, os.getenv("EMAIL_PSWD"))
+
 
 
 def send_email(receiver_email, subject, message):
+    sender_email = "linewaitercs35l@gmail.com"
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(sender_email, os.getenv("EMAIL_PSWD"))
     text = f"Subject: {subject}\n\n{message}"
     server.sendmail(sender_email, receiver_email, text)
     server.close()
