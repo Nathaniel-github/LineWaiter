@@ -31,6 +31,7 @@ Welcome to Line Waiter! With this web app, you can post a listing if you would l
 
 * First clone and unzip the repository
 * Next open in your preferred IDE (we used Pycharm)
+* Add the .env file with the database and email server passwords to LineWaiter (next to app.py)
 * Open the terminal and run the following command
 ```sh
 cd LineWaiter
