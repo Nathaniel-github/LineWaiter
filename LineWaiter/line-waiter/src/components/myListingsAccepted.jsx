@@ -59,6 +59,7 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
     .then((data) => {
         console.log("data")
         console.log(data)
+
         setUserEmail(data.email) ;
     })
         window.location.reload();
