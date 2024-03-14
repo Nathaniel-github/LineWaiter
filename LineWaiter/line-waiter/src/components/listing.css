@@ -29,8 +29,21 @@
     justify-content: space-between;
 }
 
-.listing-accepted-not-ready {
+.listing-not-accepted-not-ready {
     border: 3px solid orangered;
+    padding: 2rem;
+    background: #F6E7E2;
+    width: 16rem;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.listing-accepted-not-ready {
+    border: 3px solid yellow;
     padding: 2rem;
     background: #F6E7E2;
     width: 16rem;
