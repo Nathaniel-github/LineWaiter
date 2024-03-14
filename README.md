@@ -13,6 +13,7 @@
   <ol>
     <li><a href="#welcome">Welcome</a></li>
     <li><a href="#setup">Setup</a></li>
+    <li><a href="#features">Features</a></li>
     <li><a href="#how-to-run">How To Run</a></li>
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#sources-and-citations">Sources and Citations</a></li>
@@ -45,7 +46,19 @@ cd line-waiter
 * Install the necessary packages for REACT
 ```sh
 npm install
+```
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- FEATURES -->
+## Features
+
+* Email notifications of accepted listings/bids/service/ready
+* Create/delete listings
+* Bidding on listings
+* Changing status (borders)
+* Login/signup/logout
+* Accept listings
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -62,6 +75,8 @@ python3 app.py
 npm start
 ```
 * If everything was ran correctly a browser page should automatically open
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTORS -->
 ## Contributors
