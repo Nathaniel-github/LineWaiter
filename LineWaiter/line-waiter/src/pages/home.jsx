@@ -12,14 +12,12 @@ function Home() {
      useEffect(() => {
          const loggedInUser = localStorage.getItem("user");
          if (loggedInUser !== "none") {
-            console.log("logged in");
          } else {
            navigate('/');
          }
     }, []);
 
     const loggedInUser = localStorage.getItem("user");
-    console.log(loggedInUser);
 
     const [data, setData] = useState([{}])
     const [origData, setOrigData] = useState([{}])
@@ -34,11 +32,8 @@ function Home() {
                 const newData = data.filter(item =>
                     !(item.hasOwnProperty('user_accepted')) || (item.user_accepted === "")
                 );
-                console.log(newData);
                 setOrigData(newData)
                 setData(newData)
-                console.log("newData")
-                console.log(newData)
             }
 
         )
@@ -48,7 +43,6 @@ function Home() {
   const filtered = origData.filter(item =>
     item.name?.toLowerCase().includes(query.toLowerCase())
   );
-  console.log(filtered)
   setData(filtered);
 };
 

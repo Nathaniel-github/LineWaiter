@@ -12,14 +12,12 @@ function MyListings() {
      useEffect(() => {
          const loggedInUser = localStorage.getItem("user");
          if (loggedInUser !== "none") {
-            console.log("logged in");
          } else {
            navigate('/');
          }
     }, []);
 
     const loggedInUser = localStorage.getItem("user");
-    console.log(loggedInUser);
 
     const [origData, setOrigData] = useState([{}])
     const [userEmail, setUserEmail] = useState([{}])
@@ -32,7 +30,6 @@ function MyListings() {
         ).then(
             data => {
                 setOrigData(data)
-                console.log(data)
             }
         )
     }, []);
@@ -76,9 +73,6 @@ function MyListings() {
             />
         )
     );
-
-    console.log(postedMap);
-    console.log(acceptedMap);
 
     return (
         <div className="mylistings-body">

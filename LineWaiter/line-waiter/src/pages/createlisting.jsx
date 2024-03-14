@@ -13,7 +13,6 @@ const CreateListing = () => {
      useEffect(() => {
          const loggedInUser = localStorage.getItem("user");
          if (loggedInUser !== "none") {
-            console.log("logged in");
          } else {
            navigate('/');
          }
@@ -53,7 +52,6 @@ const CreateListing = () => {
   };
 
     // Handle form submission logic here
-    console.log("formData", data);
 
   fetch('/createAListing/', {
     method: 'POST',
@@ -66,13 +64,11 @@ const CreateListing = () => {
     .then((res) => res.json())
     .then((data) => {
       if (data.status === 'success') {
-        console.log('Listing created successfully!');
         setSuccessMessage('Listing created successfully! View under "My Listings"');
         setTimeout(() => {
           window.location.reload();
         }, 3000);
       } else {
-        console.log('Failed to create listing.');
       }
     })
 

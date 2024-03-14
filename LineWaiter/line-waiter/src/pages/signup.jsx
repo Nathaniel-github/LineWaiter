@@ -45,11 +45,7 @@ const SignupForm = ( ) => {
       password: hashedPassword,
         email: email[""]
     };
-    console.log("reached");
     // Handle form submission logic here
-      console.log(password[""]);
-    console.log(JSON.stringify(data));
-
     fetch('/createAnAccount/', {
         method: 'POST',
         headers: {

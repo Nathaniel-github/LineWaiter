@@ -23,14 +23,10 @@ const LoginForm = () => {
 const handleSubmit = (e) => {
   e.preventDefault();
 
-  console.log(username);
-  console.log(sha3_256(password))
-
   const data = {
     username: username,
     password: sha3_256(password),
   };
-  console.log(data);
 
   fetch('/login/', {
     method: 'POST',
@@ -54,18 +50,15 @@ const handleSubmit = (e) => {
     // Access the result sent back by Flask and get the "auth" key
     if (data.auth === "success") {
       // Authentication successful, do something
-      console.log("Authentication successful");
       localStorage.setItem("user", username);
       window.location.href='/home';
 
     } else if (data.auth === "failure") {
       // Authentication failed, do something else
-      console.log("Authentication failed");
       localStorage.setItem("user", "none");
       setSuccessMessage("Invalid login");
 
     } else {
-      console.log("other error")
     }
   })
   .catch(error => {
