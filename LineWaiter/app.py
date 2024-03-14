@@ -116,7 +116,8 @@ def accept_listing():
 
         listing = database.get_listing(listing_id)
         user = database.get_user(listing['username'])
-        send_email(user['email'], "Your listing has been accepted!", f"Your listing titled {listing['name']} has been accepted by {username}. To contact them please email them at {user['email']}.")
+        user2 = database.get_user(username)
+        send_email(user['email'], "Your listing has been accepted!", f"Your listing titled {listing['name']} has been accepted by {username}. To contact them please email them at {user2['email']}.")
 
         print(username)
         print(listing_id)
@@ -196,8 +197,9 @@ def ready_listing():
 
         listing = database.get_listing(listing_id)
         user = database.get_user(listing['username'])
+        user2 = database.get_user(listing['user_accepted'])
 
-        send_email(user['email'], "Your listing is ready!", f"Your listing titled {listing['name']} is ready! Please go meet the waiter at the location you specified in your listing to complete the transaction. If you have any questions please email the waiter at: {user['email']}.")
+        send_email(user['email'], "Your listing is ready!", f"Your listing titled {listing['name']} is ready! Please go meet the waiter at the location you specified in your listing to complete the transaction. If you have any questions please email the waiter at: {user2['email']}.")
 
         if database.ready_listing(listing_id):
             return {"status": "success"}
