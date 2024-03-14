@@ -6,11 +6,6 @@ from dotenv import load_dotenv
 
 from db import Listing, Database, User
 import smtplib
-import logging
-
-# Configure logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -27,15 +22,9 @@ def send_email(receiver_email, subject, message):
     sender_email = "linewaitercs35l@gmail.com"
     server.login(sender_email, os.getenv("EMAIL_PSWD"))
 
-    # Log when the function starts executing
-    logger.debug("Sending email to %s with subject '%s'", receiver_email, subject)
-
     text = f"Subject: {subject}\n\n{message}"
     server.sendmail(sender_email, receiver_email, text)
     server.close()
-
-    # Log when the function finishes executing
-    logger.debug("Email sent successfully to %s", receiver_email)
 
 
 @app.route('/login/', methods=['POST'])
