@@ -25,6 +25,7 @@ server.login(sender_email, os.getenv("EMAIL_PSWD"))
 def send_email(receiver_email, subject, message):
     text = f"Subject: {subject}\n\n{message}"
     server.sendmail(sender_email, receiver_email, text)
+    server.close()
 
 
 @app.route('/login/', methods=['POST'])
