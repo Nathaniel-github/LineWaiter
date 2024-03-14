@@ -94,6 +94,8 @@ const CreateListing = () => {
           name="title"
           value={formData.title}
           onChange={handleChange}
+          required={true}
+          type={"text"}
         />
         <TextField
           label="Location of Listing"
@@ -103,6 +105,8 @@ const CreateListing = () => {
           name="location"
           value={formData.location}
           onChange={handleChange}
+          required={true}
+          type={"text"}
         />
         <TextField
           label="Time of Listing (in 24h HH:MM)"
@@ -112,6 +116,7 @@ const CreateListing = () => {
           name="time"
           value={formData.time}
           onChange={handleChange}
+          required={true}
         />
         <TextField
           label="Duration of Listing (in minutes)"
@@ -121,6 +126,8 @@ const CreateListing = () => {
           name="duration"
           value={formData.duration}
           onChange={handleChange}
+          required={true}
+          type={"number"}
         />
         <TextField
           label="Price of Listing (in USD)"
@@ -130,6 +137,8 @@ const CreateListing = () => {
           name="price"
           value={formData.price}
           onChange={handleChange}
+          required={true}
+          type={"number"}
         />
         <TextField
           label="Description of Listing"
@@ -139,6 +148,7 @@ const CreateListing = () => {
           name="description"
           value={formData.description}
           onChange={handleChange}
+          type={"text"}
         />
 
         <Button variant="contained" style={{ backgroundColor: '#3A5661' }}type="submit">
