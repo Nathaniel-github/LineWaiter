@@ -91,7 +91,7 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
             <>
                 <section className="listing-container">
                     <section className="listing-accepted-not-ready">
-                        <h3 className="listing-title">title: {title}</h3>
+                        <h3 className="listing-title">Title: {title}</h3>
                         <section className="listing-details">
 
                                 <h2 className="listing-subtext">Location 📍 : {location}</h2>
