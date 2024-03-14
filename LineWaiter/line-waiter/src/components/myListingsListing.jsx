@@ -1,7 +1,7 @@
 import './listing.css'
 import React, {useEffect, useState} from 'react';
 
-const MyListingsListing = ({ _id, title, location, time, duration, price, description, username , ready}) => {
+const MyListingsListing = ({ _id, title, location, time, duration, price, description, username , user_accepted, ready}) => {
 
     const [lowestBidAmount, setLowestBidAmount] = useState('');
 
@@ -93,11 +93,41 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
                 </section>
             </>
         )
-    } else {
+    } else if (user_accepted !== "" && user_accepted !== undefined) {
+        console.log("user_accepted", user_accepted)
+        console.log("accepted not ready")
         return (
             <>
                 <section className="listing-container">
                     <section className="listing-accepted-not-ready">
+                        <h3 className="listing-title">Title: {title}</h3>
+                        <section className="listing-details">
+                            <h2 className="listing-subtext">Location 📍: {location}</h2>
+                            <h2 className="listing-subtext">Time 🕒: {time}</h2>
+                            <h2 className="listing-subtext">Duration (mins) ⏰: {duration}</h2>
+                            <h2 className="listing-subtext">Price (USD) 💲: {price}</h2>
+                            <h2 className="listing-subtext">Description: {description}</h2>
+                        </section>
+                        <div className="listing-submit">
+                            <button className="accept-button" onClick={handleDeleteClick}>Delete Listing</button>
+                        </div>
+                        <br/>
+                        <div className="listing-submit">
+                            <h1 className="listing-subtext">Lowest Bid Amount: {lowestBidAmount}</h1>
+                        </div>
+                        <br/>
+                        <div className="listing-submit">
+                            <button className="accept-button" onClick={acceptLowestBid}>Accept Lowest Bid</button>
+                        </div>
+                    </section>
+                </section>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <section className="listing-container">
+                    <section className="listing-not-accepted-not-ready">
                         <h3 className="listing-title">Title: {title}</h3>
                         <section className="listing-details">
                             <h2 className="listing-subtext">Location 📍: {location}</h2>
