@@ -1,17 +1,11 @@
-import useSound from 'use-sound';
 import './listing.css'
 import React, {useEffect, useState} from "react"
 
 const MyListingsAccepted = ({ _id, title, location, time, duration, price, description, username, ready }) => {
     // State variable to manage the audio object
 
-    console.log("starting")
-
-    // const [playSound] = useSound("/LineWaiter/LineWaiter/line-waiter/public/sad_cartoon_sound_effect.mp3");
-    console.log("username: " + username);
 
     const [userEmail, setUserEmail] = useState('')
-    // const [playSound] = useSound(process.env.PUBLIC_URL+ "/sad_cartoon_sound_effect.mp3");
 
     fetch('/getUser', {
         method: 'POST',
@@ -30,8 +24,6 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
     console.log(userEmail)
     const handleDeleteClick = (e) => {
         try {
-            //playSound();
-            console.log("someAudioFile");
             const response = fetch('/unAcceptListing/', {
                 method: 'POST',
                 headers: {
