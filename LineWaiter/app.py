@@ -15,12 +15,11 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-
-
 app.secret_key = os.urandom(24)
 
 load_dotenv(".env")
 database = Database(os.getenv("DB_PSWD"))
+
 
 def send_email(receiver_email, subject, message):
     server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -44,11 +43,7 @@ def login():
     try:
         username = request.json['username']
         password = request.json['password']
-        print(username, password)
-        print("reached")
         user = database.get_user(username)
-        print(user)
-        print("reached2")
         if user["password"] == password:
             return {"auth": "success"}
         else:
@@ -62,10 +57,8 @@ def login():
 def create_an_account():
     try:
         if database.add_user(User(**request.json)):
-            print("success")
             return {"status": "success"}
         else:
-            print("failure")
             return {"status": "failure"}
     except KeyError:
         return {"status": "failure", "message": "Username or password not provided."}
@@ -74,8 +67,6 @@ def create_an_account():
 @app.route('/getUser', methods=['POST'])
 def get_user():
     username = request.json.get('username')
-    print(username)
-    print(database.get_user(username))
     return database.get_user(username)
 
 
@@ -93,7 +84,6 @@ def search():
 def create_a_listing():
     try:
         data = request.get_json()
-        print("Received Data:", data)
         listing_id = database.add_listing(Listing(**data))
 
         return jsonify({"status": "success", "listing_id": str(listing_id)})
@@ -131,10 +121,6 @@ def accept_listing():
         user2 = database.get_user(username)
         send_email(user['email'], "Your listing has been accepted!", f"Your listing titled {listing['name']} has been accepted by {username}. To contact them please email them at {user2['email']}.")
 
-        print(username)
-        print(listing_id)
-        print(username, listing_id)
-
         if accepted:
             return {"status": "success"}
         else:
@@ -150,7 +136,6 @@ def accept_listing():
 def undo_accept_listing():
     try:
         _id = request.json.get('_id')
-        print("listing_id", _id)
         undo_accepted = database.undo_accept_listing(_id)
 
         listing = database.get_listing(_id)
@@ -167,7 +152,6 @@ def undo_accept_listing():
         print("failure due to error")
         return {"status": "failure", "message": str(e)}
 
-email_sent_for_bid = {}
 
 @app.route('/placeBid/', methods=['POST'])
 def place_bid():
@@ -176,16 +160,9 @@ def place_bid():
         username = request.json.get('username')
         bid = request.json.get('bid')
 
-        # Check if email has already been sent for this bid
-        if email_sent_for_bid.get(listing_id):
-            return {"status": "failure", "message": "Email already sent for this bid"}
-
         listing = database.get_listing(listing_id)
         user = database.get_user(listing['username'])
         send_email(user['email'], "You have a new bid!", f"Your listing titled {listing['name']} has a new bid of {bid} from {username}.")
-
-        # Update flag to indicate email has been sent for this bid
-        email_sent_for_bid[listing_id] = True
 
         if database.add_bid(listing_id, username, bid):
             return {"status": "success"}
@@ -194,7 +171,6 @@ def place_bid():
 
     except Exception as e:
         return {"status": "failure", "message": str(e)}
-
 
 
 @app.route('/readyListing/', methods=['POST'])
