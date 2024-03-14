@@ -96,7 +96,7 @@ const Listing = ({ title, location, time, duration, price, description, username
                                 onChange={handleBidChange}
                             />
                             <div className="listing-submit">
-                                <button className="accept-button" onClick={submitBidAmount}>Send Bid Amount</button>
+                                <button className="accept-button">Send Bid Amount</button>
                             </div>
                         </form>
                     </section>
