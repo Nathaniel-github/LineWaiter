@@ -8,10 +8,10 @@ html, body {
   background: url('../assets/listingback.png') no-repeat;
   font-family: 'Helvetica Neue', sans-serif;
   color: #2E3192FF;
-  min-height: 100vh; /* Adjusted from height to min-height */
+  min-height: 100vh;
   padding: 2rem;
   width: 100vw;
-  box-sizing: border-box; /* Ensures padding does not add to the width */
+  box-sizing: border-box;
 }
 
 h2 {
@@ -20,7 +20,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.create-listing-form, .MuiBox-root /* Added MuiBox-root here to apply common styling */ {
+.create-listing-form, .MuiBox-root {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.15);
