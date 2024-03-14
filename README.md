@@ -16,3 +16,18 @@ To run the web app locally:
 - in another terminal, cd to line-waiter
 - npm start
 - a browser window will open with the webapp!
+
+
+
+
+Contributors:
+- Selena : worked on fullstack, mostly on implementing features
+- Brandon
+- Pranav
+- Nathaniel
+- Athen
+
+Sources/Citations:
+- Flask
+-   hashing function imported from SHA_3
+
