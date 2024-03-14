@@ -18,19 +18,14 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
             body: JSON.stringify(data),
         }).then(res => res.json()).then(
             data => {
-                console.log(data);
                 if (data.status === "success") {
                     setLowestBidAmount(data.lowest_bid.bid);
-                    console.log("success")
                 } else {
                     setLowestBidAmount("N/A")
-                    console.log("failure")
                 }
             }
          )
     }, []);
-
-    console.log("lowest bid amount: " + lowestBidAmount)
 
     const handleDeleteClick = (e) => {
         try {
@@ -94,8 +89,6 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
             </>
         )
     } else if (user_accepted !== "" && user_accepted !== undefined) {
-        console.log("user_accepted", user_accepted)
-        console.log("accepted not ready")
         return (
             <>
                 <section className="listing-container">

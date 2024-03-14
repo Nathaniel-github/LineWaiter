@@ -16,12 +16,9 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
     })
     .then((res) => res.json())
     .then((data) => {
-        console.log("data")
-        console.log(data)
         setUserEmail(data.email) ;
     })
-    console.log("email");
-    console.log(userEmail)
+
     const handleDeleteClick = (e) => {
         try {
             const response = fetch('/unAcceptListing/', {
@@ -49,8 +46,6 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
     })
     .then((res) => res.json())
     .then((data) => {
-        console.log("data")
-        console.log(data)
         setUserEmail(data.email) ;
     })
         setTimeout(() => {

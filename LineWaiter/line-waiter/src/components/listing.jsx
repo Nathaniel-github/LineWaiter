@@ -28,11 +28,8 @@ const Listing = ({ title, location, time, duration, price, description, username
             body: JSON.stringify(data)
         }).then(res => res.json()).then(
             data => {
-                console.log(data)
                 if (data.status === "success") {
-                    console.log("placed bid")
                 } else {
-                    console.log("there was error")
                 }
                 window.location.reload();
             }
@@ -45,8 +42,6 @@ const Listing = ({ title, location, time, duration, price, description, username
             _id: id
         }
 
-        console.log(data)
-
         fetch('/acceptListing/', {
             method: 'POST',
             headers: {
@@ -57,16 +52,13 @@ const Listing = ({ title, location, time, duration, price, description, username
         }).then(res => res.json())
         .then(data => {
             if (data.status === "success") {
-                console.log("accepted listing");
             } else {
-                console.log("couldn't accept listing")
             }
             window.location.reload();
 
 
         })
         .catch(error => {
-            console.log("couldn't accept listing due to error");
         });
     }
 
