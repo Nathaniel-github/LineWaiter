@@ -1,39 +1,43 @@
 .navbar {
-     width: 100vw; /* Full viewport width */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #2F1F1B;
-    color: #fff;
-    padding: 20px 0; /* Adjust padding as needed */
-    padding-right:1rem;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2F1F1B;
+  color: #fff;
+  padding: 20px 1rem;
 }
 
 ul {
-    flex: 1;
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  flex: 1;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding-left: 4rem;
+  margin: 0;
+  gap: 20px;
 }
 
 ul li {
-    display: inline-block;
-    margin: 15px 20px;
-    font-size: 24px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-
 a {
-    color: #F6E7E2;
-    text-decoration: none;
+  color: #F6E7E2;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .logout-link {
-    font-size: 24px;
+  font-size: 24px;
+  margin-left: auto;
 }

@@ -61,7 +61,9 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
         console.log(data)
         setUserEmail(data.email) ;
     })
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
     }
 
 
@@ -70,14 +72,14 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
             <>
                 <section className="listing-container">
                     <section className="listing-accepted-and-ready">
-                        <h3 className="listing-title">title: {title}</h3>
+                        <h3 className="listing-title">Title: {title}</h3>
                         <section className="listing-details">
-                            <h2 className="listing-subtext">location: {location}</h2>
-                            <h2 className="listing-subtext">time: {time}</h2>
-                            <h2 className="listing-subtext">duration in minutes: {duration}</h2>
-                            <h2 className="listing-subtext">price in USD: {price}</h2>
-                            <h2 className="listing-subtext">description: {description}</h2>
-                            <h2 className="listing-subtext">lister email: {userEmail}</h2>
+                            <h2 className="listing-subtext">Location 📍: {location}</h2>
+                            <h2 className="listing-subtext">Time 🕒: {time}</h2>
+                            <h2 className="listing-subtext">Duration (mins) ⏰: {duration}</h2>
+                            <h2 className="listing-subtext">Price (USD) 💲: {price}</h2>
+                            <h2 className="listing-subtext">Description: {description}</h2>
+                            <h2 className="listing-subtext">Lister email: {userEmail}</h2>
                         </section>
                         <div className="listing-submit">
                             <button className="accept-button" onClick={handleReady}>Ready!</button>
@@ -91,22 +93,22 @@ const MyListingsAccepted = ({ _id, title, location, time, duration, price, descr
             <>
                 <section className="listing-container">
                     <section className="listing-accepted-not-ready">
-                        <h3 className="listing-title">title: {title}</h3>
+                        <h3 className="listing-title">Title: {title}</h3>
                         <section className="listing-details">
 
-                                <h2 className="listing-subtext">location 📍 : {location}</h2>
-                                <h2 className="listing-subtext">time 🕒: {time}</h2>
-                                <h2 className="listing-subtext">duration (mins) ⏰: {duration}</h2>
-                                <h2 className="listing-subtext">price (USD) 💲: {price}</h2>
-                                <h2 className="listing-subtext">description: {description}</h2>
+                                <h2 className="listing-subtext">Location 📍 : {location}</h2>
+                                <h2 className="listing-subtext">Time 🕒: {time}</h2>
+                                <h2 className="listing-subtext">Duration (mins) ⏰: {duration}</h2>
+                                <h2 className="listing-subtext">Price (USD) 💲: {price}</h2>
+                                <h2 className="listing-subtext">Description: {description}</h2>
 
-                            <h2 className="listing-subtext">lister email: {userEmail}</h2>
+                            <h2 className="listing-subtext">Lister email: {userEmail}</h2>
                         </section>
                         <div className="listing-submit">
                             <button className="accept-button" onClick={handleDeleteClick}>Unaccept</button>
                         </div>
                         <div className="listing-submit">
-                            <button className="accept-button" onClick={handleReady}>ready!</button>
+                            <button className="accept-button" onClick={handleReady}>Ready!</button>
                         </div>
                     </section>
                 </section>

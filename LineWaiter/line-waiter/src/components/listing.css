@@ -17,7 +17,6 @@
 }
 
 .listing {
-    margin-top: 1%;
     border: 2px solid #553A33;
     padding: 2rem;
     background: #F6E7E2;
@@ -30,8 +29,7 @@
     justify-content: space-between;
 }
 
-.listing-accepted-not-ready {
-    margin-top: 1%;
+.listing-not-accepted-not-ready {
     border: 3px solid orangered;
     padding: 2rem;
     background: #F6E7E2;
@@ -44,8 +42,20 @@
     justify-content: space-between;
 }
 
+.listing-accepted-not-ready {
+    border: 3px solid yellow;
+    padding: 2rem;
+    background: #F6E7E2;
+    width: 16rem;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .listing-accepted-and-ready {
-    margin-top: 1%;
     border: 5px solid lightgreen;
     padding: 2rem;
     background: #F6E7E2;
@@ -70,7 +80,7 @@
     font-size: 1rem;
     margin-top: 0.5rem;
     text-align: center;
-    color: #555555; /* Slightly lighter gray for subtext */
+    color: #555555;
     display: block;
 }
 
@@ -105,7 +115,6 @@
     align-items: center;
 }
 
-/* Additional global margin adjustment for overall spacing */
 body {
     margin: 0;
     padding: 0;

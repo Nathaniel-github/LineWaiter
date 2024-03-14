@@ -1,56 +1,63 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .create-body {
   background: url('../assets/listingback.png') no-repeat;
-    font-family: 'Helvetica Neue', sans-serif;
-    color: #2E3192FF; /* Keeping text white for readability */
-    height: 150vh;
-    padding:2rem;
-  width: 100vw; /* Full viewport width */
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #2E3192FF;
+  min-height: 100vh;
+  padding: 2rem;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 h2 {
-    color: #3A5661; /* Changing text color to black */
+    color: #3A5661;
     text-align: center;
     margin-bottom: 1rem;
 }
 
-.create-listing-form {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Deeper shadow for contrast */
+.create-listing-form, .MuiBox-root {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.15); /* Slightly more visible white for a subtle contrast */
+    background-color: rgba(255, 255, 255, 0.15);
     padding: 20px;
-    border: 1px solid #bbb; /* Adjusting border for better visibility */
-    backdrop-filter: blur(5px); /* Retaining the frosted glass effect */
+    border: 1px solid #bbb;
+    backdrop-filter: blur(5px);
 }
 
 .MuiTextField-root {
-    background-color: #AEC1C6; /* Slightly light blue background for input fields */
-    border-radius: 5px; /* Rounded corners for the input fields */
-    border: 1px solid #ccc; /* Slight border for definition */
+    background-color: #AEC1C6;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .MuiInputBase-input {
-    color: #333; /* Dark text color for contrast and readability */
+    color: #333;
 }
 
 .MuiButton-root {
     display: block;
     width: 100%;
     margin-top: 20px;
-    background-color: #5B63D3; /* Brighter blue for the button */
+    background-color: #5B63D3;
     color: white;
     padding: 10px 0;
 }
 
 .MuiButton-root:hover {
-    background-color: #3B41A5; /* Slightly darker blue on hover for a subtle effect */
+    background-color: #3B41A5;
 }
 
 .sign-up-success-message {
-    color: #5B63D3; /* Echoing the button color for consistency */
+    color: #5B63D3;
     text-align: center;
     font-size: 1rem;
     padding: 10px 0;
-    background-color: #B3E5FC; /* Lighter blue background for the message, enhancing visibility */
+    background-color: #B3E5FC;
     border-radius: 5px;
     margin: 20px 0;
 }
@@ -59,8 +66,8 @@ h2 {
     max-width: 500px;
     margin: auto;
     padding: 3rem;
-    background-color: rgba(255, 255, 255, 0.1); /* Adjusting for a more transparent look to blend with the bright theme */
-    border-radius: 8px; /* Keeping rounded corners */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25); /* Adjusting shadow for consistency */
-    backdrop-filter: blur(8px); /* Fine-tuning the frosted glass effect */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
 }
