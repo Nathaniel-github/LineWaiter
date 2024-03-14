@@ -30,4 +30,5 @@ Contributors:
 Sources/Citations:
 - Flask
 -   hashing function imported from SHA_3
-
+- Login page template used from: https://www.youtube.com/watch?v=kghwFYOJiNg
+- Initial structure for listing class modeled after: https://www.youtube.com/watch?v=lfm_Hu0hEms&t=197s, but significantly modified.
