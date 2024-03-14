@@ -6,7 +6,11 @@ from dotenv import load_dotenv
 
 from db import Listing, Database, User
 import smtplib
+import logging
 
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -18,17 +22,21 @@ app.secret_key = os.urandom(24)
 load_dotenv(".env")
 database = Database(os.getenv("DB_PSWD"))
 
-
-
-
 def send_email(receiver_email, subject, message):
-    sender_email = "linewaitercs35l@gmail.com"
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
+    sender_email = "linewaitercs35l@gmail.com"
     server.login(sender_email, os.getenv("EMAIL_PSWD"))
+
+    # Log when the function starts executing
+    logger.debug("Sending email to %s with subject '%s'", receiver_email, subject)
+
     text = f"Subject: {subject}\n\n{message}"
     server.sendmail(sender_email, receiver_email, text)
     server.close()
+
+    # Log when the function finishes executing
+    logger.debug("Email sent successfully to %s", receiver_email)
 
 
 @app.route('/login/', methods=['POST'])
@@ -158,6 +166,7 @@ def undo_accept_listing():
         print("failure due to error")
         return {"status": "failure", "message": str(e)}
 
+email_sent_for_bid = {}
 
 @app.route('/placeBid/', methods=['POST'])
 def place_bid():
@@ -166,9 +175,16 @@ def place_bid():
         username = request.json.get('username')
         bid = request.json.get('bid')
 
+        # Check if email has already been sent for this bid
+        if email_sent_for_bid.get(listing_id):
+            return {"status": "failure", "message": "Email already sent for this bid"}
+
         listing = database.get_listing(listing_id)
         user = database.get_user(listing['username'])
         send_email(user['email'], "You have a new bid!", f"Your listing titled {listing['name']} has a new bid of {bid} from {username}.")
+
+        # Update flag to indicate email has been sent for this bid
+        email_sent_for_bid[listing_id] = True
 
         if database.add_bid(listing_id, username, bid):
             return {"status": "success"}
@@ -176,21 +192,8 @@ def place_bid():
             return {"status": "failure", "message": "Listing not found or unable to place bid."}
 
     except Exception as e:
-        if isinstance(e.args, tuple) and e.args[0] == 250:
-            print("Email sent successfully, not an error.")
-            listing_id = request.json.get('listing_id')
-            username = request.json.get('username')
-            bid = request.json.get('bid')
+        return {"status": "failure", "message": str(e)}
 
-            if database.add_bid(listing_id, username, bid):
-                print({"status": "success"})
-                return {"status": "success"}
-            else:
-                print({"status": "failure", "message": "Listing not found or unable to place bid."})
-                return {"status": "failure", "message": "Listing not found or unable to place bid."}
-        else:
-            print("error, " + str(e))
-            return {"status": "failure", "message": str(e)}
 
 
 @app.route('/readyListing/', methods=['POST'])

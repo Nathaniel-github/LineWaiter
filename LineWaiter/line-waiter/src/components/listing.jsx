@@ -34,6 +34,7 @@ const Listing = ({ title, location, time, duration, price, description, username
                 } else {
                     console.log("there was error")
                 }
+                window.location.reload();
             }
         )
     }
