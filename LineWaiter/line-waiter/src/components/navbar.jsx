@@ -20,7 +20,7 @@ const Navbar = () => {
 
                 </ul>
 
-                <Link to="/" className="logout-link" style={{textDecoration: 'none'}}>Logout</Link>
+                <Link to="/logout" className="logout-link" style={{textDecoration: 'none'}}>Logout</Link>
 
             </div>
 
