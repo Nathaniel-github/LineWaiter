@@ -81,7 +81,7 @@ npm start
 <!-- CONTRIBUTORS -->
 ## Contributors
 
-* Selena : worked on fullstack, mostly on implementing features
+* Selena : worked on fullstack; features: create listing, displaying listings, delete listing, accept/unaccept listing, lougout, login/signup
 * Brandon: worked on frontend, mostly on .css files and styling/scaling website
 * Pranav: worked on frontend, mostly on building functionality in webpages
 * Nathaniel: worked on Flask backend and MongoDB
