@@ -85,7 +85,7 @@ npm start
 * Brandon: worked on frontend; mostly on .css files and styling/scaling website, aligning search bar. creating backgrounds for web pages
 * Pranav: worked on frontend, mostly on building functionality in webpages
 * Nathaniel: worked on Flask backend and MongoDB
-* Athena: worked on backend, mostly Flask
+* Athena: worked on backend, mostly on Flask and MongoDB; features: create listing, unaccept listing, send email 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
