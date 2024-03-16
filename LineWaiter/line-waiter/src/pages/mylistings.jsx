@@ -35,11 +35,11 @@ function MyListings() {
     }, []);
 
     const filteredPosted = origData.filter(item =>
-    item.username?.includes(loggedInUser)
+    item.username === loggedInUser
   );
 
     const filteredAccepted = origData.filter(item =>
-    item.user_accepted?.includes(loggedInUser)
+    item.user_accepted === loggedInUser
   );
 
     const postedMap = filteredPosted.map(
