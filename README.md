@@ -83,7 +83,7 @@ npm start
 
 * Selena : worked on fullstack; features: create listing, displaying listings, delete listing, accept/unaccept listing, logout, login/signup
 * Brandon: worked on frontend; mostly on .css files and styling/scaling website, aligning search bar. creating backgrounds for web pages
-* Pranav: worked on frontend, mostly on building functionality in webpages
+* Pranav: worked on frontend, mostly on building functionality in webpages, built home page and listings class to display to users, also created login and signup page
 * Nathaniel: worked on: sending emails, setting up google app integration for email sending, backend for everything to do with bidding, backend for readying a listing, all of db.py, setting up MongoDB and pymongo, and .env file loading
 * Athena: worked on backend, mostly on Flask and MongoDB; features: create listing, unaccept listing, send email 
 
