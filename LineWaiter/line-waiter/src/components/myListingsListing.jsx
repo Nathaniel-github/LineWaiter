@@ -58,6 +58,8 @@ const MyListingsListing = ({ _id, title, location, time, duration, price, descri
             credentials: 'include',
             body: JSON.stringify(data),
         })
+
+        window.location.reload();
     }
 
     if (ready === true) {
